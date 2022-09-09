@@ -1,0 +1,33 @@
+/* stylelint-disable color-function-notation */
+/* stylelint-disable alpha-value-notation */
+
+:root {
+    // base
+    --font-family: "segoi", sans-serif;
+    --content-width: 1340px;
+    --content-fluid-width: 1920px;
+    --container-offset: 30px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+    // colors
+    --dark: #222131;
+    --white: #ffffff;
+    --accent: #704437;
+    --info: #708879;
+    --main-color: var(--dark);
+    --main-bg-color: var(--light-color);
+
+    // scrollbar
+    --main-scrollbar-width: 6px;
+    --main-scrollbar-color: var(--light-color);
+    --main-scrollbar-thumb-color: var(--accent-color);
+
+    // text-sizes
+    --text-xxl: clamp(36px, 7.5vw, 64px);
+    --text-xl: clamp(28px, 5vw, 44px);
+    --text-lg: clamp(24px, 4vw, 36px);
+    --text-md: clamp(20px, 3.5vw, 32px);
+    --text-sm: clamp(16px, 3vw, 28px);
+    --text-xs: 14px;
+    --text-xxs: 12px;
+  }

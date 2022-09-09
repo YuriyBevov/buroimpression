@@ -1,0 +1,25 @@
+include ./head
+
+doctype html
+
+block variables
+  -
+    const title = ""
+    const desc = ""
+    const keywords = ""
+
+html(lang="ru")
+  +head(title, desc, keywords)
+
+  body
+    include ../views/common/header
+
+    main
+      block content
+
+    include ../views/common/footer
+
+    block modals
+
+    block scripts
+      //script(src="./js/bundle.js")
