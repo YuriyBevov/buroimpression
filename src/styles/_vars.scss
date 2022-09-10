@@ -31,6 +31,9 @@
     //transition
     --main-transition: 0.25s linear;
     --nav-link-transition: 0.5s 0.1s ease-in;
+    //icons
+    --feature-icon-bg: var(--info);
+    --feature-icon-fill: var(--white);
 
     // scrollbar
     --main-scrollbar-width: 6px;

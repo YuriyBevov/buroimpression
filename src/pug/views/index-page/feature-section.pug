@@ -1,0 +1,21 @@
+-
+  const featureList = [
+    { icon: 'shield', title: 'Гарантия качества и&nbsp;соблюдения сроков' },
+    { icon: 'billfold', title: 'Умеренные цены и&nbsp;удобная&nbsp;форма оплаты' },
+    { icon: 'locker', title: 'Конфиденциальность <br/>информации' },
+    { icon: 'translate', title: 'Переводим <br/>на&nbsp;все языки мира' },
+    { icon: 'doc', title: 'Бесплатный тестовый перевод и&nbsp;базовая вёрстка' },
+    { icon: 'post', title: 'Доставка документов в&nbsp;любую точку мира' },
+  ]
+
+section.feature
+  .container
+    h2.lw-section-title Почему выбирают нас
+
+    ul.feature__list
+      each item in featureList
+        li.feature__list-item
+          .feature__list-item-icon
+            svg(width="50" height="50")
+              use(xlink:href=`./assets/sprite.svg#icon-${item.icon}`)
+          p!= item.title
