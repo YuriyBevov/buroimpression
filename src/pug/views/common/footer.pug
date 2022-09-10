@@ -1,2 +1,26 @@
-footer
-  p footer
+
+-
+  const footerNavItems = [
+    { url: 'company.html', title: 'О компании' },
+    { url: 'vacancies.html', title: 'Вакансии переводчиков' },
+    { url: 'contacts.html', title: 'Контакты' },
+    { url: 'partners.html', title: 'Наши партнеры' },
+    { url: 'review.html', title: 'Отзывы о нас' },
+    { url: 'works.html', title: 'Примеры наших работ' },
+    { url: 'template.html', title: 'Образцы доверенностей' },
+    { url: 'info.html', title: 'Полезная информация' },
+    { url: 'sitemap.html', title: 'Карта сайта' },
+  ]
+
+footer.footer
+  .container.footer__container
+    .footer__company-info
+      include ../../components/company-info
+
+    nav.footer__nav
+      ul.footer__nav-list
+        each item in footerNavItems
+          li.footer__nav-list-item
+            a(href= item.url)= item.title
+    .footer__social
+      include ../../components/social
