@@ -34,6 +34,11 @@
   flex-wrap: wrap;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 /*form elements*/
 
 .fieldset-default {
@@ -121,7 +126,10 @@
   margin: 0 auto;
   padding: 0 var(--container-offset);
   max-width: var(--container-width);
-  outline: 1px solid red;
+
+  @include m-b-mobile-lg-down {
+    padding: 0 10px;
+  }
 }
 
 .container-fluid {
@@ -131,9 +139,6 @@
   max-width: var(--container-fluid-width);
 }
 
-.outline {
- outline: 1px solid red;
-}
 /*elements*/
 .is-hidden {
   display: none !important; /* stylelint-disable-line declaration-no-important */
@@ -156,11 +161,17 @@
 
 /*transitions*/
 
-.hover-opacity {
+.hover-opacity-transition {
   transition: opacity var(--main-transition);
 
-  &:hover,
-  &:focus {
-    opacity: 0.7;
+  @include m-b-tablet-lg-up {
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
   }
+}
+
+.outline {
+  outline: 1px solid red;
 }

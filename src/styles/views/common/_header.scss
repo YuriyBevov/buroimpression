@@ -1,0 +1,44 @@
+.header {
+  padding: 15px 0;
+
+  &__container {
+    @extend .flex-wrap;
+    align-items: center;
+  }
+
+  &__contact {
+    @extend .flex-column;
+
+    margin-left: auto;
+
+    &-phone,
+    &-mail {
+      font-weight: 600;
+      color: var(--accent);
+
+      @extend .hover-opacity-transition;
+    }
+
+    &-phone {
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    &-mail {
+      font-style: 14px;
+      line-height: 20px;
+    }
+
+    @include m-b-mobile-lg-down {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include m-b-desktop-down {
+      display: flex;
+    }
+  }
+}

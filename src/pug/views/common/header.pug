@@ -1,3 +1,28 @@
-header
-  .container
-    p header
+-
+  const navList = [
+    { url:'about.html', title: 'О нас', cls: 'active' },
+    { url:'translation.html', title: 'Переводы' },
+    { url:'apostil.html', title: 'Апостиль' },
+    { url:'legalization.html', title: 'Консульская легализация' },
+    { url:'documents.html', title: 'Истребование документов' },
+    { url:'price.html', title: 'Цены' },
+    { url:'contacts.html', title: 'Контакты' },
+  ]
+
+header.header
+  .container.header__container
+    nav.main-nav.header__nav
+      a(href="index.html" arai-label="На главную").main-nav__logo
+        img(src="./assets/img/main-logo.png" alt="Buroimpression.ru" width="165" height="53")
+
+      ul.main-nav__list
+        each item in navList
+          li.main-nav__list-item
+            a(href= item.url class= item.cls ? item.cls : null)= item.title
+
+    .header__contact
+      a(href="tel:+74959285366").header__contact-phone +7 495 928-53-66
+      a(href="mailto:info@buroimpression.ru").header__contact-mail info@buroimpression.ru
+
+    .header__burger
+      include ../../components/burger

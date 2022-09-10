@@ -7,10 +7,16 @@
 @import "extends";
 @import "common";
 
-/* Компоненты */
+/* components */
+@import "./components/nav";
+@import "./components/burger";
 
-/* Секции */
+/* views */
+@import "./views/common/header";
 
-/* Модальные окна */
+@import "./views/index-page/hero";
+
+@import "./views/common/footer";
+/* modals */
 
 
