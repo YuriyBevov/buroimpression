@@ -1,0 +1,20 @@
+include ../../mixins/main-btn
+
+section.hero
+  picture
+    source(srcset="./assets/img/hero-bg@1x.webp 1x, ./assets/img/hero-bg@2x.webp 2x" type="image/webp")
+    img(src="./assets/img/hero-bg@1x.jpg" srcset="./assets/img/hero-bg@2x.jpg 2x" alt="Фоновое изображение" width="1920" height="540")
+
+  .hero__wrapper
+    .container.hero__container
+      .hero__content
+          h1 <span>Многопрофильное </span><br/>Бюро переводов
+          p Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов
+
+          +main-btn({
+            type: 'link',
+            url: '#',
+            title: 'Заказать перевод'
+          })
+
+    include ../../components/social
