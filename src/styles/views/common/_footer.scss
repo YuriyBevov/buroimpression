@@ -12,9 +12,19 @@
 
   &__company-info {
     flex-grow: 1;
+    max-width: 470px;
+
+    @include m-b-down(1280px) {
+      margin-right: auto;
+    }
+
+    @include m-b-laptop-down {
+      padding-right: 20px;
+    }
 
     @include m-b-tablet-lg-down {
       order: 3;
+      margin-right: 0;
 
       h4 {
         order: 2;
@@ -27,17 +37,19 @@
   &__nav {
     padding: 0 50px;
     margin: 0 auto;
-    margin-bottom: 20px;
+
+    @include m-b-down(1280px) {
+      margin: 0;
+    }
 
     @include m-b-laptop-down {
-      padding: 0 10px;
+      padding: 0;
     }
 
     @include m-b-tablet-lg-down {
       order: 1;
-      margin: 0;
       padding: 0;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
     &-list {
@@ -76,6 +88,7 @@
     }
 
     @include m-b-down(1280px) {
+      padding-top: 20px;
       width: 100%;
     }
 
