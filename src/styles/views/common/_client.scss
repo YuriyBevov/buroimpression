@@ -1,0 +1,25 @@
+.client {
+  @extend .section-padding-60;
+  height: 315px;
+
+  background-image: url("../assets/img/clients-bg@1x.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__title {
+    color: var(--white);
+  }
+
+  .crawl-line {
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: white;
+      stroke: none;
+
+      margin-right: 60px;
+    }
+  }
+}
