@@ -1,0 +1,40 @@
+include ../../mixins/main-slider
+include ../../mixins/main-btn
+
+-
+  const reviewData = {
+    cls: 'main-slider--review',
+    list: [
+      { img: 'review-ria', title: 'РИА НОВОСТИ'},
+      { img: 'review-privod', title: 'ПРИВОД'},
+      { img: 'review-danfoss', title: 'Danfoss'},
+      { img: 'review-psg', title: 'ПСГ'},
+      { img: 'review-samsung', title: 'Samsung'},
+      { img: 'review-tkc', title: 'ТКЦ Центрум'},
+      { img: 'review-rt', title: 'РОССИЯ СЕГОДНЯ'},
+    ]
+  }
+
+section.review
+  .container
+    .main-slider-section-header
+      h2.lw-section-title Отзывы наших клиентов
+
+      .swiper-button-prev.main-slider-button-prev(aria-label="Предыдущий слайд")
+        svg(width="12" height="16")
+          use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
+      .swiper-button-next.main-slider-button-next(aria-label="Следующий слайд")
+        svg(width="12" height="16")
+          use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
+
+  .container-fluid
+    +main-slider(reviewData)
+
+    +main-btn({
+      type: 'button',
+      title: 'Смотреть все отзывы',
+      cls: 'review__btn'
+    })
+
+
+

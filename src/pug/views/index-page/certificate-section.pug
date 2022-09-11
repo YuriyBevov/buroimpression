@@ -1,0 +1,27 @@
+include ../../mixins/main-slider
+
+-
+  const certificateData = {
+    cls: 'main-slider--certificate',
+    list: [
+      { img: 'certificate_1', title: ''},
+      { img: 'certificate_2', title: ''},
+      { img: 'certificate_3', title: ''},
+      { img: 'certificate_4', title: ''},
+    ]
+  }
+
+section.review
+  .container
+    .main-slider-section-header
+      h2.lw-section-title Сертификаты
+
+      .swiper-button-prev.main-slider-button-prev(aria-label="Предыдущий слайд")
+        svg(width="12" height="16")
+          use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
+      .swiper-button-next.main-slider-button-next(aria-label="Следующий слайд")
+        svg(width="12" height="16")
+          use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
+
+  .container-fluid
+    +main-slider(certificateData)

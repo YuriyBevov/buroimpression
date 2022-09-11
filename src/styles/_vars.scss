@@ -8,7 +8,7 @@
     --content-fluid-width: 1920px;
     --container-offset: 30px;
     --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
-
+    --container-fluid-width: var(--content-fluid-width);
     // colors
     --dark: #222131;
     --white: #ffffff;
@@ -36,6 +36,11 @@
     --service-list-item-more-link-color: var(--accent);
     --service-list-item-bg: var(--white);
     --service-list-item-shadow: 0px 4px 30px rgba(72, 38, 7, 0.12);
+    //main-slider
+    --main-slider-button-shadow: 0px 4px 15px rgba(120, 89, 44, 0.25);
+    --main-slider-button-icon-fill: var(--accent);
+    --main-slider-button-color: var(--white);
+    --main-slider-item-shadow: 0px 4px 30px rgba(72, 38, 7, 0.12);
     //transition
     --main-transition: 0.25s linear;
     --nav-link-transition: 0.5s 0.1s ease-in;
