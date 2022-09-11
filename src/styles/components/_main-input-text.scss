@@ -1,0 +1,22 @@
+.main-input-text {
+  font-size: 14px;
+  line-height: 20px;
+
+  height: 44px;
+  width: 100%;
+
+  padding: 12px;
+
+  border: 0;
+  border-radius: 2px;
+
+  color: var(--main-input-text-color);
+  background-color: var(--main-input-text-bg);
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--main-input-placeholder-color);
+  }
+}
+

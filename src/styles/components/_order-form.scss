@@ -45,6 +45,18 @@
 
   form {
     @extend .outline;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+    margin-bottom: 30px;
+
+    fieldset {
+      @extend .fieldset-default;
+    }
   }
 
   &__btn {

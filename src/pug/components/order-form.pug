@@ -1,11 +1,33 @@
 include ../mixins/main-btn
+include ../mixins/main-input-text
 
 .order-form
   h2.lw-section-title Заказать звонок
   p Оставьте свои данные и мы свяжемся с вами.
 
   form(action="#")
-    p order form
+    fieldset
+      +main-input-text({
+        type: 'text',
+        placeholder: 'Ваше имя',
+        id: 'user_name'
+      })
+    fieldset
+      +main-input-text({
+        type: 'tel',
+        placeholder: 'Телефон',
+        id: 'user_phone',
+      })
+    fieldset
+      +main-input-text({
+        type: 'text',
+        placeholder: 'Email',
+        id: 'user_email'
+      })
+    fieldset
+      p more
+      p more
+      p more
 
   +main-btn({
     type: 'button',
