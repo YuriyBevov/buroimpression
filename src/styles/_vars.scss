@@ -14,6 +14,7 @@
     --white: #ffffff;
     --accent: #704437;
     --info: #708879;
+    --secondary: #78778E;
     --main-color: var(--dark);
     --main-bg-color: var(--white);
 
@@ -28,13 +29,19 @@
     // social
     --social-icon-fill: var(--white);
     --social-icon-bg: rgba(255,255,255,.2);
+    //service
+    --service-list-item-icon-fill: var(--info);
+    --service-list-item-text: var(--secondary);
+    --service-list-item-text-link: var(--accent);
+    --service-list-item-more-link-color: var(--accent);
+    --service-list-item-bg: var(--white);
+    --service-list-item-shadow: 0px 4px 30px rgba(72, 38, 7, 0.12);
     //transition
     --main-transition: 0.25s linear;
     --nav-link-transition: 0.5s 0.1s ease-in;
     //icons
     --feature-icon-bg: var(--info);
     --feature-icon-fill: var(--white);
-
     // scrollbar
     --main-scrollbar-width: 6px;
     --main-scrollbar-color: var(--white-color);

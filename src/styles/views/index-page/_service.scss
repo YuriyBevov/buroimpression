@@ -1,3 +1,136 @@
 .service {
+  @extend .section-padding-80-60;
+  background-image: url("../assets/img/wood-bg@1x.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
+  &__btn {
+    margin: 0 auto;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(500px, auto));
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
+    margin-bottom: 60px;
+
+    @include m-b-laptop-down {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, minmax(500px, auto));
+      margin-bottom: 50px;
+    }
+
+    @include m-b-tablet-down {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list-item {
+    @extend .flex-column;
+
+    padding: 30px;
+    padding-top: 40px;
+    background: var(--service-list-item-bg);
+
+    svg {
+      margin-bottom: 20px;
+
+      fill: var(--service-list-item-icon-fill);
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      max-width: 330px;
+
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+
+      color: var(--service-list-item-text);
+
+      a {
+        text-decoration-line: underline;
+        color: var(--service-list-item-text-link);
+
+        @extend .hover-opacity-transition;
+      }
+
+      @include m-b-tablet-down {
+        max-width: 100%;
+      }
+    }
+
+    & > a {
+      font-weight: 600;
+      line-height: 21px;
+      text-decoration-line: underline;
+      margin-top: auto;
+
+      color: var(--service-list-item-more-link-color);
+
+      @extend .hover-opacity-transition;
+    }
+
+    transition: box-shadow var(--main-transition);
+
+    @include m-b-tablet-lg-up {
+      &:hover,
+      &:focus {
+        box-shadow: var(--service-list-item-shadow);
+      }
+    }
+
+    &-info {
+      padding-left: 16px;
+
+      li {
+        position: relative;
+        margin-bottom: 10px;
+
+        a {
+          @extend .flex-column;
+
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 20px;
+
+          color: var(--accent);
+
+          span {
+            font-weight: 400;
+
+            color: var(--secondary);
+          }
+
+          @extend .hover-opacity-transition;
+        }
+
+
+
+        &::before {
+          position: absolute;
+          top: 7px;
+          left: -16px;
+
+          width: 6px;
+          height: 6px;
+          content: '';
+
+          border-radius: 50%;
+          background-color: var(--accent);
+        }
+      }
+    }
+  }
 }

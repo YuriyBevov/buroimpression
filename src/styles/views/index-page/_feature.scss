@@ -1,18 +1,6 @@
 .feature {
   @extend .section-padding-80;
 
-  h2 {
-    margin-bottom: 60px;
-
-    @include m-b-tablet-lg-down {
-      margin-bottom: 40px;
-    }
-
-    @include m-b-tablet-down {
-      margin-bottom: 20px;
-    }
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
