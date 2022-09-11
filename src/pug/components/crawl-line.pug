@@ -1,0 +1,4 @@
+.crawl-line
+  each client in clientList
+    svg(width= client.icon.width height= client.icon.height aria-label= client.name)
+      use(xlink:href=`./assets/sprite.svg#icon-client-${client.icon.name}`)

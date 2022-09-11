@@ -1,0 +1,15 @@
+include ../mixins/main-btn
+
+.order-form
+  h2.lw-section-title Заказать звонок
+  p Оставьте свои данные и мы свяжемся с вами.
+
+  form(action="#")
+    p order form
+
+  +main-btn({
+    type: 'button',
+    title: 'Отправить',
+    cls: 'order-form__btn'
+  })
+

@@ -14,7 +14,8 @@
 @import "./components/company-info";
 @import "./components/main-btn";
 @import "./components/main-slider";
-
+@import "./components/crawl-line";
+@import "./components/order-form";
 /* views */
 @import "./views/common/header";
 
@@ -25,6 +26,7 @@
 @import "./views/index-page/certificate";
 
 @import "./views/common/client";
+@import "./views/common/order";
 
 @import "./views/common/footer";
 /* modals */

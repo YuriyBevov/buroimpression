@@ -97,11 +97,9 @@
       }
     },
   ]
+
 section.client
   .container
     h2.lw-section-title.client__title Наши клиенты
   .container-fluid
-    .crawl-line
-      each client in clientList
-        svg(width= client.icon.width height= client.icon.height aria-label= client.name)
-          use(xlink:href=`./assets/sprite.svg#icon-client-${client.icon.name}`)
+    include ../../components/crawl-line

@@ -1347,7 +1347,7 @@ h1, h2, h3, h4, h5, h6, p {
   flex-wrap: wrap;
 }
 
-.flex-column, .service__list-item-info li a, .service__list-item, .header__contact, .company-info {
+.flex-column, .service__list-item-info li a, .service__list-item, .header__contact, .order-form, .company-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1483,21 +1483,21 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /*section-offset*/
-.section-padding-80, .feature {
+.section-padding-80, .order, .feature {
   padding: 80px 0;
 }
 @media (max-width: 1140px) {
-  .section-padding-80, .feature {
+  .section-padding-80, .order, .feature {
     padding: 60px 0;
   }
 }
 @media (max-width: 960px) {
-  .section-padding-80, .feature {
+  .section-padding-80, .order, .feature {
     padding: 40px 0;
   }
 }
 @media (max-width: 768px) {
-  .section-padding-80, .feature {
+  .section-padding-80, .order, .feature {
     padding: 30px 0;
   }
 }
@@ -1529,7 +1529,7 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 60px 0 80px;
 }
 
-.outline {
+.outline, .order-form form {
   outline: 1px solid red;
 }
 
@@ -1797,6 +1797,62 @@ h1, h2, h3, h4, h5, h6, p {
 .main-slider__item picture img {
   -o-object-fit: contain;
   object-fit: contain;
+}
+
+.crawl-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.crawl-line svg {
+  fill: var(--white);
+  stroke: none;
+  margin-right: 60px;
+}
+
+.order-form {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  height: 100%;
+  min-height: 415px;
+  padding: 50px;
+  padding-right: 400px;
+  margin: 0 auto;
+  background-color: var(--main-bg-color);
+}
+.order-form::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 345px;
+  height: 100%;
+  content: "";
+  background-image: url("../assets/img/woman@1x.jpg");
+}
+@media (max-width: 768px) {
+  .order-form {
+    padding: 30px;
+  }
+}
+@media (max-width: 634px) {
+  .order-form {
+    padding: 20px;
+  }
+}
+.order-form h2 {
+  margin-bottom: 10px;
+}
+.order-form p {
+  line-height: 26px;
+  margin-bottom: 30px;
+  color: var(--secondary);
+}
+.order-form__btn {
+  margin-top: auto;
 }
 
 /* views */
@@ -2146,18 +2202,12 @@ h1, h2, h3, h4, h5, h6, p {
 .client__title {
   color: var(--white);
 }
-.client .crawl-line {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.client .crawl-line svg {
-  fill: white;
-  stroke: none;
-  margin-right: 60px;
+
+.order {
+  background-image: url("../assets/img/wood-bg@1x.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .footer {

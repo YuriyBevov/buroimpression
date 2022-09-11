@@ -10,16 +10,4 @@
   &__title {
     color: var(--white);
   }
-
-  .crawl-line {
-    display: flex;
-    align-items: center;
-
-    svg {
-      fill: white;
-      stroke: none;
-
-      margin-right: 60px;
-    }
-  }
 }

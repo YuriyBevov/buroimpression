@@ -1,0 +1,11 @@
+.crawl-line {
+  display: flex;
+  align-items: center;
+
+  svg {
+    fill: var(--white);
+    stroke: none;
+
+    margin-right: 60px;
+  }
+}
