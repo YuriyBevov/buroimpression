@@ -5,7 +5,7 @@
       icon: {
         name: 'ria',
         width: '233',
-        height: '80'
+        height: '60'
       }
     },
     {
@@ -21,7 +21,7 @@
       icon: {
         name: 'danfoss',
         width: '164',
-        height: '80'
+        height: '60'
       }
     },
     {
@@ -29,7 +29,7 @@
       icon: {
         name: 'enhel',
         width: '132',
-        height: '80'
+        height: '60'
       }
     },
     {
@@ -37,15 +37,15 @@
       icon: {
         name: 'psg',
         width: '101',
-        height: '80'
+        height: '60'
       }
     },
     {
       name: 'Samsung',
       icon: {
         name: 'samsung',
-        width: '180',
-        height: '80'
+        width: '160',
+        height: '60'
       }
     },
     {
@@ -53,15 +53,15 @@
       icon: {
         name: 'tkc',
         width: '104',
-        height: '80'
+        height: '60'
       }
     },
     {
       name: 'РОССИЯ СЕГОДНЯ',
       icon: {
         name: 'rt',
-        width: '340',
-        height: '90'
+        width: '225',
+        height: '60'
       }
     },
     {
@@ -85,7 +85,7 @@
       icon: {
         name: 'parmalat',
         width: '127',
-        height: '80'
+        height: '60'
       }
     },
     {
@@ -93,7 +93,7 @@
       icon: {
         name: 'opkk',
         width: '171',
-        height: '80'
+        height: '60'
       }
     },
   ]
@@ -102,4 +102,8 @@ section.client
   .container
     h2.lw-section-title.client__title Наши клиенты
   .container-fluid
-    include ../../components/crawl-line
+    ul.client__list
+      each client in clientList
+        li.client__list-item
+          svg(width= client.icon.width height= client.icon.height aria-label= client.name)
+            use(xlink:href=`./assets/sprite.svg#icon-client-${client.icon.name}`)

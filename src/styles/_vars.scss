@@ -48,9 +48,11 @@
     --feature-icon-bg: var(--info);
     --feature-icon-fill: var(--white);
     //form
-    --main-input-text-color: var(--main-color);
-    --main-input-text-bg: #f1f1f1;
-    --main-input-placeholder-color: var(--secondary);
+    --main-control-color: var(--main-color);
+    --main-control-bg: #f1f1f1;
+    --main-control-placeholder-color: var(--secondary);
+    --custom-select-focus-color: var(--white);
+    --custom-select-focus-bg: var(--info);
     // scrollbar
     --main-scrollbar-width: 6px;
     --main-scrollbar-color: var(--white-color);

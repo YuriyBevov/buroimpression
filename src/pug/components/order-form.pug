@@ -1,33 +1,41 @@
 include ../mixins/main-btn
-include ../mixins/main-input-text
+include ../mixins/main-input
+include ../mixins/custom-select
 
 .order-form
   h2.lw-section-title Заказать звонок
   p Оставьте свои данные и мы свяжемся с вами.
 
-  form(action="#")
+  form(action='#')
     fieldset
-      +main-input-text({
+      +main-input({
         type: 'text',
         placeholder: 'Ваше имя',
         id: 'user_name'
       })
     fieldset
-      +main-input-text({
+      +main-input({
         type: 'tel',
         placeholder: 'Телефон',
         id: 'user_phone',
       })
     fieldset
-      +main-input-text({
+      +main-input({
         type: 'text',
         placeholder: 'Email',
         id: 'user_email'
       })
     fieldset
-      p more
-      p more
-      p more
+      +custom-select({
+        id: 'order-type',
+        options: [
+          { value: 'Обратный звонок', type:'callback', name: 'Обратный звонок', isSelected: true},
+          { value: 'Переводы', type:'translate', name: 'Переводы'},
+          { value: 'Апостиль', type:'apostil', name: 'Апостиль'},
+          { value: 'Консульская легализация', type:'legalization', name: 'Консульская легализация'},
+          { value: 'Истребование документов', type:'reclamation ', name: 'Истребование документов'},
+        ]
+      })
 
   +main-btn({
     type: 'button',

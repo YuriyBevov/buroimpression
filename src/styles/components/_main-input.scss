@@ -1,4 +1,4 @@
-.main-input-text {
+.main-input {
   font-size: 14px;
   line-height: 20px;
 
@@ -10,13 +10,13 @@
   border: 0;
   border-radius: 2px;
 
-  color: var(--main-input-text-color);
-  background-color: var(--main-input-text-bg);
+  color: var(--main-control-color);
+  background-color: var(--main-control-bg);
 
   &::placeholder {
     font-size: 14px;
     line-height: 20px;
-    color: var(--main-input-placeholder-color);
+    color: var(--main-control-placeholder-color);
   }
 }
 

@@ -1,16 +1,12 @@
-import Swiper, { EffectFade, Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 const sliders = document.querySelectorAll('.main-slider');
-console.log(sliders)
 
 if(sliders) {
   sliders.forEach(slider => {
     const btnNext = slider.closest('section').querySelector('.main-slider-button-next');
     const btnPrev = slider.closest('section').querySelector('.main-slider-button-prev');
-
     const pagination = slider.parentNode.querySelector('.main-slider-pagination');
-
-    console.log(btnNext, btnPrev)
 
     new Swiper(slider, {
       modules: [Navigation, Pagination],

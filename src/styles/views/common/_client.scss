@@ -1,6 +1,5 @@
 .client {
   @extend .section-padding-60;
-  height: 315px;
 
   background-image: url("../assets/img/clients-bg@1x.jpg");
   background-size: cover;
@@ -9,5 +8,19 @@
 
   &__title {
     color: var(--white);
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+
+    &-item {
+      margin: 0 30px;
+      padding: 10px;
+
+      svg {
+        fill: var(--white);
+      }
+    }
   }
 }

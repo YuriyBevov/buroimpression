@@ -1,0 +1,110 @@
+$height: 44px;
+
+.custom-select-container {
+  position: relative;
+  height: $height;
+  width: 100%;
+
+  &.is-open {
+    .custom-select-opener::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}
+
+.custom-select-container.is-disabled {
+  opacity: .333;
+}
+
+.custom-select-opener {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: inherit;
+  height: inherit;
+
+  font-size: 14px;
+  line-height: 20px;
+  padding: 12px;
+
+  cursor: pointer;
+
+  color: var(--main-control-placeholder-color);
+  background-color: var(--main-control-bg);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    content: '';
+    width: 24px;
+    height: 24px;
+
+    background-image: url("../assets/img/icon-arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    transition: transform var(--main-transition);
+  }
+}
+
+.custom-select-container select {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: inherit;
+  height: inherit;
+}
+
+.custom-select-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  overflow: hidden;
+
+  width: 100%;
+  height: auto;
+  max-height: 0;
+
+  transition: opacity var(--main-transition);
+  opacity: 0;
+
+  background-color: var(--main-control-bg);
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.custom-select-container.is-open .custom-select-panel {
+  max-height: 250px;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.custom-select-option {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 12px;
+
+  cursor: pointer;
+
+  color: var(--main-control-placeholder-color);
+  background-color: var(--main-control-bg);
+
+  transition: color var(--main-transition), background-color var(--main-transition);
+
+  &::after {
+    display: none;
+  }
+}
+
+.custom-select-option.has-focus {
+  color: var(--custom-select-focus-color);
+  background-color: var(--custom-select-focus-bg);
+}
