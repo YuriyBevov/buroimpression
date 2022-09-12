@@ -69,7 +69,7 @@ include ../mixins/custom-select
       .order-form__field
         +main-checkbox({
           title: 'Требуется нотариальное заверение перевода',
-          id: 'notarized_translation_required',
+          id: 'translate_notarized_translation_required',
         })
 
         +main-checkbox({
@@ -84,14 +84,14 @@ include ../mixins/custom-select
         +main-input({
           type: 'text',
           placeholder: 'Какой документ необходимо получить',
-          id: 'translate_from'
+          id: 'reclamation_translate_from'
         })
 
       .order-form__field
         +main-input({
           type: 'text',
           placeholder: 'Место выдачи',
-          id: 'translate_to'
+          id: 'reclamation_place'
         })
 
       .order-form__field
@@ -107,7 +107,7 @@ include ../mixins/custom-select
       .order-form__field
         +main-checkbox({
           title: 'Требуется нотариальное заверение перевода',
-          id: 'notarized_translation_required',
+          id: 'reclamation_notarized_translation_required',
         })
 
     //-----apostil

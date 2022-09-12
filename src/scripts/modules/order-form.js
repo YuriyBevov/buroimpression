@@ -3,7 +3,7 @@ const form = document.getElementById('order-form');
 if(form) {
   const options = form.querySelectorAll('.custom-select-option');
   const hidden = form.querySelectorAll('fieldset.hidden');
-  console.log(hidden)
+
   let type = null;
 
   const onClickHandler = (evt) => {

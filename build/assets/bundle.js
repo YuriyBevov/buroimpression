@@ -118,7 +118,6 @@ var form = document.getElementById('order-form');
 if (form) {
   var options = form.querySelectorAll('.custom-select-option');
   var hidden = form.querySelectorAll('fieldset.hidden');
-  console.log(hidden);
   var type = null;
 
   var onClickHandler = function onClickHandler(evt) {

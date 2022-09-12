@@ -1822,7 +1822,6 @@ input[type=number] {
   width: 100%;
   max-width: 1120px;
   height: 100%;
-  min-height: 415px;
   padding: 50px;
   padding-right: 400px;
   margin: 0 auto;
@@ -1838,20 +1837,37 @@ input[type=number] {
   background-image: url("../assets/img/woman@1x.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
-@media (max-width: 960px) {
+@media (max-width: 1240px) {
+  .order-form::after {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .order-form::after {
+    width: 35%;
+  }
+}
+@media (max-width: 634px) {
   .order-form::after {
     display: none;
   }
 }
+@media (max-width: 1240px) {
+  .order-form {
+    padding-right: calc(50% + 50px);
+  }
+}
 @media (max-width: 960px) {
   .order-form {
-    padding-right: 50px;
+    padding: 30px;
+    padding-right: calc(50% + 30px);
   }
 }
 @media (max-width: 768px) {
   .order-form {
-    padding: 30px;
+    padding-right: calc(35% + 30px);
   }
 }
 @media (max-width: 634px) {
@@ -1867,6 +1883,9 @@ input[type=number] {
   margin-bottom: 30px;
   color: var(--secondary);
 }
+.order-form form {
+  margin-bottom: 30px;
+}
 .order-form form fieldset {
   display: -ms-grid;
   display: grid;
@@ -1877,6 +1896,12 @@ input[type=number] {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   margin-bottom: 20px;
+}
+@media (max-width: 1240px) {
+  .order-form form fieldset {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 768px) {
   .order-form form fieldset {

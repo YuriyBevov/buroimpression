@@ -5,7 +5,6 @@
   width: 100%;
   max-width: 1120px;
   height: 100%;
-  min-height: 415px;
   padding: 50px;
   padding-right: 400px;
   margin: 0 auto;
@@ -24,18 +23,32 @@
     background-image: url("../assets/img/woman@1x.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 
-    @include m-b-tablet-lg-down {
+    @include m-b-down(1240px) {
+      width: 50%;
+    }
+
+    @include m-b-tablet-down {
+      width: 35%;
+    }
+
+    @include m-b-mobile-lg-down {
       display: none;
     }
   }
 
+  @include m-b-down(1240px) {
+    padding-right: calc(50% + 50px);
+  }
+
   @include m-b-tablet-lg-down {
-    padding-right: 50px;
+    padding: 30px;
+    padding-right: calc(50% + 30px)
   }
 
   @include m-b-tablet-down {
-    padding: 30px;
+    padding-right: calc(35% + 30px)
   }
 
   @include m-b-mobile-lg-down {
@@ -54,6 +67,7 @@
   }
 
   form {
+    margin-bottom: 30px;
     fieldset {
       @extend .fieldset-default;
       display: grid;
@@ -64,7 +78,15 @@
 
       margin-bottom: 20px;
 
-      @include m-b-tablet-down {
+      @include m-b-down(1240px) {
+        grid-template-columns: 1fr;
+      }
+
+      @include m-b-tablet-lg-down {
+        //grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include m-b-down(768px) {
         grid-template-columns: 1fr;
       }
 
