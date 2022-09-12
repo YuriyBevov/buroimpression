@@ -1195,6 +1195,7 @@ button.swiper-pagination-bullet {
   --main-control-placeholder-color: var(--secondary);
   --custom-select-focus-color: var(--white);
   --custom-select-focus-bg: var(--info);
+  --checkbox-border: #b8b8b8;
   --main-scrollbar-width: 6px;
   --main-scrollbar-color: var(--white-color);
   --main-scrollbar-thumb-color: var(--accent);
@@ -1336,7 +1337,7 @@ input[type=number] {
 }
 
 /* flex*/
-.flex-wrap, .footer__social .social__list, .footer__container, .feature__list-item, .header__container, .main-nav__list, .main-nav {
+.flex-wrap, .footer__social .social__list, .footer__container, .feature__list-item, .header__container, .main-input[type=file] + label, .main-nav__list, .main-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1356,7 +1357,7 @@ input[type=number] {
   justify-content: center;
 }
 
-.flex-wrap, .footer__social .social__list, .footer__container, .feature__list-item, .header__container, .main-nav__list, .main-nav {
+.flex-wrap, .footer__social .social__list, .footer__container, .feature__list-item, .header__container, .main-input[type=file] + label, .main-nav__list, .main-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1835,6 +1836,18 @@ input[type=number] {
   height: 100%;
   content: "";
   background-image: url("../assets/img/woman@1x.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width: 960px) {
+  .order-form::after {
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  .order-form {
+    padding-right: 50px;
+  }
 }
 @media (max-width: 768px) {
   .order-form {
@@ -1854,7 +1867,7 @@ input[type=number] {
   margin-bottom: 30px;
   color: var(--secondary);
 }
-.order-form form {
+.order-form form fieldset {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -1863,7 +1876,26 @@ input[type=number] {
   grid-template-rows: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .order-form form fieldset {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+.order-form form fieldset .main-checkbox {
+  margin-bottom: 20px;
+}
+.order-form form fieldset .order-form__field > span {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+.order-form form fieldset.hidden {
+  display: none;
 }
 .order-form__btn {
   margin-top: auto;
@@ -1904,6 +1936,56 @@ input[type=number] {
   font-size: 14px;
   line-height: 20px;
   color: var(--main-control-placeholder-color);
+}
+.main-input[type=file] {
+  display: none;
+}
+.main-input[type=file] + label {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+}
+.main-input[type=file] + label svg {
+  fill: var(--accent);
+  margin-right: 8px;
+}
+
+.main-checkbox {
+  padding-left: 28px;
+}
+.main-checkbox input[type=checkbox] {
+  display: none;
+}
+.main-checkbox label.checkbox-label {
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--secondary);
+}
+.main-checkbox label.checkbox-label::before {
+  position: absolute;
+  top: 2px;
+  left: -28px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--checkbox-border);
+  border-radius: 2px;
+  background-color: transparent;
+}
+.main-checkbox input[type=checkbox]:checked + label.checkbox-label::before {
+  background-image: url("../assets/img/icon-checkbox-arrow.svg");
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .custom-select-container {
@@ -1989,6 +2071,7 @@ input[type=number] {
   max-height: 250px;
   opacity: 1;
   overflow-y: auto;
+  z-index: 11;
 }
 
 .custom-select-option {
@@ -2364,6 +2447,7 @@ input[type=number] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  overflow: hidden;
 }
 .client__list-item {
   margin: 0 30px;

@@ -1,2 +1,8 @@
 mixin main-input(data)
-  input(type= data.type placeholder= data.placeholder id= data.id class= data.cls ? data.cls : null).main-input
+  input(type= data.type placeholder= data.placeholder ? data.placeholder : null id= data.id class= data.cls ? data.cls : null multiple= data.multiple ? data.multiple : null).main-input
+
+  if data.type === 'file'
+    label(for= data.id tabindex="0").addfile-label
+      svg(width="16" height="16")
+        use(xlink:href="./assets/sprite.svg#icon-file")
+      span= data.label

@@ -18,5 +18,29 @@
     line-height: 20px;
     color: var(--main-control-placeholder-color);
   }
+
+  &[type="file"] {
+    display: none;
+
+    & + label {
+      @extend .flex-wrap;
+      align-items: center;
+
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 21px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+
+      color: var(--accent);
+
+      cursor: pointer;
+
+      svg {
+        fill: var(--accent);
+        margin-right: 8px;
+      }
+    }
+  }
 }
 

@@ -1,41 +1,203 @@
 include ../mixins/main-btn
 include ../mixins/main-input
+include ../mixins/main-checkbox
 include ../mixins/custom-select
 
 .order-form
   h2.lw-section-title Заказать звонок
   p Оставьте свои данные и мы свяжемся с вами.
 
-  form(action='#')
+  form(action='#' id="order-form")
     fieldset
-      +main-input({
-        type: 'text',
-        placeholder: 'Ваше имя',
-        id: 'user_name'
-      })
-    fieldset
-      +main-input({
-        type: 'tel',
-        placeholder: 'Телефон',
-        id: 'user_phone',
-      })
-    fieldset
-      +main-input({
-        type: 'text',
-        placeholder: 'Email',
-        id: 'user_email'
-      })
-    fieldset
-      +custom-select({
-        id: 'order-type',
-        options: [
-          { value: 'Обратный звонок', type:'callback', name: 'Обратный звонок', isSelected: true},
-          { value: 'Переводы', type:'translate', name: 'Переводы'},
-          { value: 'Апостиль', type:'apostil', name: 'Апостиль'},
-          { value: 'Консульская легализация', type:'legalization', name: 'Консульская легализация'},
-          { value: 'Истребование документов', type:'reclamation ', name: 'Истребование документов'},
-        ]
-      })
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Ваше имя',
+          id: 'user_name'
+        })
+      .order-form__field
+        +main-input({
+          type: 'tel',
+          placeholder: 'Телефон',
+          id: 'user_phone',
+        })
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Email',
+          id: 'user_email'
+        })
+      .order-form__field
+        +custom-select({
+          id: 'order-type',
+          options: [
+            { value: 'callback', name: 'Обратный звонок', isSelected: true},
+            { value: 'translate', name: 'Переводы'},
+            { value: 'apostil', name: 'Апостиль'},
+            { value: 'legalization', name: 'Консульская легализация'},
+            { value: 'reclamation', name: 'Истребование документов'},
+          ]
+        })
+
+    //-----translate
+
+    fieldset(data-field="translate").hidden
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Язык оригинала',
+          id: 'translate_from'
+        })
+
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Язык перевода',
+          id: 'translate_to'
+        })
+
+      .order-form__field
+        span.order-form__field-desc Текст для перевода
+        +main-input({
+          type: 'file',
+          label: 'Прикрепить',
+          id: 'user_translate_files',
+          multiple: true,
+          cls: 'main-input--file'
+        })
+
+      .order-form__field
+        +main-checkbox({
+          title: 'Требуется нотариальное заверение перевода',
+          id: 'notarized_translation_required',
+        })
+
+        +main-checkbox({
+          title: 'Требуется заверение печатью бюро',
+          id: 'office_stamp_required',
+        })
+
+    //-----reclamation
+
+    fieldset(data-field="reclamation").hidden
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Какой документ необходимо получить',
+          id: 'translate_from'
+        })
+
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Место выдачи',
+          id: 'translate_to'
+        })
+
+      .order-form__field
+        span.order-form__field-desc Текст для перевода
+        +main-input({
+          type: 'file',
+          label: 'Прикрепить',
+          id: 'user_reclamation_files',
+          multiple: true,
+          cls: 'main-input--file'
+        })
+
+      .order-form__field
+        +main-checkbox({
+          title: 'Требуется нотариальное заверение перевода',
+          id: 'notarized_translation_required',
+        })
+
+    //-----apostil
+
+    fieldset(data-field="apostil").hidden
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Страна, для которой легализуются документы',
+          id: 'apostil_country_for'
+        })
+
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Вид документа',
+          id: 'apostil_document_type'
+        })
+
+      .order-form__field
+        span.order-form__field-desc Копии документа(ов)
+        +main-input({
+          type: 'file',
+          label: 'Прикрепить',
+          id: 'user_apostil_files',
+          multiple: true,
+          cls: 'main-input--file'
+        })
+
+      .order-form__field
+        +main-checkbox({
+          title: 'Легализуются оригиналы ?',
+          id: 'apostil_is_original',
+        })
+
+        +main-checkbox({
+          title: 'Требуется ли перевод?',
+          id: 'apostil_translation_required',
+        })
+
+        +main-input({
+          type: 'text',
+          placeholder: 'Язык перевода',
+          id: 'apostil_translation_lang'
+        })
+
+    //-----legalization
+
+    fieldset(data-field="legalization").hidden
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Страна, для которой легализуются документы',
+          id: 'legalization_country_for'
+        })
+
+      .order-form__field
+        +main-input({
+          type: 'text',
+          placeholder: 'Вид документа',
+          id: 'legalization_document_type'
+        })
+
+      .order-form__field
+        span.order-form__field-desc Копии документа(ов)
+        +main-input({
+          type: 'file',
+          label: 'Прикрепить',
+          id: 'user_legalization_files',
+          multiple: true,
+          cls: 'main-input--file'
+        })
+
+      .order-form__field
+        +main-checkbox({
+          title: 'Легализуются оригиналы ?',
+          id: 'legalization_is_original',
+        })
+
+        +main-checkbox({
+          title: 'Требуется ли перевод?',
+          id: 'legalization_translation_required',
+        })
+
+        +main-input({
+          type: 'text',
+          placeholder: 'Язык перевода',
+          id: 'legalization_translation_lang'
+        })
+
 
   +main-btn({
     type: 'button',

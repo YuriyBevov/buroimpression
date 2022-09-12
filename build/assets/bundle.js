@@ -1,6 +1,64 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/modules/add-file.js":
+/*!*****************************************!*\
+  !*** ./src/scripts/modules/add-file.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions */ "./src/scripts/utils/functions.js");
+/* harmony import */ var _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/nodesHelper */ "./src/scripts/utils/nodesHelper.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+
+if (_utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__.orderForm) {
+  var fileOpener = _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__.orderForm.querySelector('.addfile-label');
+  var control = _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__.orderForm.querySelector('input[type="file"]');
+  /*function createOpener() {
+     const fileOpenerView = (
+      `<div><input class="main-input--file main-input" type="file" id="user_files" multiple>
+        <label class="addfile-label" for="user_translation_file" tabindex="0">
+          <svg width="16" height="16">
+            <use xlink:href="./assets/sprite.svg#icon-file"></use>
+          </svg>
+          <span>Прикрепить еще</span>
+        </label></div>`
+    );
+     const createElement = (template) => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = template;
+      console.log(newElement)
+      return newElement.firstChild;
+    };
+     fileOpener.parentNode.append(createElement(fileOpenerView));
+  }*/
+
+  control.addEventListener('change', function (evt) {
+    var files = _toConsumableArray(evt.target.files);
+
+    var count = _toConsumableArray(evt.target.files).length;
+
+    fileOpener.querySelector('span').textContent = " ".concat((0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.limitStr)(files[0].name, 20), " ").concat(count - 1 > 0 ? 'и еще ' + (count - 1) : '');
+  });
+}
+
+/***/ }),
+
 /***/ "./src/scripts/modules/custom-select.js":
 /*!**********************************************!*\
   !*** ./src/scripts/modules/custom-select.js ***!
@@ -46,6 +104,46 @@ var maskOptions = {
 phoneFields.forEach(function (field) {
   (0,imask__WEBPACK_IMPORTED_MODULE_0__["default"])(field, maskOptions);
 });
+
+/***/ }),
+
+/***/ "./src/scripts/modules/order-form.js":
+/*!*******************************************!*\
+  !*** ./src/scripts/modules/order-form.js ***!
+  \*******************************************/
+/***/ (() => {
+
+var form = document.getElementById('order-form');
+
+if (form) {
+  var options = form.querySelectorAll('.custom-select-option');
+  var hidden = form.querySelectorAll('fieldset.hidden');
+  console.log(hidden);
+  var type = null;
+
+  var onClickHandler = function onClickHandler(evt) {
+    current = evt.target.dataset.value;
+
+    if (current === type) {
+      return;
+    }
+
+    type = current;
+    hidden.forEach(function (el) {
+      !el.classList.contains('hidden') ? el.classList.add('hidden') : null;
+
+      if (el.dataset.field === type) {
+        el.classList.contains('hidden') ? el.classList.remove('hidden') : null;
+      }
+    });
+  };
+
+  options.forEach(function (option) {
+    option.addEventListener('click', onClickHandler);
+  });
+}
+
+;
 
 /***/ }),
 
@@ -95,6 +193,154 @@ if (sliders) {
 }
 
 ;
+
+/***/ }),
+
+/***/ "./src/scripts/utils/functions.js":
+/*!****************************************!*\
+  !*** ./src/scripts/utils/functions.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addClass": () => (/* binding */ addClass),
+/* harmony export */   "bodyLocker": () => (/* binding */ bodyLocker),
+/* harmony export */   "checkClass": () => (/* binding */ checkClass),
+/* harmony export */   "getBoundingClientRect": () => (/* binding */ getBoundingClientRect),
+/* harmony export */   "getCssPropertyValue": () => (/* binding */ getCssPropertyValue),
+/* harmony export */   "getMousePos": () => (/* binding */ getMousePos),
+/* harmony export */   "getRadians": () => (/* binding */ getRadians),
+/* harmony export */   "lerp": () => (/* binding */ lerp),
+/* harmony export */   "limitStr": () => (/* binding */ limitStr),
+/* harmony export */   "removeClass": () => (/* binding */ removeClass),
+/* harmony export */   "setCssProperty": () => (/* binding */ setCssProperty),
+/* harmony export */   "toggleClass": () => (/* binding */ toggleClass)
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+// работа с классами эл-та
+var root = document.querySelector(':root');
+
+function getCssPropertyValue(name) {
+  return getComputedStyle(root).getPropertyValue(name);
+}
+
+function setCssProperty(name, value) {
+  root.style.setProperty(name, value);
+}
+
+function addClass(el, cl) {
+  el.classList.add(cl);
+}
+
+function removeClass(el, cl) {
+  el.classList.remove(cl);
+}
+
+function checkClass(el, cl) {
+  return el.classList.contains(cl);
+}
+
+function toggleClass(el, cl) {
+  el.classList.toggle(cl);
+} // Linear interpolation
+
+
+var lerp = function lerp(a, b, n) {
+  return (1 - n) * a + n * b;
+}; // Позиция мыши
+
+
+var getMousePos = function getMousePos(evt) {
+  return {
+    x: evt.clientX,
+    y: evt.clientY
+  };
+}; //получение радиан из градусов(для канваса)
+
+
+function getRadians(degrees) {
+  return Math.PI / 180 * degrees;
+} // Ограничение длины текста по кол-ву символов
+
+
+function limitStr(str, n) {
+  console.log(str, n, _typeof(str));
+
+  if (str.length > n) {
+    return str.slice(0, n) + '...';
+  } else {
+    return str;
+  }
+} // запрет скролла у body
+
+
+function bodyLocker(bool) {
+  var body = document.querySelector('body');
+  var paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+
+  if (bool) {
+    body.style.overflow = 'hidden';
+    body.style.paddingRight = paddingOffset;
+  } else {
+    body.style.overflow = 'auto';
+    body.style.paddingRight = '0px';
+  }
+} // вычисление поз-и/размеров эл-та
+
+
+function getBoundingClientRect(elem, side) {
+  if (side === 'height') {
+    return elem.getBoundingClientRect().height;
+  }
+
+  if (side === 'width') {
+    return elem.getBoundingClientRect().width;
+  }
+
+  if (side === 'top') {
+    return elem.getBoundingClientRect().top;
+  }
+
+  if (side === 'bottom') {
+    return elem.getBoundingClientRect().bottom;
+  }
+
+  if (side === 'left') {
+    return elem.getBoundingClientRect().left;
+  }
+
+  if (side === 'right') {
+    return elem.getBoundingClientRect().right;
+  }
+
+  if (side === 'x') {
+    return elem.getBoundingClientRect().x;
+  }
+
+  if (side === 'y') {
+    return elem.getBoundingClientRect().y;
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./src/scripts/utils/nodesHelper.js":
+/*!******************************************!*\
+  !*** ./src/scripts/utils/nodesHelper.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "orderForm": () => (/* binding */ orderForm)
+/* harmony export */ });
+var orderForm = document.querySelector('.order-form');
 
 /***/ }),
 
@@ -19400,6 +19646,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -19441,6 +19699,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
 /* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
 /* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
+/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
+/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_order_form__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_add_file__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/add-file */ "./src/scripts/modules/add-file.js");
+
+
 
 
 

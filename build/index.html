@@ -372,24 +372,128 @@
           <div class="order-form">
             <h2 class="lw-section-title">Заказать звонок</h2>
             <p>Оставьте свои данные и мы свяжемся с вами.</p>
-            <form action="#">
+            <form action="#" id="order-form">
               <fieldset>
-                          <input class="main-input" type="text" placeholder="Ваше имя" id="user_name">
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Ваше имя" id="user_name">
+                </div>
+                <div class="order-form__field">
+                            <input class="main-input" type="tel" placeholder="Телефон" id="user_phone">
+                </div>
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Email" id="user_email">
+                </div>
+                <div class="order-form__field">
+                            <select class="custom-select" id="order-type">
+                              <option value="callback" selected>Обратный звонок</option>
+                              <option value="translate">Переводы</option>
+                              <option value="apostil">Апостиль</option>
+                              <option value="legalization">Консульская легализация</option>
+                              <option value="reclamation">Истребование документов</option>
+                            </select>
+                </div>
               </fieldset>
-              <fieldset>
-                          <input class="main-input" type="tel" placeholder="Телефон" id="user_phone">
+              <fieldset class="hidden" data-field="translate">
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Язык оригинала" id="translate_from">
+                </div>
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Язык перевода" id="translate_to">
+                </div>
+                <div class="order-form__field"><span class="order-form__field-desc">Текст для перевода</span>
+                            <input class="main-input--file main-input" type="file" id="user_translate_files" multiple>
+                            <label class="addfile-label" for="user_translate_files" tabindex="0">
+                              <svg width="16" height="16">
+                                <use xlink:href="./assets/sprite.svg#icon-file"></use>
+                              </svg><span>Прикрепить</span>
+                            </label>
+                </div>
+                <div class="order-form__field">
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="notarized_translation_required" checked>
+                              <label class="checkbox-label" for="notarized_translation_required" tabindex="0">Требуется нотариальное заверение перевода</label>
+                            </div>
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="office_stamp_required" checked>
+                              <label class="checkbox-label" for="office_stamp_required" tabindex="0">Требуется заверение печатью бюро</label>
+                            </div>
+                </div>
               </fieldset>
-              <fieldset>
-                          <input class="main-input" type="text" placeholder="Email" id="user_email">
+              <fieldset class="hidden" data-field="reclamation">
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Какой документ необходимо получить" id="translate_from">
+                </div>
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Место выдачи" id="translate_to">
+                </div>
+                <div class="order-form__field"><span class="order-form__field-desc">Текст для перевода</span>
+                            <input class="main-input--file main-input" type="file" id="user_reclamation_files" multiple>
+                            <label class="addfile-label" for="user_reclamation_files" tabindex="0">
+                              <svg width="16" height="16">
+                                <use xlink:href="./assets/sprite.svg#icon-file"></use>
+                              </svg><span>Прикрепить</span>
+                            </label>
+                </div>
+                <div class="order-form__field">
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="notarized_translation_required" checked>
+                              <label class="checkbox-label" for="notarized_translation_required" tabindex="0">Требуется нотариальное заверение перевода</label>
+                            </div>
+                </div>
               </fieldset>
-              <fieldset>
-                          <select class="custom-select" id="order-type">
-                            <option value="Обратный звонок" data-type="callback" selected>Обратный звонок</option>
-                            <option value="Переводы" data-type="translate">Переводы</option>
-                            <option value="Апостиль" data-type="apostil">Апостиль</option>
-                            <option value="Консульская легализация" data-type="legalization">Консульская легализация</option>
-                            <option value="Истребование документов" data-type="reclamation ">Истребование документов</option>
-                          </select>
+              <fieldset class="hidden" data-field="apostil">
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Страна, для которой легализуются документы" id="apostil_country_for">
+                </div>
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Вид документа" id="apostil_document_type">
+                </div>
+                <div class="order-form__field"><span class="order-form__field-desc">Копии документа(ов)</span>
+                            <input class="main-input--file main-input" type="file" id="user_apostil_files" multiple>
+                            <label class="addfile-label" for="user_apostil_files" tabindex="0">
+                              <svg width="16" height="16">
+                                <use xlink:href="./assets/sprite.svg#icon-file"></use>
+                              </svg><span>Прикрепить</span>
+                            </label>
+                </div>
+                <div class="order-form__field">
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="apostil_is_original" checked>
+                              <label class="checkbox-label" for="apostil_is_original" tabindex="0">Легализуются оригиналы ?</label>
+                            </div>
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="apostil_translation_required" checked>
+                              <label class="checkbox-label" for="apostil_translation_required" tabindex="0">Требуется ли перевод?</label>
+                            </div>
+                            <input class="main-input" type="text" placeholder="Язык перевода" id="apostil_translation_lang">
+                </div>
+              </fieldset>
+              <fieldset class="hidden" data-field="legalization">
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Страна, для которой легализуются документы" id="legalization_country_for">
+                </div>
+                <div class="order-form__field">
+                            <input class="main-input" type="text" placeholder="Вид документа" id="legalization_document_type">
+                </div>
+                <div class="order-form__field"><span class="order-form__field-desc">Копии документа(ов)</span>
+                            <input class="main-input--file main-input" type="file" id="user_legalization_files" multiple>
+                            <label class="addfile-label" for="user_legalization_files" tabindex="0">
+                              <svg width="16" height="16">
+                                <use xlink:href="./assets/sprite.svg#icon-file"></use>
+                              </svg><span>Прикрепить</span>
+                            </label>
+                </div>
+                <div class="order-form__field">
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="legalization_is_original" checked>
+                              <label class="checkbox-label" for="legalization_is_original" tabindex="0">Легализуются оригиналы ?</label>
+                            </div>
+                            <div class="main-checkbox">
+                              <input type="checkbox" id="legalization_translation_required" checked>
+                              <label class="checkbox-label" for="legalization_translation_required" tabindex="0">Требуется ли перевод?</label>
+                            </div>
+                            <input class="main-input" type="text" placeholder="Язык перевода" id="legalization_translation_lang">
+                </div>
               </fieldset>
             </form>
                       <button class="order-form__btn main-btn main-btn--button" type="button">Отправить</button>

@@ -22,6 +22,16 @@
     content: '';
 
     background-image: url("../assets/img/woman@1x.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include m-b-tablet-lg-down {
+      display: none;
+    }
+  }
+
+  @include m-b-tablet-lg-down {
+    padding-right: 50px;
   }
 
   @include m-b-tablet-down {
@@ -44,16 +54,35 @@
   }
 
   form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-
-    margin-bottom: 30px;
-
     fieldset {
       @extend .fieldset-default;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+
+      margin-bottom: 20px;
+
+      @include m-b-tablet-down {
+        grid-template-columns: 1fr;
+      }
+
+      .main-checkbox {
+        margin-bottom: 20px;
+      }
+
+      .order-form__field > span {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 20px;
+        color: var(--secondary);
+      }
+
+      &.hidden {
+        display: none;
+      }
     }
   }
 
