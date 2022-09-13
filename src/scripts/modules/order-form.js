@@ -1,32 +1,47 @@
+import { FormType } from "../utils/const";
+import { render } from "../utils/render";
+import { OrderFormView } from "../utils/order-form-view";
+import addFile from "./add-file";
+
 const form = document.getElementById('order-form');
 
 if(form) {
   const options = form.querySelectorAll('.custom-select-option');
-  const hidden = form.querySelectorAll('fieldset.hidden');
+  const submitBtn = document.querySelector('.order-form__btn');
 
-  let type = null;
+  let prevType = null;
+  let currentType = null;
+  let prevView = null;
+  let currentView = null;
 
   const onClickHandler = (evt) => {
-    current = evt.target.dataset.value;
+    currentType = evt.target.dataset.value;
 
-    if(current === type) {
+    if(currentType === prevType) {
       return;
-    }
+    };
 
-    type = current;
+    prevType = currentType;
+    prevView = form.querySelector('[data-field]');
 
-    hidden.forEach(el => {
-      !el.classList.contains('hidden') ?
-      el.classList.add('hidden') : null;
+    if(prevView !== null) {
+      prevView.remove();
+    };
 
-      if(el.dataset.field === type) {
-        el.classList.contains('hidden') ?
-        el.classList.remove('hidden') : null;
-      }
-    });
-  }
+    if(currentType !== FormType.DEFAULT) {
+      currentView = OrderFormView(currentType);
+
+      render(form, currentView);
+      addFile(form, currentType);
+    };
+  };
 
   options.forEach(option => {
     option.addEventListener('click', onClickHandler);
   });
+
+  submitBtn.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    console.log('SUBMIT ORDER FORM');
+  })
 };

@@ -9,8 +9,12 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addFile)
+/* harmony export */ });
 /* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions */ "./src/scripts/utils/functions.js");
-/* harmony import */ var _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/nodesHelper */ "./src/scripts/utils/nodesHelper.js");
+/* harmony import */ var _utils_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/render */ "./src/scripts/utils/render.js");
+/* harmony import */ var _utils_order_form_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/order-form-view */ "./src/scripts/utils/order-form-view.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -26,35 +30,56 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-if (_utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__.orderForm) {
-  var fileOpener = _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__.orderForm.querySelector('.addfile-label');
-  var control = _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_1__.orderForm.querySelector('input[type="file"]');
-  /*function createOpener() {
-     const fileOpenerView = (
-      `<div><input class="main-input--file main-input" type="file" id="user_files" multiple>
-        <label class="addfile-label" for="user_translation_file" tabindex="0">
-          <svg width="16" height="16">
-            <use xlink:href="./assets/sprite.svg#icon-file"></use>
-          </svg>
-          <span>Прикрепить еще</span>
-        </label></div>`
-    );
-     const createElement = (template) => {
-      const newElement = document.createElement('div');
-      newElement.innerHTML = template;
-      console.log(newElement)
-      return newElement.firstChild;
-    };
-     fileOpener.parentNode.append(createElement(fileOpenerView));
-  }*/
+var _count = null;
+var _container = null;
+var _type = null;
 
-  control.addEventListener('change', function (evt) {
-    var files = _toConsumableArray(evt.target.files);
+function createAddFileNode(_container, _count) {
+  (0,_utils_render__WEBPACK_IMPORTED_MODULE_1__.render)(_container, (0,_utils_order_form_view__WEBPACK_IMPORTED_MODULE_2__.OrderFormAddFileView)(_type, _count));
+  addEventListeners(_container);
+}
 
-    var count = _toConsumableArray(evt.target.files).length;
+function addEventListeners(_container) {
+  var control = _container.querySelector('input[type="file"]:not(.active)');
 
-    fileOpener.querySelector('span').textContent = " ".concat((0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.limitStr)(files[0].name, 20), " ").concat(count - 1 > 0 ? 'и еще ' + (count - 1) : '');
-  });
+  control.addEventListener('change', onChangeHandler);
+}
+
+var onClickRemoveHandler = function onClickRemoveHandler(evt) {
+  evt.currentTarget.parentNode.remove();
+
+  var controls = _container.querySelectorAll('input[type="file"]');
+
+  if (!controls.length) {
+    createAddFileNode(_container, _count);
+  }
+};
+
+var onChangeHandler = function onChangeHandler(evt) {
+  var files = _toConsumableArray(evt.target.files);
+
+  var opener = evt.target.nextElementSibling;
+
+  var controls = _container.querySelectorAll('input[type="file"]');
+
+  evt.target.classList.add('active');
+  opener.querySelector('span').textContent = "".concat((0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.limitStr)(files[0].name, 20));
+  var closer = opener.nextElementSibling;
+  closer.addEventListener('click', onClickRemoveHandler);
+
+  if (controls.length >= 5) {
+    return;
+  }
+
+  _count++;
+  createAddFileNode(_container, _count);
+};
+
+function addFile(form, _type) {
+  _count = 1;
+  _type = _type;
+  _container = form.querySelector('[data-field] > .order-form__field--file');
+  addEventListeners(_container);
 }
 
 /***/ }),
@@ -111,34 +136,60 @@ phoneFields.forEach(function (field) {
 /*!*******************************************!*\
   !*** ./src/scripts/modules/order-form.js ***!
   \*******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/const */ "./src/scripts/utils/const.js");
+/* harmony import */ var _utils_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/render */ "./src/scripts/utils/render.js");
+/* harmony import */ var _utils_order_form_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/order-form-view */ "./src/scripts/utils/order-form-view.js");
+/* harmony import */ var _add_file__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./add-file */ "./src/scripts/modules/add-file.js");
+
+
+
 
 var form = document.getElementById('order-form');
 
 if (form) {
   var options = form.querySelectorAll('.custom-select-option');
-  var hidden = form.querySelectorAll('fieldset.hidden');
-  var type = null;
+  var submitBtn = document.querySelector('.order-form__btn');
+  var prevType = null;
+  var currentType = null;
+  var prevView = null;
+  var currentView = null;
 
   var onClickHandler = function onClickHandler(evt) {
-    current = evt.target.dataset.value;
+    currentType = evt.target.dataset.value;
 
-    if (current === type) {
+    if (currentType === prevType) {
       return;
     }
 
-    type = current;
-    hidden.forEach(function (el) {
-      !el.classList.contains('hidden') ? el.classList.add('hidden') : null;
+    ;
+    prevType = currentType;
+    prevView = form.querySelector('[data-field]');
 
-      if (el.dataset.field === type) {
-        el.classList.contains('hidden') ? el.classList.remove('hidden') : null;
-      }
-    });
+    if (prevView !== null) {
+      prevView.remove();
+    }
+
+    ;
+
+    if (currentType !== _utils_const__WEBPACK_IMPORTED_MODULE_0__.FormType.DEFAULT) {
+      currentView = (0,_utils_order_form_view__WEBPACK_IMPORTED_MODULE_2__.OrderFormView)(currentType);
+      (0,_utils_render__WEBPACK_IMPORTED_MODULE_1__.render)(form, currentView);
+      (0,_add_file__WEBPACK_IMPORTED_MODULE_3__["default"])(form, currentType);
+    }
+
+    ;
   };
 
   options.forEach(function (option) {
     option.addEventListener('click', onClickHandler);
+  });
+  submitBtn.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    console.log('SUBMIT ORDER FORM');
   });
 }
 
@@ -192,6 +243,27 @@ if (sliders) {
 }
 
 ;
+
+/***/ }),
+
+/***/ "./src/scripts/utils/const.js":
+/*!************************************!*\
+  !*** ./src/scripts/utils/const.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FormType": () => (/* binding */ FormType)
+/* harmony export */ });
+var FormType = {
+  DEFAULT: 'callback',
+  TRANSLATE: 'translate',
+  RECLAMATION: 'reclamation',
+  APOSTIL: 'apostil',
+  LEGALIZATION: 'legalization'
+};
 
 /***/ }),
 
@@ -328,18 +400,93 @@ function getBoundingClientRect(elem, side) {
 
 /***/ }),
 
-/***/ "./src/scripts/utils/nodesHelper.js":
-/*!******************************************!*\
-  !*** ./src/scripts/utils/nodesHelper.js ***!
-  \******************************************/
+/***/ "./src/scripts/utils/order-form-view.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/utils/order-form-view.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "orderForm": () => (/* binding */ orderForm)
+/* harmony export */   "OrderFormAddFileView": () => (/* binding */ OrderFormAddFileView),
+/* harmony export */   "OrderFormView": () => (/* binding */ OrderFormView)
 /* harmony export */ });
-var orderForm = document.querySelector('.order-form');
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./const */ "./src/scripts/utils/const.js");
+
+var OrderFormView = function OrderFormView(type) {
+  if (type === _const__WEBPACK_IMPORTED_MODULE_0__.FormType.TRANSLATE) {
+    return "<fieldset data-field=\"translate\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u0430\" id=\"translate_from\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"translate_to\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u0422\u0435\u043A\u0441\u0442 \u0434\u043B\u044F \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430</span>\n\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_translate_files\">\n          <label class=\"add-file-label\" for=\"user_translate_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n\n      </div>\n\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"translate_notarized_translation_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"translate_notarized_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043D\u043E\u0442\u0430\u0440\u0438\u0430\u043B\u044C\u043D\u043E\u0435 \u0437\u0430\u0432\u0435\u0440\u0435\u043D\u0438\u0435 \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430</label>\n        </div>\n\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"office_stamp_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"office_stamp_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0437\u0430\u0432\u0435\u0440\u0435\u043D\u0438\u0435 \u043F\u0435\u0447\u0430\u0442\u044C\u044E \u0431\u044E\u0440\u043E</label>\n        </div>\n      </div>\n\n    </fieldset>";
+  }
+
+  if (type === _const__WEBPACK_IMPORTED_MODULE_0__.FormType.RECLAMATION) {
+    return "<fieldset data-field=\"reclamation\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u041A\u0430\u043A\u043E\u0439 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C\" id=\"reclamation_translate_from\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u041C\u0435\u0441\u0442\u043E \u0432\u044B\u0434\u0430\u0447\u0438\" id=\"reclamation_place\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u0422\u0435\u043A\u0441\u0442 \u0434\u043B\u044F \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430</span>\n\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_reclamation_files\">\n          <label class=\"addfile-label\" for=\"user_reclamation_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"reclamation_notarized_translation_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"reclamation_notarized_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043D\u043E\u0442\u0430\u0440\u0438\u0430\u043B\u044C\u043D\u043E\u0435 \u0437\u0430\u0432\u0435\u0440\u0435\u043D\u0438\u0435 \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430</label>\n        </div>\n      </div>\n    </fieldset>";
+  }
+
+  if (type === _const__WEBPACK_IMPORTED_MODULE_0__.FormType.APOSTIL) {
+    return "<fieldset data-field=\"apostil\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0421\u0442\u0440\u0430\u043D\u0430, \u0434\u043B\u044F \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u043B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\" id=\"apostil_country_for\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0412\u0438\u0434 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\" id=\"apostil_document_type\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u041A\u043E\u043F\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430(\u043E\u0432)</span>\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_apostil_files\">\n          <label class=\"addfile-label\" for=\"user_apostil_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"apostil_is_original\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"apostil_is_original\" tabindex=\"0\">\u041B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B ?</label>\n        </div>\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"apostil_translation_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"apostil_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434?</label>\n        </div>\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"apostil_translation_lang\">\n      </div>\n    </fieldset>";
+  }
+
+  if (type === _const__WEBPACK_IMPORTED_MODULE_0__.FormType.LEGALIZATION) {
+    return "<fieldset data-field=\"legalization\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0421\u0442\u0440\u0430\u043D\u0430, \u0434\u043B\u044F \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u043B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\" id=\"legalization_country_for\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0412\u0438\u0434 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\" id=\"legalization_document_type\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u041A\u043E\u043F\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430(\u043E\u0432)</span>\n\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_legalization_files\">\n          <label class=\"addfile-label\" for=\"user_legalization_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"legalization_is_original\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"legalization_is_original\" tabindex=\"0\">\u041B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B ?</label>\n        </div>\n\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"legalization_translation_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"legalization_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434?</label>\n        </div>\n\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"legalization_translation_lang\">\n      </div>\n    </fieldset>";
+  }
+};
+var OrderFormAddFileView = function OrderFormAddFileView(type, count) {
+  return "<div class=\"main-input-file-container\">\n    <input class=\"main-input--file main-input\" type=\"file\" id=\"user_".concat(type, "_files_").concat(count, "\">\n    <label class=\"add-file-label\" for=\"user_").concat(type, "_files_").concat(count, "\" tabindex=\"0\">\n      <svg width=\"16\" height=\"16\">\n        <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n      </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n    </label>\n\n    <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n  </div>");
+};
+
+/***/ }),
+
+/***/ "./src/scripts/utils/render.js":
+/*!*************************************!*\
+  !*** ./src/scripts/utils/render.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RenderPosition": () => (/* binding */ RenderPosition),
+/* harmony export */   "createElement": () => (/* binding */ createElement),
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+var RenderPosition = {
+  BEFOREBEGIN: 'beforebegin',
+  AFTERBEGIN: 'afterbegin',
+  BEFOREEND: 'beforeend',
+  AFTEREND: 'afterend'
+};
+
+var createElement = function createElement(template) {
+  var newElement = document.createElement('div');
+  newElement.innerHTML = template;
+  return newElement.firstElementChild;
+};
+
+var render = function render(container, template) {
+  var place = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'beforeend';
+  var child = createElement(template);
+
+  switch (place) {
+    case RenderPosition.BEFOREBEGIN:
+      container.before(child);
+      break;
+
+    case RenderPosition.AFTERBEGIN:
+      container.prepend(child);
+      break;
+
+    case RenderPosition.BEFOREEND:
+      container.append(child);
+      break;
+
+    case RenderPosition.AFTEREND:
+      container.after(child);
+      break;
+  }
+};
+
+
 
 /***/ }),
 
@@ -19645,18 +19792,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -19699,14 +19834,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
 /* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
 /* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
-/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_order_form__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_add_file__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/add-file */ "./src/scripts/modules/add-file.js");
 
 
 
 
-
-
+ //import "./modules/add-file";
 })();
 
 /******/ })()

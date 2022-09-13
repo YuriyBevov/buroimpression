@@ -1,36 +1,53 @@
 import { limitStr } from "../utils/functions";
-import { orderForm } from "../utils/nodesHelper";
+import { render } from "../utils/render";
+import { OrderFormAddFileView } from "../utils/order-form-view";
 
-if(orderForm) {
-  const fileOpener = orderForm.querySelector('.addfile-label');
-  const control = orderForm.querySelector('input[type="file"]');
+let _count = null;
+let _container = null;
+let _type = null;
 
-  /*function createOpener() {
+function createAddFileNode(_container, _count) {
+  render(_container, OrderFormAddFileView(_type, _count));
+  addEventListeners(_container);
+}
 
-    const fileOpenerView = (
-      `<div><input class="main-input--file main-input" type="file" id="user_files" multiple>
-        <label class="addfile-label" for="user_translation_file" tabindex="0">
-          <svg width="16" height="16">
-            <use xlink:href="./assets/sprite.svg#icon-file"></use>
-          </svg>
-          <span>Прикрепить еще</span>
-        </label></div>`
-    );
+function addEventListeners(_container) {
+  const control = _container.querySelector('input[type="file"]:not(.active)');
+  control.addEventListener('change', onChangeHandler);
+}
 
-    const createElement = (template) => {
-      const newElement = document.createElement('div');
-      newElement.innerHTML = template;
-      console.log(newElement)
-      return newElement.firstChild;
-    };
+const onClickRemoveHandler = (evt) => {
+  evt.currentTarget.parentNode.remove();
+  const controls = _container.querySelectorAll('input[type="file"]');
 
-    fileOpener.parentNode.append(createElement(fileOpenerView));
-  }*/
+  if(!controls.length) {
+    createAddFileNode(_container, _count);
+  }
+}
 
-  control.addEventListener('change', (evt) => {
-    const files = [...evt.target.files];
-    const count = [...evt.target.files].length;
+const onChangeHandler = (evt) => {
+  const files = [...evt.target.files];
+  const opener = evt.target.nextElementSibling;
+  const controls = _container.querySelectorAll('input[type="file"]');
+  evt.target.classList.add('active');
 
-    fileOpener.querySelector('span').textContent = ` ${ limitStr(files[0].name, 20)} ${count - 1 > 0 ? 'и еще ' + (count - 1) : ''}` ;
-  })
+  opener.querySelector('span').textContent = `${ limitStr(files[0].name, 20) }`;
+
+  let closer = opener.nextElementSibling
+  closer.addEventListener('click', onClickRemoveHandler);
+
+  if(controls.length >= 5) {
+    return;
+  }
+
+  _count++;
+  createAddFileNode(_container, _count);
+}
+
+export default function addFile(form, _type) {
+  _count = 1;
+  _type = _type;
+  _container = form.querySelector('[data-field] > .order-form__field--file');
+
+  addEventListeners(_container);
 }

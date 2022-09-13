@@ -1,3 +1,6 @@
+.main-input-file-container.hidden {
+  display: none;
+}
 .order-form {
   position: relative;
   @extend .flex-column;
