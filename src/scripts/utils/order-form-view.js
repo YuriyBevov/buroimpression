@@ -94,7 +94,7 @@ export const OrderFormView = (type) => {
           <input type="checkbox" id="apostil_is_original" checked="">
           <label class="checkbox-label" for="apostil_is_original" tabindex="0">Легализуются оригиналы ?</label>
         </div>
-        <div class="main-checkbox">
+        <div class="main-checkbox" data-depend="apostil_translation_lang">
           <input type="checkbox" id="apostil_translation_required" checked="">
           <label class="checkbox-label" for="apostil_translation_required" tabindex="0">Требуется ли перевод?</label>
         </div>
@@ -131,7 +131,7 @@ export const OrderFormView = (type) => {
         </div>
 
         <div class="main-checkbox">
-          <input type="checkbox" id="legalization_translation_required" checked="">
+          <input type="checkbox" id="legalization_translation_required" data-depend="legalization_translation_lang" checked="">
           <label class="checkbox-label" for="legalization_translation_required" tabindex="0">Требуется ли перевод?</label>
         </div>
 
@@ -147,7 +147,8 @@ export const OrderFormAddFileView = (type, count) => {
     <label class="add-file-label" for="user_${type}_files_${count}" tabindex="0">
       <svg width="16" height="16">
         <use xlink:href="./assets/sprite.svg#icon-file"></use>
-      </svg><span>Прикрепить</span>
+      </svg>
+      <span>Прикрепить</span>
     </label>
 
     <button type="button" class="main-input-file-remove">Удалить</button>

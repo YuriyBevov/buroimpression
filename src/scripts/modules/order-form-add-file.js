@@ -18,20 +18,29 @@ function addEventListeners(_container) {
 
 const onClickRemoveHandler = (evt) => {
   evt.currentTarget.parentNode.remove();
+
   const controls = _container.querySelectorAll('input[type="file"]');
+  const activeControls = _container.querySelectorAll('input[type="file"].active');
 
   if(!controls.length) {
+    createAddFileNode(_container, _count);
+  }
+
+  if(activeControls.length === 4) {
     createAddFileNode(_container, _count);
   }
 }
 
 const onChangeHandler = (evt) => {
+
   const files = [...evt.target.files];
   const opener = evt.target.nextElementSibling;
   const controls = _container.querySelectorAll('input[type="file"]');
   evt.target.classList.add('active');
 
-  opener.querySelector('span').textContent = `${ limitStr(files[0].name, 20) }`;
+  if(files.length) {
+    opener.querySelector('span').textContent = `${ limitStr(files[0].name, 28) }`;
+  }
 
   let closer = opener.nextElementSibling
   closer.addEventListener('click', onClickRemoveHandler);
@@ -44,7 +53,7 @@ const onChangeHandler = (evt) => {
   createAddFileNode(_container, _count);
 }
 
-export default function addFile(form, _type) {
+export default function initFileAdd(form, _type) {
   _count = 1;
   _type = _type;
   _container = form.querySelector('[data-field] > .order-form__field--file');

@@ -19,6 +19,10 @@
     color: var(--main-control-placeholder-color);
   }
 
+  &-file-container {
+    margin-bottom: 12px;
+  }
+
   &[type="file"] {
     display: none;
 
@@ -40,6 +44,18 @@
         fill: var(--accent);
         margin-right: 8px;
       }
+    }
+
+    & +  label + button {
+      @extend .button-default;
+      text-decoration: underline;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--secondary);
+    }
+
+    &:not(.active) + label + button {
+      display: none;
     }
   }
 }

@@ -44,7 +44,6 @@ function getRadians(degrees) {
 
 // Ограничение длины текста по кол-ву символов
 function limitStr( str, n ) {
-  console.log(str, n, typeof(str))
   if ( str.length > n ) {
       return str.slice(0, n) + '...';
   } else {

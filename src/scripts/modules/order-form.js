@@ -1,7 +1,7 @@
 import { FormType } from "../utils/const";
 import { render } from "../utils/render";
 import { OrderFormView } from "../utils/order-form-view";
-import addFile from "./add-file";
+import initFileAdd from "./order-form-add-file";
 
 const form = document.getElementById('order-form');
 
@@ -32,7 +32,7 @@ if(form) {
       currentView = OrderFormView(currentType);
 
       render(form, currentView);
-      addFile(form, currentType);
+      initFileAdd(form, currentType);
     };
   };
 

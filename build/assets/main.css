@@ -1413,7 +1413,7 @@ input[type=number] {
 }
 
 /*controls*/
-.button-default, .main-btn--button, .burger {
+.button-default, .main-input[type=file] + label + button, .main-btn--button, .burger {
   border: 0;
   padding: 0;
   background-color: transparent;
@@ -1966,6 +1966,9 @@ input[type=number] {
   line-height: 20px;
   color: var(--main-control-placeholder-color);
 }
+.main-input-file-container {
+  margin-bottom: 12px;
+}
 .main-input[type=file] {
   display: none;
 }
@@ -1984,6 +1987,15 @@ input[type=number] {
 .main-input[type=file] + label svg {
   fill: var(--accent);
   margin-right: 8px;
+}
+.main-input[type=file] + label + button {
+  text-decoration: underline;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--secondary);
+}
+.main-input[type=file]:not(.active) + label + button {
+  display: none;
 }
 
 .main-checkbox {
