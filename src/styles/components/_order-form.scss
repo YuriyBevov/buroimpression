@@ -1,6 +1,7 @@
 .main-input-file-container.hidden {
   display: none;
 }
+
 .order-form {
   position: relative;
   @extend .flex-column;
@@ -71,6 +72,7 @@
 
   form {
     margin-bottom: 30px;
+
     fieldset {
       @extend .fieldset-default;
       display: grid;
@@ -83,10 +85,6 @@
 
       @include m-b-down(1240px) {
         grid-template-columns: 1fr;
-      }
-
-      @include m-b-tablet-lg-down {
-        //grid-template-columns: repeat(2, 1fr);
       }
 
       @include m-b-down(768px) {

@@ -49,6 +49,16 @@ phoneFields.forEach(function (field) {
 
 /***/ }),
 
+/***/ "./src/scripts/modules/loader.js":
+/*!***************************************!*\
+  !*** ./src/scripts/modules/loader.js ***!
+  \***************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./src/scripts/modules/order-form-add-file.js":
 /*!****************************************************!*\
   !*** ./src/scripts/modules/order-form-add-file.js ***!
@@ -163,32 +173,46 @@ var form = document.getElementById('order-form');
 if (form) {
   var options = form.querySelectorAll('.custom-select-option');
   var submitBtn = document.querySelector('.order-form__btn');
-  var prevType = null;
-  var currentType = null;
-  var prevView = null;
-  var currentView = null;
+  var _prevType = null;
+  var _currentType = null;
+  var _prevView = null;
+  var _currentView = null;
+
+  var initAddictFields = function initAddictFields(form) {
+    var controls = form.querySelectorAll('input[data-addict]');
+
+    if (controls.length) {
+      controls.forEach(function (control) {
+        control.addEventListener('change', function () {
+          var field = form.querySelector("#".concat(control.dataset.addict));
+          !control.checked ? field.setAttribute('disabled', true) : field.removeAttribute('disabled');
+        });
+      });
+    }
+  };
 
   var onClickHandler = function onClickHandler(evt) {
-    currentType = evt.target.dataset.value;
+    _currentType = evt.target.dataset.value;
 
-    if (currentType === prevType) {
+    if (_currentType === _prevType) {
       return;
     }
 
     ;
-    prevType = currentType;
-    prevView = form.querySelector('[data-field]');
+    _prevType = _currentType;
+    _prevView = form.querySelector('[data-field]');
 
-    if (prevView !== null) {
-      prevView.remove();
+    if (_prevView !== null) {
+      _prevView.remove();
     }
 
     ;
 
-    if (currentType !== _utils_const__WEBPACK_IMPORTED_MODULE_0__.FormType.DEFAULT) {
-      currentView = (0,_utils_order_form_view__WEBPACK_IMPORTED_MODULE_2__.OrderFormView)(currentType);
-      (0,_utils_render__WEBPACK_IMPORTED_MODULE_1__.render)(form, currentView);
-      (0,_order_form_add_file__WEBPACK_IMPORTED_MODULE_3__["default"])(form, currentType);
+    if (_currentType !== _utils_const__WEBPACK_IMPORTED_MODULE_0__.FormType.DEFAULT) {
+      _currentView = (0,_utils_order_form_view__WEBPACK_IMPORTED_MODULE_2__.OrderFormView)(_currentType);
+      (0,_utils_render__WEBPACK_IMPORTED_MODULE_1__.render)(form, _currentView);
+      initAddictFields(form);
+      (0,_order_form_add_file__WEBPACK_IMPORTED_MODULE_3__["default"])(form, _currentType);
     }
 
     ;
@@ -430,11 +454,11 @@ var OrderFormView = function OrderFormView(type) {
   }
 
   if (type === _const__WEBPACK_IMPORTED_MODULE_0__.FormType.APOSTIL) {
-    return "<fieldset data-field=\"apostil\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0421\u0442\u0440\u0430\u043D\u0430, \u0434\u043B\u044F \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u043B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\" id=\"apostil_country_for\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0412\u0438\u0434 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\" id=\"apostil_document_type\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u041A\u043E\u043F\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430(\u043E\u0432)</span>\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_apostil_files\">\n          <label class=\"addfile-label\" for=\"user_apostil_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"apostil_is_original\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"apostil_is_original\" tabindex=\"0\">\u041B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B ?</label>\n        </div>\n        <div class=\"main-checkbox\" data-depend=\"apostil_translation_lang\">\n          <input type=\"checkbox\" id=\"apostil_translation_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"apostil_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434?</label>\n        </div>\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"apostil_translation_lang\">\n      </div>\n    </fieldset>";
+    return "<fieldset data-field=\"apostil\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0421\u0442\u0440\u0430\u043D\u0430, \u0434\u043B\u044F \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u043B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\" id=\"apostil_country_for\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0412\u0438\u0434 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\" id=\"apostil_document_type\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u041A\u043E\u043F\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430(\u043E\u0432)</span>\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_apostil_files\">\n          <label class=\"addfile-label\" for=\"user_apostil_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"apostil_is_original\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"apostil_is_original\" tabindex=\"0\">\u041B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B ?</label>\n        </div>\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" data-addict=\"apostil_translation_lang\" id=\"apostil_translation_required\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"apostil_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434?</label>\n        </div>\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"apostil_translation_lang\">\n      </div>\n    </fieldset>";
   }
 
   if (type === _const__WEBPACK_IMPORTED_MODULE_0__.FormType.LEGALIZATION) {
-    return "<fieldset data-field=\"legalization\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0421\u0442\u0440\u0430\u043D\u0430, \u0434\u043B\u044F \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u043B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\" id=\"legalization_country_for\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0412\u0438\u0434 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\" id=\"legalization_document_type\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u041A\u043E\u043F\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430(\u043E\u0432)</span>\n\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_legalization_files\">\n          <label class=\"addfile-label\" for=\"user_legalization_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"legalization_is_original\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"legalization_is_original\" tabindex=\"0\">\u041B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B ?</label>\n        </div>\n\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"legalization_translation_required\" data-depend=\"legalization_translation_lang\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"legalization_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434?</label>\n        </div>\n\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"legalization_translation_lang\">\n      </div>\n    </fieldset>";
+    return "<fieldset data-field=\"legalization\">\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0421\u0442\u0440\u0430\u043D\u0430, \u0434\u043B\u044F \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u043B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\" id=\"legalization_country_for\">\n      </div>\n      <div class=\"order-form__field\">\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u0412\u0438\u0434 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\" id=\"legalization_document_type\">\n      </div>\n      <div class=\"order-form__field order-form__field--file\">\n        <span class=\"order-form__field-desc\">\u041A\u043E\u043F\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430(\u043E\u0432)</span>\n\n        <div class=\"main-input-file-container\">\n          <input class=\"main-input--file main-input\" type=\"file\" id=\"user_legalization_files\">\n          <label class=\"addfile-label\" for=\"user_legalization_files\" tabindex=\"0\">\n            <svg width=\"16\" height=\"16\">\n              <use xlink:href=\"./assets/sprite.svg#icon-file\"></use>\n            </svg><span>\u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u044C</span>\n          </label>\n          <button type=\"button\" class=\"main-input-file-remove\">\u0423\u0434\u0430\u043B\u0438\u0442\u044C</button>\n        </div>\n      </div>\n      <div class=\"order-form__field\">\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"legalization_is_original\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"legalization_is_original\" tabindex=\"0\">\u041B\u0435\u0433\u0430\u043B\u0438\u0437\u0443\u044E\u0442\u0441\u044F \u043E\u0440\u0438\u0433\u0438\u043D\u0430\u043B\u044B ?</label>\n        </div>\n\n        <div class=\"main-checkbox\">\n          <input type=\"checkbox\" id=\"legalization_translation_required\" data-addict=\"legalization_translation_lang\" checked=\"\">\n          <label class=\"checkbox-label\" for=\"legalization_translation_required\" tabindex=\"0\">\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0434?</label>\n        </div>\n\n        <input class=\"main-input\" type=\"text\" placeholder=\"\u042F\u0437\u044B\u043A \u043F\u0435\u0440\u0435\u0432\u043E\u0434\u0430\" id=\"legalization_translation_lang\">\n      </div>\n    </fieldset>";
   }
 };
 var OrderFormAddFileView = function OrderFormAddFileView(type, count) {
@@ -19798,6 +19822,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -19835,16 +19871,19 @@ var __webpack_exports__ = {};
   !*** ./src/scripts/main.js ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
-/* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
-/* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
-/* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
-/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
+/* harmony import */ var _modules_loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/loader */ "./src/scripts/modules/loader.js");
+/* harmony import */ var _modules_loader__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_loader__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
+/* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
+/* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
+/* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
+/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
 
 
 
 
- //import "./modules/add-file";
+
+
 })();
 
 /******/ })()

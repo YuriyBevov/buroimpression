@@ -23,6 +23,10 @@
     margin-bottom: 12px;
   }
 
+  &[disabled] {
+    opacity: 0.3;
+  }
+
   &[type="file"] {
     display: none;
 

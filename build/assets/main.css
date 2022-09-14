@@ -1969,6 +1969,9 @@ input[type=number] {
 .main-input-file-container {
   margin-bottom: 12px;
 }
+.main-input[disabled] {
+  opacity: 0.3;
+}
 .main-input[type=file] {
   display: none;
 }

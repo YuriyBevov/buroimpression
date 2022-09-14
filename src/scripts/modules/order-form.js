@@ -9,30 +9,47 @@ if(form) {
   const options = form.querySelectorAll('.custom-select-option');
   const submitBtn = document.querySelector('.order-form__btn');
 
-  let prevType = null;
-  let currentType = null;
-  let prevView = null;
-  let currentView = null;
+  let _prevType = null;
+  let _currentType = null;
+  let _prevView = null;
+  let _currentView = null;
+
+  const initAddictFields = (form) => {
+    const controls = form.querySelectorAll('input[data-addict]');
+    if(controls.length) {
+      controls.forEach(control => {
+        control.addEventListener('change', () => {
+          const field = form.querySelector(`#${control.dataset.addict}`);
+
+          !control.checked ?
+            field.setAttribute('disabled', true):
+            field.removeAttribute('disabled');
+
+        });
+      });
+    }
+  }
 
   const onClickHandler = (evt) => {
-    currentType = evt.target.dataset.value;
+    _currentType = evt.target.dataset.value;
 
-    if(currentType === prevType) {
+    if(_currentType === _prevType) {
       return;
     };
 
-    prevType = currentType;
-    prevView = form.querySelector('[data-field]');
+    _prevType = _currentType;
+    _prevView = form.querySelector('[data-field]');
 
-    if(prevView !== null) {
-      prevView.remove();
+    if(_prevView !== null) {
+      _prevView.remove();
     };
 
-    if(currentType !== FormType.DEFAULT) {
-      currentView = OrderFormView(currentType);
+    if(_currentType !== FormType.DEFAULT) {
+      _currentView = OrderFormView(_currentType);
 
-      render(form, currentView);
-      initFileAdd(form, currentType);
+      render(form, _currentView);
+      initAddictFields(form);
+      initFileAdd(form, _currentType);
     };
   };
 
