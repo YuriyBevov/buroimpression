@@ -1,0 +1,42 @@
+.order-step {
+  margin-bottom: 80px;
+
+  h2 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  &__list-item {
+    padding: 20px;
+    background-color: var(--order-step-card-bg);
+
+    span {
+      display: inline-block;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+
+      margin-bottom: 10px;
+      color: var(--info);
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+
+      a {
+        text-decoration: underline;
+        color: var(--accent);
+      }
+    }
+  }
+}

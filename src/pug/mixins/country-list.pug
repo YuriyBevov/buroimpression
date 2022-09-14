@@ -1,0 +1,78 @@
+-
+  const tabs = [
+    { label: 'A', dataID: 1, isActive: true },
+    { label: 'Б', dataID: 2 },
+    { label: 'В', dataID: 3 },
+    { label: 'Г', dataID: 4 },
+    { label: 'Д', dataID: 5 },
+    { label: 'Е', dataID: 6 }
+  ]
+
+-
+  const content = [
+    { dataID: 1,
+      isActive: true,
+      data: [
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+        {url: '#', name: 'Алжир', lang: 'Алжирский'},
+        {url: '#', name: 'Англия', lang: 'Английский'},
+      ]
+    },
+    { dataID: 2,
+      data: [
+        {url: '#', name: 'Беларусь', lang: 'Беларуский'},
+        {url: '#', name: 'Болгария', lang: 'Болгарский'},
+      ]
+    },
+    { dataID: 3,
+      data: [
+        {url: '#', name: 'Беларусь', lang: 'Беларуский'},
+        {url: '#', name: 'Болгария', lang: 'Болгарский'},
+      ]
+    },
+    { dataID: 4,
+      data: [
+        {url: '#', name: 'Беларусь', lang: 'Беларуский'},
+        {url: '#', name: 'Болгария', lang: 'Болгарский'},
+      ]
+    },
+    { dataID: 5,
+      data: [
+        {url: '#', name: 'Беларусь', lang: 'Беларуский'},
+        {url: '#', name: 'Болгария', lang: 'Болгарский'},
+      ]
+    }
+  ]
+
+mixin country-list(data)
+  .country-chooser
+    span.country-chooser__desc!= data.title
+
+    .country-chooser__container
+      .tabs
+        each tab in tabs
+          button(button="button").tabs__item( data-tab= tab.dataID )= tab.label
+
+      .tabs-content
+        each item in content
+          .tabs-content__list(class = item.isActive ? 'active' : null)
+            each link in item.data
+              a( href= link.url )= data.type === 'legalization' ? link.name : data.type === 'translation' ? link.lang : null
+
+    if data.info
+      span.country-chooser__info!= data.info

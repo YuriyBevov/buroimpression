@@ -1,0 +1,28 @@
+.faq {
+  &__container {
+    @extend .flex-column;
+  }
+
+  &__accordeon {
+    margin-bottom: 60px;
+
+    a {
+      @extend .hover-opacity-transition;
+    }
+  }
+
+  &__examples {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    margin: 0 auto;
+    margin-bottom: 80px;
+    color: var(--accent);
+
+    @extend .hover-opacity-transition;
+  }
+}

@@ -1,6 +1,110 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/classes/Accordeon.js":
+/*!******************************************!*\
+  !*** ./src/scripts/classes/Accordeon.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Accordeon": () => (/* binding */ Accordeon)
+/* harmony export */ });
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+
+var _container = /*#__PURE__*/new WeakMap();
+
+var _headers = /*#__PURE__*/new WeakMap();
+
+var _onClickHandler = /*#__PURE__*/new WeakMap();
+
+var _init = /*#__PURE__*/new WeakSet();
+
+var Accordeon = /*#__PURE__*/_createClass(function Accordeon(container) {
+  _classCallCheck(this, Accordeon);
+
+  _classPrivateMethodInitSpec(this, _init);
+
+  _classPrivateFieldInitSpec(this, _container, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _headers, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _onClickHandler, {
+    writable: true,
+    value: function value(evt) {
+      var target = evt.currentTarget;
+      var body = target.parentNode;
+      body.classList.contains('collapsed') ? body.classList.remove('collapsed') : body.classList.add('collapsed');
+    }
+  });
+
+  _classPrivateFieldSet(this, _container, container);
+
+  _classPrivateFieldSet(this, _headers, _classPrivateFieldGet(this, _container).querySelectorAll('.accordeon-item-header'));
+
+  _classPrivateMethodGet(this, _init, _init2).call(this);
+});
+
+function _init2() {
+  var _this = this;
+
+  _classPrivateFieldGet(this, _headers).forEach(function (header) {
+    header.addEventListener('click', _classPrivateFieldGet(_this, _onClickHandler));
+  });
+}
+
+/***/ }),
+
+/***/ "./src/scripts/modules/accordeons-init.js":
+/*!************************************************!*\
+  !*** ./src/scripts/modules/accordeons-init.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _classes_Accordeon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/Accordeon */ "./src/scripts/classes/Accordeon.js");
+
+var accordeons = document.querySelectorAll('.accordeon');
+
+if (accordeons) {
+  accordeons.forEach(function (acc) {
+    return new _classes_Accordeon__WEBPACK_IMPORTED_MODULE_0__.Accordeon(acc);
+  });
+}
+
+/***/ }),
+
 /***/ "./src/scripts/modules/custom-select.js":
 /*!**********************************************!*\
   !*** ./src/scripts/modules/custom-select.js ***!
@@ -19878,6 +19982,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
 /* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
 /* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
+/* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
+//import "./modules/gsap-init";
+
 
 
 

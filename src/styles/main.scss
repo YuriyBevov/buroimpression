@@ -18,6 +18,8 @@
 @import "./components/main-input";
 @import "./components/main-checkbox";
 @import "./components/custom-select";
+@import "./components/country-chooser";
+@import "./components/main-accordeon";
 
 /* views */
 @import "./views/common/header";
@@ -28,8 +30,13 @@
 @import "./views/index-page/review";
 @import "./views/index-page/certificate";
 
+@import "./views/legalization-page/order-step";
+@import "./views/legalization-page/legalization-info";
+@import "./views/legalization-page/faq";
+
 @import "./views/common/client";
 @import "./views/common/order";
+@import "./views/common/preview";
 
 @import "./views/common/footer";
 /* modals */

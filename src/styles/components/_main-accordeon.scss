@@ -1,0 +1,56 @@
+$padding: 30px;
+
+.accordeon {
+  &-item {
+    margin-bottom: 20px;
+    background-color: var(--main-accordeon-bg);
+
+
+    &.collapsed {
+      .accordeon-item-header {
+        @extend .hover-opacity-transition;
+
+        svg {
+          transform: rotate(0);
+        }
+      }
+
+      .accordeon-item-body {
+        display: none; // temp
+      }
+    }
+
+    &-header {
+      @extend .flex-wrap;
+      align-items: center;
+
+      padding: $padding;
+
+      svg {
+        margin-left: auto;
+        fill: var(--secondary);
+        transform: rotate(180deg);
+
+        transition: transform var(--main-transition);
+      }
+
+      cursor: pointer;
+
+
+    }
+
+    &-body {
+      padding: $padding;
+      padding-top: 0;
+
+      div {
+        margin-bottom: 15px;
+      }
+
+      a {
+        text-decoration: underline;
+        color: var(--accent);
+      }
+    }
+  }
+}

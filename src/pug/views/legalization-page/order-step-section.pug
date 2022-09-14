@@ -1,0 +1,19 @@
+-
+  const stepList = [
+    { content: 'Выслать нам скан документа на электронную почту <a href="mailto:info@buroimpression.ru" noopener noreferrer nofollow>info@buroimpression.ru</a>' },
+    { content: 'Выбрать срок исполнения заказа и форму оплаты (мы вышлем всю информацию)' },
+    { content: 'Передать нам почтой или лично в офисе оригинал документа или его нотариальную копию' },
+    { content: 'Внести предоплату в размере 50% от стоимости всех работ' },
+    { content: 'После легализации документа доплатить оставшуюся часть стоимости и получить документ' },
+  ]
+
+section.order-step
+  .container
+    h2 Порядок размещения заказа по легализации документа
+
+    ul.order-step__list
+      each item, index in stepList
+        li.order-step__list-item
+          span!= index + 1 + '.'
+          p!= item.content
+

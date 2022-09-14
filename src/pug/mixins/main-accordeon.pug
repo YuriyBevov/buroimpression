@@ -1,0 +1,12 @@
+mixin main-accordeon(data)
+  .accordeon
+    each item in data
+      .accordeon-item.collapsed
+        .accordeon-item-header
+          h3= item.title
+
+          svg(width="24" height="24")
+            use(xlink:href="./assets/sprite.svg#icon-accordeon-arrow")
+        .accordeon-item-body
+          each content in item.content
+            != content

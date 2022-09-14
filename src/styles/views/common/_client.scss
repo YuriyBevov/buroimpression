@@ -13,14 +13,18 @@
   &__list {
     display: flex;
     align-items: center;
-    overflow: hidden;
+    width: 100%;
 
     &-item {
-      margin: 0 30px;
+      margin: 0 20px;
       padding: 10px;
 
       svg {
         fill: var(--white);
+      }
+
+      @include m-b-mobile-lg-down {
+        margin: 0;
       }
     }
   }
