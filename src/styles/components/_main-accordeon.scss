@@ -1,10 +1,9 @@
 $padding: 30px;
 
-.accordeon {
-  &-item {
+.main-accordeon {
+  &__item {
     margin-bottom: 20px;
     background-color: var(--main-accordeon-bg);
-
 
     &.collapsed {
       .accordeon-item-header {
@@ -26,6 +25,10 @@ $padding: 30px;
 
       padding: $padding;
 
+      h3 {
+        max-width: calc(100% - 60px);
+      }
+
       svg {
         margin-left: auto;
         fill: var(--secondary);
@@ -35,22 +38,24 @@ $padding: 30px;
       }
 
       cursor: pointer;
+    }
+  }
 
+  &__body {
+    padding: $padding;
+    padding-top: 0;
 
+    div {
+      margin-bottom: 15px;
     }
 
-    &-body {
-      padding: $padding;
-      padding-top: 0;
-
-      div {
-        margin-bottom: 15px;
-      }
-
-      a {
-        text-decoration: underline;
-        color: var(--accent);
-      }
+    a {
+      text-decoration: underline;
+      color: var(--accent);
     }
+  }
+
+  a {
+    @extend .hover-opacity-transition;
   }
 }

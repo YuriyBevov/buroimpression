@@ -20,6 +20,7 @@
 @import "./components/custom-select";
 @import "./components/country-chooser";
 @import "./components/main-accordeon";
+@import "./components/tabs";
 
 /* views */
 @import "./views/common/header";
@@ -30,9 +31,9 @@
 @import "./views/index-page/review";
 @import "./views/index-page/certificate";
 
-@import "./views/legalization-page/order-step";
-@import "./views/legalization-page/legalization-info";
-@import "./views/legalization-page/faq";
+//main-content-sections
+@import "./views/common/info-section";
+@import "./views/common/faq-section";
 
 @import "./views/common/client";
 @import "./views/common/order";

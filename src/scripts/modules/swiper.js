@@ -40,3 +40,25 @@ if(sliders) {
     });
   });
 };
+
+const tabs = document.querySelectorAll('.tab-header-slider');
+
+if(tabs) {
+  tabs.forEach(slider => {
+    new Swiper(slider, {
+      modules: [Navigation],
+
+      slidesPerView: 'auto',
+      //loop: true,
+      slideToClickedSlide: true,
+      //centeredSlides: true,
+      //centeredSlidesBounds: true,
+      watchOverflow: true,
+
+      navigation: {
+        nextEl: '.tab-header-slider-button-next',
+        prevEl: '.tab-header-slider-button-prev'
+      },
+    })
+  })
+}

@@ -1,12 +1,12 @@
-mixin main-accordeon(data)
-  .accordeon
+mixin main-accordeon(data, cls)
+  .accordeon(class= cls ? `${cls}-accordeon` : null)
     each item in data
-      .accordeon-item.collapsed
-        .accordeon-item-header
-          h3= item.title
+      .accordeon-item(class= cls ? `${cls}-accordeon__item` : null ).collapsed
+        .accordeon-item-header(class= cls ? `${cls}-accordeon__item-header` : null )
+          h3!= item.title
 
           svg(width="24" height="24")
             use(xlink:href="./assets/sprite.svg#icon-accordeon-arrow")
-        .accordeon-item-body
+        .accordeon-item-body(class= cls ? `${cls}-accordeon__body` : null )
           each content in item.content
             != content

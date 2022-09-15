@@ -85,6 +85,128 @@ function _init2() {
 
 /***/ }),
 
+/***/ "./src/scripts/classes/Tab.js":
+/*!************************************!*\
+  !*** ./src/scripts/classes/Tab.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Tab": () => (/* binding */ Tab)
+/* harmony export */ });
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+
+var _container = /*#__PURE__*/new WeakMap();
+
+var _switchers = /*#__PURE__*/new WeakMap();
+
+var _fields = /*#__PURE__*/new WeakMap();
+
+var _initActiveTab = /*#__PURE__*/new WeakMap();
+
+var _onClickHandler = /*#__PURE__*/new WeakMap();
+
+var _init = /*#__PURE__*/new WeakSet();
+
+var Tab = /*#__PURE__*/_createClass(function Tab(container) {
+  var _this = this;
+
+  _classCallCheck(this, Tab);
+
+  _classPrivateMethodInitSpec(this, _init);
+
+  _classPrivateFieldInitSpec(this, _container, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _switchers, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _fields, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _initActiveTab, {
+    writable: true,
+    value: function value() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      _classPrivateFieldGet(_this, _switchers).forEach(function (switcher) {
+        if (switcher.dataset.id != id && switcher.parentNode.classList.contains('active-tab')) {
+          switcher.parentNode.classList.remove('active-tab');
+        } else if (switcher.dataset.id == id && !switcher.parentNode.classList.contains('active-tab')) {
+          switcher.parentNode.classList.add('active-tab');
+        }
+      });
+
+      _classPrivateFieldGet(_this, _fields).forEach(function (field) {
+        if (field.dataset.tab != id && !field.classList.contains('collapsed')) {
+          field.classList.add('collapsed');
+        } else if (field.dataset.tab == id && field.classList.contains('collapsed')) {
+          field.classList.remove('collapsed');
+        }
+      });
+    }
+  });
+
+  _classPrivateFieldInitSpec(this, _onClickHandler, {
+    writable: true,
+    value: function value(evt) {
+      evt.preventDefault();
+
+      _classPrivateFieldGet(_this, _initActiveTab).call(_this, evt.target.dataset.id);
+    }
+  });
+
+  _classPrivateFieldSet(this, _container, container);
+
+  _classPrivateFieldSet(this, _switchers, _classPrivateFieldGet(this, _container).querySelectorAll('.tab-switcher'));
+
+  _classPrivateFieldSet(this, _fields, _classPrivateFieldGet(this, _container).querySelectorAll('.tab-content-field'));
+
+  _classPrivateMethodGet(this, _init, _init2).call(this);
+});
+
+function _init2() {
+  var _this2 = this;
+
+  _classPrivateFieldGet(this, _switchers).forEach(function (switcher) {
+    switcher.addEventListener('click', _classPrivateFieldGet(_this2, _onClickHandler));
+  });
+
+  _classPrivateFieldGet(this, _initActiveTab).call(this);
+}
+
+/***/ }),
+
 /***/ "./src/scripts/modules/accordeons-init.js":
 /*!************************************************!*\
   !*** ./src/scripts/modules/accordeons-init.js ***!
@@ -381,6 +503,43 @@ if (sliders) {
 }
 
 ;
+var tabs = document.querySelectorAll('.tab-header-slider');
+
+if (tabs) {
+  tabs.forEach(function (slider) {
+    new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider, {
+      modules: [swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation],
+      slidesPerView: 'auto',
+      //loop: true,
+      slideToClickedSlide: true,
+      //centeredSlides: true,
+      //centeredSlidesBounds: true,
+      watchOverflow: true,
+      navigation: {
+        nextEl: '.tab-header-slider-button-next',
+        prevEl: '.tab-header-slider-button-prev'
+      }
+    });
+  });
+}
+
+/***/ }),
+
+/***/ "./src/scripts/modules/tab-init.js":
+/*!*****************************************!*\
+  !*** ./src/scripts/modules/tab-init.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _classes_Tab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/Tab */ "./src/scripts/classes/Tab.js");
+
+var tabs = document.querySelectorAll('.tab');
+console.log(tabs);
+tabs.forEach(function (tab) {
+  new _classes_Tab__WEBPACK_IMPORTED_MODULE_0__.Tab(tab);
+});
 
 /***/ }),
 
@@ -19983,7 +20142,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
 /* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
 /* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
+/* harmony import */ var _modules_tab_init__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tab-init */ "./src/scripts/modules/tab-init.js");
 //import "./modules/gsap-init";
+
 
 
 

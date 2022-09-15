@@ -6,3 +6,4 @@ import "./modules/custom-select";
 import "./modules/input-number-mask";
 import "./modules/order-form";
 import "./modules/accordeons-init";
+import "./modules/tab-init";

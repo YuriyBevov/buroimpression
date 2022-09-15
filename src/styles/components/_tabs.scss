@@ -1,0 +1,129 @@
+.tab {
+  &-header-slider {
+    margin-bottom: 40px;
+    .swiper-slide {
+      display: flex;
+      width: fit-content;
+      padding-right: 30px;
+
+      &:not(:first-child) {
+        padding: 0 50px;
+      }
+
+      &:first-child {
+        padding-right: 50px;
+      }
+
+      a {
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: 700;
+
+        padding: 8px 0;
+
+        color: var(--info);
+
+        opacity: 0.5;
+
+        @extend .hover-opacity-transition;
+      }
+
+      &.active-tab a {
+        border-bottom: 1px dashed var(--accent);
+        color: var(--accent);
+        opacity: 1;
+      }
+    }
+
+    &-button-prev,
+    &-button-next {
+      top: 22px;
+      right: 0;
+
+      width: 40px;
+      height: 100%;
+
+      background-color: var(--main-bg-color);
+
+      svg {
+        fill: none;
+        stroke: var(--main-slider-button-icon-fill);
+        stroke-width: 2px;
+      }
+
+      @include m-b-down(534px) {
+        display: none;
+      }
+    }
+
+    &-button-prev {
+      left: 0;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .swiper-button-disabled {
+      display: none;
+    }
+  }
+
+  &-content {
+
+  }
+
+  &-content-field {
+    margin-bottom: 40px;
+
+    line-height: 26px;
+    margin-bottom: 40px;
+
+    color: var(--secondary);
+
+    &.collapsed {
+      display: none;
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 26px;
+      margin-bottom: 10px;
+      color: var(--main-color);
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    a {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 40px;
+
+      li {
+        position: relative;
+        margin-bottom: 15px;
+
+        &::before {
+          position: absolute;
+          top: 10px;
+          left: -17px;
+          content: '';
+
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+
+          background-color: var(--info);
+        }
+      }
+    }
+
+  }
+}

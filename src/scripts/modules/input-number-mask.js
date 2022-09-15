@@ -2,7 +2,7 @@ import IMask from 'imask';
 
 const phoneFields = document.querySelectorAll('input[type="tel"');
 
-let maskOptions = {
+const maskOptions = {
   mask: '+{7}(000)000-00-00'
 }
 

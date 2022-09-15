@@ -1,17 +1,11 @@
-.faq {
-  &__container {
-    @extend .flex-column;
-  }
+.faq-section {
+  @extend .flex-column;
 
-  &__accordeon {
+  .accordeon {
     margin-bottom: 60px;
-
-    a {
-      @extend .hover-opacity-transition;
-    }
   }
 
-  &__examples {
+  & > a {
     font-weight: 600;
     font-size: 16px;
     line-height: 21px;
