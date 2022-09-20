@@ -32,8 +32,20 @@
           font-size: 20px;
         }
 
-        @include m-b-mobile-lg-down {
+        @include m-b-tablet-down {
           font-size: 18px;
+          max-width: calc(100% - 50px);
+          padding-right: 20px;
+        }
+
+        @include m-b-mobile-lg-down {
+          font-size: 16px;
+          max-width: calc(100% - 30px);
+          padding-right: 10px;
+        }
+
+        @include m-b-down(375px) {
+          font-size: 14px;
         }
       }
 
@@ -43,6 +55,11 @@
         transform: rotate(180deg);
 
         transition: transform var(--main-transition);
+
+        @include m-b-mobile-lg-down {
+          width: 16px;
+          height: 16px;
+        }
       }
 
       cursor: pointer;
