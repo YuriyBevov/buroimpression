@@ -2,7 +2,7 @@
   @extend .flex-column;
 
   .accordeon {
-    margin-bottom: 60px;
+    margin-bottom: clamp(20px, 4vw, 60px);
   }
 
   & > a {
@@ -14,7 +14,7 @@
     text-transform: uppercase;
 
     margin: 0 auto;
-    margin-bottom: 80px;
+    margin-bottom: clamp(40px, 5vw, 80px);
     color: var(--accent);
 
     @extend .hover-opacity-transition;

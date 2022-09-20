@@ -160,10 +160,10 @@ var Tab = /*#__PURE__*/_createClass(function Tab(container) {
       var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
       _classPrivateFieldGet(_this, _switchers).forEach(function (switcher) {
-        if (switcher.dataset.id != id && switcher.parentNode.classList.contains('active-tab')) {
-          switcher.parentNode.classList.remove('active-tab');
-        } else if (switcher.dataset.id == id && !switcher.parentNode.classList.contains('active-tab')) {
-          switcher.parentNode.classList.add('active-tab');
+        if (switcher.dataset.id != id && switcher.classList.contains('active-tab')) {
+          switcher.classList.remove('active-tab');
+        } else if (switcher.dataset.id == id && !switcher.classList.contains('active-tab')) {
+          switcher.classList.add('active-tab');
         }
       });
 

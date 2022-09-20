@@ -12,10 +12,10 @@ export class Tab {
 
   #initActiveTab = (id = 1) => {
     this.#switchers.forEach(switcher => {
-      if(switcher.dataset.id != id && switcher.parentNode.classList.contains('active-tab') ) {
-        switcher.parentNode.classList.remove('active-tab');
-      } else if (switcher.dataset.id == id && !switcher.parentNode.classList.contains('active-tab') ) {
-        switcher.parentNode.classList.add('active-tab');
+      if(switcher.dataset.id != id && switcher.classList.contains('active-tab') ) {
+        switcher.classList.remove('active-tab');
+      } else if (switcher.dataset.id == id && !switcher.classList.contains('active-tab') ) {
+        switcher.classList.add('active-tab');
       }
     })
 

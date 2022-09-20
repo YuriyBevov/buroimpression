@@ -4,6 +4,7 @@
   z-index: 99;
   background-color: var(--main-bg-color);
   padding: 15px 0;
+  height: 85px;
 
   &__container {
     @extend .flex-wrap;

@@ -1,5 +1,5 @@
 .info-section {
-  margin-bottom: 80px;
+  margin-bottom: clamp(30px, 5vw, 80px);
 
   a {
     @extend .hover-opacity-transition;
@@ -18,9 +18,26 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 
+    @include m-b-laptop-down {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include m-b-down(668px) {
+      display: flex;
+      flex-direction: column;
+    }
+
     li {
-      padding: 20px;
+      padding: 30px;
       background-color: var(--order-step-card-bg);
+
+      @include m-b-tablet-lg-down {
+        padding: 20px;
+      }
+
+      @include m-b-mobile-lg-down {
+        padding: 15px;
+      }
 
       span {
         display: inline-block;
@@ -40,6 +57,30 @@
           text-decoration: underline;
           color: var(--accent);
         }
+      }
+
+      @include m-b-laptop-down {
+        &:nth-child(3) {
+          grid-column: 3/4;
+          grid-row: 1/3;
+        }
+      }
+
+      @include m-b-down(896px) {
+        &:nth-child(3) {
+          grid-column: 3/4;
+          grid-row: 1/2;
+        }
+
+        &:last-child {
+          grid-column: 2/4;
+          grid-row: 2/3;
+        }
+      }
+
+      @include m-b-down(668px) {
+        width: 100%;
+        padding-right: 20%;
       }
     }
   }

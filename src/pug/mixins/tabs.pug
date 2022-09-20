@@ -1,19 +1,8 @@
 mixin tabs(data)
   .tab
-    .swiper.tab-header-slider
-      .swiper-wrapper
-        each item in data
-          .swiper-slide
-            a(href="#" data-id= item.id).tab-switcher= item.label
-
-      .swiper-button-prev.tab-header-slider-button-prev(aria-label="Предыдущий слайд")
-          svg(width="12" height="16")
-            use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
-
-      .swiper-button-next.tab-header-slider-button-next(aria-label="Следующий слайд")
-          svg(width="12" height="16")
-            use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
-
+    .tab-switchers
+      each item in data
+        a(href="#" data-id= item.id).tab-switcher= item.label
     .tab-content
       each item in data
         .tab-content-field.collapsed(data-tab= item.id)

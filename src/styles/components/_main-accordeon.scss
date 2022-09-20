@@ -1,4 +1,6 @@
 $padding: 30px;
+$tablet-padding: 20px;
+$mobile-padding: 15px;
 
 .main-accordeon {
   &__item {
@@ -15,7 +17,7 @@ $padding: 30px;
       }
 
       .accordeon-item-body {
-        display: none; // temp
+        display: none; // temp ?!
       }
     }
 
@@ -25,8 +27,26 @@ $padding: 30px;
 
       padding: $padding;
 
+      @include m-b-tablet-lg-down {
+        padding: $tablet-padding;
+      }
+
+      @include m-b-mobile-lg-down {
+        padding: $mobile-padding;
+      }
+
       h3 {
-        max-width: calc(100% - 60px);
+        max-width: calc(100% - 80px);
+        font-size: 22px;
+        padding-right: 30px;
+
+        @include m-b-tablet-lg-down {
+          font-size: 20px;
+        }
+
+        @include m-b-mobile-lg-down {
+          font-size: 18px;
+        }
       }
 
       svg {
@@ -44,6 +64,17 @@ $padding: 30px;
   &__body {
     padding: $padding;
     padding-top: 0;
+
+    font-size: 16px;
+    color: var(--secondary);
+
+    @include m-b-tablet-lg-down {
+      padding: $tablet-padding;
+    }
+
+    @include m-b-mobile-lg-down {
+      padding: $mobile-padding;
+    }
 
     div {
       margin-bottom: 15px;
