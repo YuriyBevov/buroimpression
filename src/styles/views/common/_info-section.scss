@@ -5,14 +5,14 @@
     @extend .hover-opacity-transition;
   }
 
-  h2 {
+  h3 {
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
     margin-bottom: 20px;
   }
 
-  .ordered-list {
+  .order-step-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 20px;
@@ -28,16 +28,8 @@
     }
 
     li {
-      padding: 30px;
+      @extend .inner-offset;
       background-color: var(--order-step-card-bg);
-
-      @include m-b-tablet-lg-down {
-        padding: 20px;
-      }
-
-      @include m-b-mobile-lg-down {
-        padding: 15px;
-      }
 
       span {
         display: inline-block;

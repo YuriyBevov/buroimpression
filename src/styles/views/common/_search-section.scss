@@ -1,0 +1,61 @@
+.search-section {
+  position: relative;
+
+  padding-right: 540px;
+
+  @include m-b-laptop-down {
+    padding-right: 400px;
+  }
+
+  @include m-b-tablet-lg-down {
+    padding-right: 340px;
+  }
+
+  @include m-b-tablet-down {
+    padding-right: 0;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    content: '';
+    width: 490px;
+    height: 100%;
+    background-image: url("../assets/img/world@1x.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include m-b-laptop-down {
+      width: 350px;
+    }
+
+    @include m-b-tablet-lg-down {
+      width: 300px;
+    }
+
+    @include m-b-tablet-down {
+      display: none;
+    }
+  }
+
+  &__note {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 40px;
+
+    color: var(--secondary);
+
+    a {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    @extend .hover-opacity-transition;
+  }
+
+  &__btn {
+    margin-bottom: 80px;
+  }
+}

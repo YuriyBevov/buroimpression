@@ -18,7 +18,7 @@
 @import "./components/main-input";
 @import "./components/main-checkbox";
 @import "./components/custom-select";
-@import "./components/country-chooser";
+@import "./components/search";
 @import "./components/main-accordeon";
 @import "./components/tabs";
 
@@ -32,6 +32,8 @@
 @import "./views/index-page/certificate";
 
 //main-content-sections
+@import "./views/common/main-content";
+@import "./views/common/search-section";
 @import "./views/common/info-section";
 @import "./views/common/faq-section";
 

@@ -1,5 +1,8 @@
 mixin main-btn(data)
   if data.type === 'button' || data.type === 'submit'
-    button(type= data.type class= data.cls ? data.cls : null).main-btn.main-btn--button= data.title
+    button(type= data.type class= data.cls ? data.cls : null).main-btn.main-btn--button= data.text
   if data.type === 'link'
-    a(href= data.url).main-btn= data.title
+    a(href= data.url class= data.cls ? data.cls : null).main-btn= data.text
+
+  if data.type === 'anchor'
+    a(href= `#${data.anchor}` data-anchor= data.anchor class= data.cls ? data.cls : null).main-btn= data.text

@@ -1,11 +1,29 @@
 include ./main-accordeon
 include ./tabs
+include ./search
+include ./main-btn
 
 mixin main-page-content(data)
-  each item in data
+  h2.lw-section-title!= data.title
+
+  each item in data.content
+    if item.type === 'search-section'
+      section(class= item.cls)
+        +search(item.data)
+
+        if item.note
+          p.search-section__note!= item.note
+
+        +main-btn({
+          cls: 'search-section__btn',
+          type: 'anchor',
+          anchor: 'order',
+          text: 'Рассчитать стоимость'
+        })
+
     if item.type === 'info-section'
       section(class= item.cls)
-        h2!= item.title
+        h3!= item.title
         != item.content
 
     if item.type === 'tab-section'

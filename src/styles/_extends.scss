@@ -16,6 +16,30 @@
   }
 }
 
+.inner-offset {
+  padding: 30px;
+
+  @include m-b-tablet-lg-down {
+    padding: 20px;
+  }
+
+  @include m-b-mobile-lg-down {
+    padding: 15px;
+  }
+}
+
+.inner-offset-left {
+  padding-left: 30px;
+
+  @include m-b-tablet-lg-down {
+    padding-left: 20px;
+  }
+
+  @include m-b-mobile-lg-down {
+    padding-left: 15px;
+  }
+}
+
 /* flex*/
 
 .flex-wrap {

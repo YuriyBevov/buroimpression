@@ -1,0 +1,13 @@
+include ./main-btn
+
+mixin search(data)
+  .search
+    fieldset
+      input(type="text" id="search-field" placeholder= data.placeholder)
+      label(for="search-field")
+        svg(width="24" height="24")
+          use(xlink:href="./assets/sprite.svg#icon-search")
+
+    .search__list
+      each country in data.countries
+        a(href= country.url)= country.name

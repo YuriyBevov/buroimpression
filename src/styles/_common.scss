@@ -57,7 +57,7 @@
   &-section-title {
     font-weight: 700;
     font-size: 40px;
-    line-height: 48px;
+    line-height: 1.2;
     margin-bottom: 60px;
 
     color:var(--accent);
@@ -68,8 +68,11 @@
 
     @include m-b-tablet-down {
       font-size: 24px;
-      line-height: 29px;
       margin-bottom: 20px;
+    }
+
+    @include m-b-mobile-lg-down {
+      font-size: 22px;
     }
   }
 }

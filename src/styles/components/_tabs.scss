@@ -3,20 +3,16 @@
   grid-template-columns: 300px auto;
   grid-column-gap: 30px;
   margin-bottom: 40px;
-  padding-left: 30px;
+
+  @extend .inner-offset-left;
 
   @include m-b-tablet-lg-down {
     grid-template-columns: 200px auto;
-    padding-left: 20px;
   }
 
   @include m-b-tablet-down {
     display: flex;
     flex-direction: column;
-  }
-
-  @include m-b-mobile-lg-down {
-    padding-left: 15px;
   }
 
   &-switchers {
