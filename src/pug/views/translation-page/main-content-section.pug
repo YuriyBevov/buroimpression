@@ -1,0 +1,29 @@
+include ../../mixins/main-page-content
+include ../../content/translation-page
+
+section.main-content
+  .container
+    +main-page-content(
+      {
+        title: 'Переводы',
+
+        content: [
+          {
+            type: 'search-section',
+            cls: 'search-section search-section--countries',
+            data: {
+              placeholder: 'Введите необходимый язык или выберите из списка',
+              countries: Langs,
+            },
+            note: 'По желанию заказчика мы делаем <a href="#">нотариальное заверение переводов</a>.'
+          },
+
+          {
+            type: 'tab-section',
+            cls: 'page-main-content-section',
+            tabs: Tabs,
+            tabsClass: '',
+          }
+        ]
+      }
+    )

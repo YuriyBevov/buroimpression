@@ -6,6 +6,8 @@
   background-repeat: no-repeat;
   background-position: center;
 
+  overflow: hidden; //temp
+
   &__title {
     color: var(--white);
   }

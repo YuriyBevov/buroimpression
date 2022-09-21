@@ -4,7 +4,7 @@
   grid-column-gap: 30px;
   margin-bottom: 40px;
 
-  @extend .inner-offset-left;
+  //@extend .inner-offset-left;
 
   @include m-b-tablet-lg-down {
     grid-template-columns: 200px auto;
@@ -88,12 +88,18 @@
       font-weight: 700;
       font-size: 22px;
       line-height: 1.2;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       color: var(--main-color);
 
       @include m-b-tablet-lg-down {
         font-size: 18px;
       }
+    }
+
+    h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: var(--main-color);
     }
 
     p {
@@ -126,6 +132,35 @@
           background-color: var(--info);
         }
       }
+
+      &.default-list {
+        @extend .flex-wrap;
+
+        @include m-b-tablet-lg-down {
+          flex-direction: column;
+        }
+
+        li {
+          width: 50%;
+          padding-right: 60px;
+          margin-bottom: 5px;
+
+          p {
+            margin-bottom: 0;
+          }
+
+          @include m-b-tablet-lg-down {
+            width: 100%;
+            padding-right: 15px;
+          }
+        }
+      }
+    }
+
+    &-banner {
+      background-color: #FFF8F2;
+      @extend .inner-offset;
+      margin-bottom: 40px;
     }
   }
 }

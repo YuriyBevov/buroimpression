@@ -7,7 +7,16 @@ mixin tabs(data)
       each item in data
         .tab-content-field.collapsed(data-tab= item.id)
           each data in item.data
-            h3!= data.title
-            each content in data.content
-              != content
+            if data.type === 'banner'
+              .tab-content-field-banner
+                h3!= data.title
+                each content in data.content
+                  != content
+            else
+              if data.title
+                h3!= data.title
+              if data.subtitle
+                h4!= data.subtitle
+              each content in data.content
+                != content
 
