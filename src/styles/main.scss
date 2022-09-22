@@ -21,6 +21,7 @@
 @import "./components/search";
 @import "./components/main-accordeon";
 @import "./components/tabs";
+@import "./components/note-banner";
 
 /* views */
 @import "./views/common/header";
@@ -31,6 +32,8 @@
 @import "./views/index-page/review";
 @import "./views/index-page/certificate";
 
+@import "./views/apostille-page/apostille-info";
+
 //main-content-sections
 @import "./views/common/main-content";
 @import "./views/common/search-section";
@@ -40,6 +43,7 @@
 @import "./views/common/client";
 @import "./views/common/order";
 @import "./views/common/preview";
+@import "./views/common/info-block";
 
 @import "./views/common/footer";
 /* modals */

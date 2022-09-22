@@ -17,6 +17,8 @@ mixin tabs(data)
                 h3!= data.title
               if data.subtitle
                 h4!= data.subtitle
+              if data.strong
+                strong!= data.strong
               each content in data.content
                 != content
 

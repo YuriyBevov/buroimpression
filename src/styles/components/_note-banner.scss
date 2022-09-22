@@ -1,0 +1,30 @@
+.note-banner {
+    margin-bottom: 40px;
+    @extend .inner-offset;
+    background-color: var(--page-note-banner-bg);
+
+    &__title {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+
+      margin-bottom: 20px;
+
+      @include m-b-mobile-lg-down {
+        font-size: 20px;
+      }
+    }
+
+    p {
+      margin-bottom: 15px;
+      color: var(--secondary);
+
+      strong {
+        color: var(--main-color);
+      }
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }

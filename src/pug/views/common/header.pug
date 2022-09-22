@@ -2,9 +2,9 @@
   const navList = [
     { url:'about.html', title: 'О нас', cls: 'active' },
     { url:'translation.html', title: 'Переводы' },
-    { url:'apostil.html', title: 'Апостиль' },
+    { url:'apostille.html', title: 'Апостиль' },
     { url:'legalization.html', title: 'Консульская легализация' },
-    { url:'documents.html', title: 'Истребование документов' },
+    { url:'reclamation.html', title: 'Истребование документов' },
     { url:'price.html', title: 'Цены' },
     { url:'contacts.html', title: 'Контакты' },
   ]
@@ -13,7 +13,7 @@ header.header
   .container.header__container
     nav.main-nav.header__nav
       a(href="index.html" arai-label="На главную").main-nav__logo
-        img(src="./assets/img/main-logo.png" alt="Buroimpression.ru" width="165" height="53")
+        img(src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50")
 
       ul.main-nav__list
         each item in navList

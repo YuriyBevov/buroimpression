@@ -1,0 +1,19 @@
+include ../../mixins/main-page-content
+include ../../content/apostille-page
+
+section.main-content
+  .container
+    +main-page-content(
+      {
+        title: 'Апостиль документов',
+
+        content: [
+          {
+            type: 'tab-section',
+            cls: 'page-main-content-section',
+            tabs: Tabs,
+            tabsClass: '',
+          }
+        ]
+      }
+    )
