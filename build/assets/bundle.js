@@ -338,10 +338,38 @@ phoneFields.forEach(function (field) {
 /*!***************************************!*\
   !*** ./src/scripts/modules/loader.js ***!
   \***************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+
+var logo = document.querySelector('.main-nav__logo');
+var logoTopPos = logo.getBoundingClientRect().top;
+var logoLeftPos = logo.getBoundingClientRect().left;
 window.addEventListener('load', function () {
-  console.log('loaded');
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to('.loader svg', {
+    top: "".concat(logoTopPos, "px"),
+    left: "".concat(logoLeftPos, "px"),
+    opacity: 0,
+    duration: .5,
+    ease: 'ease-in'
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to('.loader', {
+    opacity: 0,
+    duration: .5,
+    ease: 'linear'
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo('body', {
+    opacity: 0
+  }, {
+    opacity: 1,
+    duration: 0.4,
+    ease: 'linear'
+  });
+  setTimeout(function () {
+    document.querySelector('.loader').classList.add('hidden');
+  }, 500);
 });
 
 /***/ }),
@@ -30151,18 +30179,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -30201,7 +30217,6 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/loader */ "./src/scripts/modules/loader.js");
-/* harmony import */ var _modules_loader__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_loader__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
 /* harmony import */ var _modules_client_line__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/client-line */ "./src/scripts/modules/client-line.js");
 /* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
