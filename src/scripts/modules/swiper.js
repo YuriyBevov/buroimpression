@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { FreeMode, Autoplay, Navigation, Pagination } from 'swiper';
 
 const sliders = document.querySelectorAll('.main-slider');
 
@@ -41,24 +41,22 @@ if(sliders) {
   });
 };
 
-const tabs = document.querySelectorAll('.tab-header-slider');
+/*const clientSlider = document.querySelector('.client-slider');
 
-if(tabs) {
-  tabs.forEach(slider => {
-    new Swiper(slider, {
-      modules: [Navigation],
+if(clientSlider) {
+  new Swiper(clientSlider, {
+    modules: [Autoplay, FreeMode],
+    loop: true,
+    autoplay: true,
 
-      slidesPerView: 'auto',
-      //loop: true,
-      slideToClickedSlide: true,
-      //centeredSlides: true,
-      //centeredSlidesBounds: true,
-      watchOverflow: true,
+    freeMode: true,
+    slidesPerView: 'auto',
+    speed: 30000,
+    grabCursor: false,
+    mousewheelControl: false,
+    keyboardControl: false,
+    allowTouchMove: false,
 
-      navigation: {
-        nextEl: '.tab-header-slider-button-next',
-        prevEl: '.tab-header-slider-button-prev'
-      },
-    })
-  })
-}
+    slidesPerGroup: 50
+  });
+}*/

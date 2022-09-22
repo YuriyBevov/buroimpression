@@ -1384,7 +1384,7 @@ fieldset {
   flex-wrap: wrap;
 }
 
-.flex-centered-content, .feature__list-item-icon, .main-btn, .social__list-item a, .burger, .main-nav__list-item a, .main-nav__logo {
+.flex-centered-content, .client .swiper-slide, .feature__list-item-icon, .main-btn, .social__list-item a, .burger, .main-nav__list-item a, .main-nav__logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2464,6 +2464,7 @@ fieldset {
 @media (max-width: 960px) {
   .tab-content-field h3 {
     font-size: 18px;
+    margin-top: 0;
   }
 }
 .tab-content-field h4 {
@@ -3148,6 +3149,26 @@ fieldset {
 .client__title {
   color: var(--white);
 }
+.client .swiper-wrapper {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.client .swiper-slide {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 20px;
+  padding: 10px;
+}
+.client .swiper-slide svg {
+  fill: var(--white);
+}
+@media (max-width: 634px) {
+  .client .swiper-slide {
+    margin: 0;
+  }
+}
 .client__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3155,7 +3176,9 @@ fieldset {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .client__list-item {
   margin: 0 20px;
@@ -3167,6 +3190,7 @@ fieldset {
 @media (max-width: 634px) {
   .client__list-item {
     margin: 0;
+    margin-right: 20px;
   }
 }
 

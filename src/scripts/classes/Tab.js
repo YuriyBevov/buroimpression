@@ -1,3 +1,5 @@
+import { getBoundingClientRect } from "../utils/functions";
+
 export class Tab {
   #container = null;
   #switchers = null;
@@ -23,9 +25,13 @@ export class Tab {
       if( field.dataset.tab != id && !field.classList.contains('collapsed') ) {
         field.classList.add('collapsed');
       } else if (field.dataset.tab == id && field.classList.contains('collapsed')) {
-        field.classList.remove('collapsed')
+        field.classList.remove('collapsed');
+
+        console.log('scroll to top');
       }
     })
+
+
   };
 
   #onClickHandler = (evt) => {

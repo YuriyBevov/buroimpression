@@ -1,6 +1,6 @@
-//import "./modules/gsap-init";
 import "./modules/loader";
 import "./modules/swiper";
+import "./modules/client-line";
 import "./modules/img-zoom";
 import "./modules/custom-select";
 import "./modules/input-number-mask";

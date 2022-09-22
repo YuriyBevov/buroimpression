@@ -12,10 +12,31 @@
     color: var(--white);
   }
 
+  .swiper {
+    &-wrapper {
+      align-items: center;
+    }
+
+    &-slide {
+      @extend .flex-centered-content;
+      width: fit-content;
+      margin: 0 20px;
+      padding: 10px;
+
+      svg {
+        fill: var(--white);
+      }
+
+      @include m-b-mobile-lg-down {
+        margin: 0;
+      }
+    }
+  }
+
   &__list {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: fit-content;
 
     &-item {
       margin: 0 20px;
@@ -27,6 +48,7 @@
 
       @include m-b-mobile-lg-down {
         margin: 0;
+        margin-right: 20px;
       }
     }
   }
