@@ -1,0 +1,9 @@
+.map-pin {
+  &--yellow {
+    fill: var(--warning);
+  }
+
+  &--violet {
+    fill: var(--violet);
+  }
+}

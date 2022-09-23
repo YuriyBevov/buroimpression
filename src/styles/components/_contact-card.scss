@@ -1,0 +1,56 @@
+.contact-card {
+  &__field {
+    display: flex;
+
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 15px;
+    max-width: 480px;
+
+    color: var(--secondary);
+
+    @include m-b-desktop-down {
+      max-width: 100%;
+    }
+
+    @include m-b-tablet-lg-down {
+      flex-direction: column;
+    }
+
+    &-row {
+      @extend .flex-wrap;
+    }
+
+    strong {
+      font-weight: 700;
+      margin-right: 15px;
+      color: var(--main-color);
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    a {
+      margin-right: 5px;
+      color: var(--secondary);
+    }
+
+    address {
+      font-style: normal;
+    }
+  }
+
+  a {
+    @extend .hover-opacity-transition;
+  }
+
+  & > a {
+    font-weight: 600;
+    line-height: 21px;
+    text-decoration-line: underline;
+    color: var(--accent);
+
+
+  }
+}

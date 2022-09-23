@@ -1,0 +1,24 @@
+mixin contact-card(data)
+  .contact-card
+    .contact-card__field
+      strong Адрес:
+      address= data.address
+
+    .contact-card__field
+      p= data.desc
+
+    .contact-card__field
+      strong Режим работы:
+      span!= data.worktime
+
+    .contact-card__field
+      strong Телефон:
+      .contacts-card__field-row
+        each phone in data.phones
+          a(href=`tel:${phone.link}`)= phone.text
+
+    .contact-card__field
+      strong e-mail:
+      a(href=`mailto:${data.mail}`)= data.mail
+
+    a(href= data.navigator target="_blank") Посмотреть на карте

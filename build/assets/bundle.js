@@ -259,13 +259,14 @@ if (section) {
   }, timelineOptions(to));
 
   function timelineOptions(to) {
+    console.log(windowWidth, windowWidth / 1000 * 2.5);
     return {
       repeat: -1,
       repeatDelay: 2,
       x: to,
       ease: 'linear',
       yoyo: true,
-      duration: 5
+      duration: 10
     };
   }
 

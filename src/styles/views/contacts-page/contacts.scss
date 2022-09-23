@@ -1,0 +1,101 @@
+.contact {
+  @extend .section-padding-80;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 290px 1fr 1fr;
+    grid-column-gap: 30px;
+
+    @include m-b-desktop-down {
+      grid-template-columns: 290px 1fr;
+      grid-row-gap: 50px;
+
+      &-field:nth-child(3) {
+        grid-column: 2/3;
+      }
+    }
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: 1fr;
+
+      &-field:nth-child(3) {
+        grid-column: initial;
+      }
+    }
+
+    &-field {
+      height: fit-content;
+
+      &--map {
+        position: sticky;
+        top: 105px;
+
+        @include m-b-tablet-lg-down {
+          position: static;
+          img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+          }
+        }
+
+        @include m-b-down(535px) {
+          img {
+            width: 100%;
+            height: auto;
+            max-height: 175px;
+          }
+        }
+      }
+
+      &-header {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 30px;
+
+        h3 {
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.2;
+
+          color: var(--main-color);
+
+          span {
+            font-size: 18px;
+          }
+
+          @include m-b-tablet-lg-down {
+            font-size: 20px;
+          }
+
+          @include m-b-tablet-down {
+            font-size: 18px;
+          }
+
+          @include m-b-mobile-lg-down {
+            font-size: 16px;
+          }
+        }
+
+        svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin-right: 10px;
+        }
+      }
+
+
+
+      .note-banner {
+        padding: 20px;
+        margin-bottom: 30px;
+
+        p {
+          max-width: 440px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}
