@@ -41,7 +41,7 @@ if(section) {
       });
     }
 
-    if(order) {
+    /*if(order) {
       const orderTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".order",
@@ -53,7 +53,7 @@ if(section) {
         opacity: 1,
         duration: 1
       });
-    }
+    }*/
 
     if(apostille) {
       const apostilleTl = gsap.timeline({

@@ -1068,24 +1068,19 @@ if (section) {
         });
       });
     }
-
-    if (order) {
-      var orderTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+    /*if(order) {
+      const orderTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".order",
           start: "top bottom",
-          onLeaveBack: function onLeaveBack() {
-            return orderTl.reverse();
-          }
-        }
+          onLeaveBack: () => orderTl.reverse() }
       });
-      orderTl.fromTo('.order-form', {
-        opacity: 0
-      }, {
+       orderTl.fromTo('.order-form', {opacity: 0}, {
         opacity: 1,
         duration: 1
       });
-    }
+    }*/
+
 
     if (apostille) {
       var apostilleTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
@@ -1205,6 +1200,7 @@ if (sliders) {
       preloadImages: true,
       slidesOffsetAfter: 15,
       slidesOffsetBefore: 15,
+      slideToClickedSlide: true,
       navigation: {
         nextEl: btnNext ? btnNext : null,
         prevEl: btnPrev ? btnPrev : null
