@@ -16,6 +16,8 @@
 
       background-color: var(--search-field-bg);
       border-radius: 2px;
+
+      @extend .text-nowrap;
     }
 
     input,

@@ -8,7 +8,7 @@ mixin main-page-content(data)
 
   each item in data.content
     if item.type === 'search-section'
-      section(class= item.cls)
+      div(class= item.cls)
         +search(item.data)
 
         if item.note

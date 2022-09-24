@@ -40,23 +40,3 @@ if(sliders) {
     });
   });
 };
-
-/*const clientSlider = document.querySelector('.client-slider');
-
-if(clientSlider) {
-  new Swiper(clientSlider, {
-    modules: [Autoplay, FreeMode],
-    loop: true,
-    autoplay: true,
-
-    freeMode: true,
-    slidesPerView: 'auto',
-    speed: 30000,
-    grabCursor: false,
-    mousewheelControl: false,
-    keyboardControl: false,
-    allowTouchMove: false,
-
-    slidesPerGroup: 50
-  });
-}*/

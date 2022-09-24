@@ -96,7 +96,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Tab": () => (/* binding */ Tab)
 /* harmony export */ });
-/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions */ "./src/scripts/utils/functions.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/nodesHelper */ "./src/scripts/utils/nodesHelper.js");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -122,6 +124,9 @@ function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!priva
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 
 
+
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__.ScrollToPlugin);
 
 var _container = /*#__PURE__*/new WeakMap();
 
@@ -161,6 +166,7 @@ var Tab = /*#__PURE__*/_createClass(function Tab(container) {
     writable: true,
     value: function value() {
       var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      var preload = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
       _classPrivateFieldGet(_this, _switchers).forEach(function (switcher) {
         if (switcher.dataset.id != id && switcher.classList.contains('active-tab')) {
@@ -175,7 +181,26 @@ var Tab = /*#__PURE__*/_createClass(function Tab(container) {
           field.classList.add('collapsed');
         } else if (field.dataset.tab == id && field.classList.contains('collapsed')) {
           field.classList.remove('collapsed');
-          console.log('scroll to top');
+
+          if (!preload) {
+            if (window.innerWidth > 768) {
+              gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(window, {
+                duration: 0.6,
+                scrollTo: {
+                  y: field,
+                  offsetY: _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.header.getBoundingClientRect().height
+                }
+              });
+            } else {
+              gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(window, {
+                duration: 0.6,
+                scrollTo: {
+                  y: field,
+                  offsetY: _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.header.getBoundingClientRect().height + _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.tabSwitchers.getBoundingClientRect().height
+                }
+              });
+            }
+          }
         }
       });
     }
@@ -186,7 +211,7 @@ var Tab = /*#__PURE__*/_createClass(function Tab(container) {
     value: function value(evt) {
       evt.preventDefault();
 
-      _classPrivateFieldGet(_this, _initActiveTab).call(_this, evt.target.dataset.id);
+      _classPrivateFieldGet(_this, _initActiveTab).call(_this, evt.target.dataset.id, false);
     }
   });
 
@@ -259,7 +284,6 @@ if (section) {
   }, timelineOptions(to));
 
   function timelineOptions(to) {
-    console.log(windowWidth, windowWidth / 1000 * 2.5);
     return {
       repeat: -1,
       repeatDelay: 2,
@@ -547,6 +571,124 @@ if (form) {
 
 /***/ }),
 
+/***/ "./src/scripts/modules/page-animations.js":
+/*!************************************************!*\
+  !*** ./src/scripts/modules/page-animations.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
+
+gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+var section = document.querySelector('.hero');
+
+if (section) {
+  var feature = document.querySelector('.feature');
+  var service = document.querySelector('.service');
+  var order = document.querySelector('.order');
+  var stepList = document.querySelector('.order-step-list');
+  var apostille = document.querySelector('.apostille-info');
+  window.addEventListener('load', function () {
+    if (feature) {
+      var items = document.querySelectorAll('.feature__list-item');
+      items.forEach(function (item, i) {
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(item, {
+          opacity: 0,
+          scale: 0
+        }, {
+          scrollTrigger: item,
+          opacity: 1,
+          scale: 1,
+          duration: .6,
+          delay: i * 0.35
+        });
+      });
+    }
+
+    if (service) {
+      var _items = document.querySelectorAll('.service__list-item');
+
+      _items.forEach(function (item, i) {
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(item, {
+          opacity: 0,
+          y: 100
+        }, {
+          scrollTrigger: item,
+          opacity: 1,
+          y: 0,
+          duration: .6,
+          delay: i * 0.3
+        });
+      });
+    }
+
+    if (order) {
+      var orderTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        scrollTrigger: {
+          trigger: ".order",
+          start: "top bottom",
+          onLeaveBack: function onLeaveBack() {
+            return orderTl.reverse();
+          }
+        }
+      });
+      orderTl.fromTo('.order-form', {
+        opacity: 0
+      }, {
+        opacity: 1,
+        duration: 1
+      });
+    }
+
+    if (apostille) {
+      var apostilleTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        scrollTrigger: {
+          trigger: ".apostille-info__banner",
+          start: "top bottom",
+          onLeaveBack: function onLeaveBack() {
+            return apostilleTl.reverse();
+          }
+        }
+      });
+      apostilleTl.fromTo('.apostille-info__banner', {
+        opacity: 0,
+        scale: 0
+      }, {
+        opacity: 1,
+        duration: 1,
+        scale: 1
+      });
+    }
+
+    if (stepList) {
+      var stepListTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+        scrollTrigger: {
+          trigger: ".order-step-list",
+          start: "top bottom",
+          onLeaveBack: function onLeaveBack() {
+            return stepListTl.reverse();
+          }
+        }
+      });
+      stepListTl.fromTo('.order-step-list li', {
+        opacity: 0,
+        x: 150
+      }, {
+        opacity: 1,
+        duration: 0.6,
+        x: 0,
+        stagger: 0.25
+      });
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./src/scripts/modules/swiper.js":
 /*!***************************************!*\
   !*** ./src/scripts/modules/swiper.js ***!
@@ -593,25 +735,6 @@ if (sliders) {
 }
 
 ;
-/*const clientSlider = document.querySelector('.client-slider');
-
-if(clientSlider) {
-  new Swiper(clientSlider, {
-    modules: [Autoplay, FreeMode],
-    loop: true,
-    autoplay: true,
-
-    freeMode: true,
-    slidesPerView: 'auto',
-    speed: 30000,
-    grabCursor: false,
-    mousewheelControl: false,
-    keyboardControl: false,
-    allowTouchMove: false,
-
-    slidesPerGroup: 50
-  });
-}*/
 
 /***/ }),
 
@@ -626,10 +749,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_Tab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/Tab */ "./src/scripts/classes/Tab.js");
 
 var tabs = document.querySelectorAll('.tab');
-console.log(tabs);
-tabs.forEach(function (tab) {
-  new _classes_Tab__WEBPACK_IMPORTED_MODULE_0__.Tab(tab);
-});
+
+if (tabs) {
+  tabs.forEach(function (tab) {
+    new _classes_Tab__WEBPACK_IMPORTED_MODULE_0__.Tab(tab);
+  });
+}
 
 /***/ }),
 
@@ -780,6 +905,27 @@ function getBoundingClientRect(elem, side) {
 }
 
 
+
+/***/ }),
+
+/***/ "./src/scripts/utils/nodesHelper.js":
+/*!******************************************!*\
+  !*** ./src/scripts/utils/nodesHelper.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "body": () => (/* binding */ body),
+/* harmony export */   "header": () => (/* binding */ header),
+/* harmony export */   "orderForm": () => (/* binding */ orderForm),
+/* harmony export */   "tabSwitchers": () => (/* binding */ tabSwitchers)
+/* harmony export */ });
+var orderForm = document.querySelector('.order-form');
+var body = document.querySelector('body');
+var header = document.querySelector('header');
+var tabSwitchers = document.querySelector('.tab-switchers');
 
 /***/ }),
 
@@ -4662,6 +4808,287 @@ ScrollSmoother.get = function () {
 };
 
 _getGSAP() && gsap.registerPlugin(ScrollSmoother);
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/ScrollToPlugin.js":
+/*!*********************************************!*\
+  !*** ./node_modules/gsap/ScrollToPlugin.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ScrollToPlugin": () => (/* binding */ ScrollToPlugin),
+/* harmony export */   "default": () => (/* binding */ ScrollToPlugin)
+/* harmony export */ });
+/*!
+ * ScrollToPlugin 3.11.1
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2022, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var gsap,
+    _coreInitted,
+    _window,
+    _docEl,
+    _body,
+    _toArray,
+    _config,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _getGSAP = function _getGSAP() {
+  return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _max = function _max(element, axis) {
+  var dim = axis === "x" ? "Width" : "Height",
+      scroll = "scroll" + dim,
+      client = "client" + dim;
+  return element === _window || element === _docEl || element === _body ? Math.max(_docEl[scroll], _body[scroll]) - (_window["inner" + dim] || _docEl[client] || _body[client]) : element[scroll] - element["offset" + dim];
+},
+    _buildGetter = function _buildGetter(e, axis) {
+  //pass in an element and an axis ("x" or "y") and it'll return a getter function for the scroll position of that element (like scrollTop or scrollLeft, although if the element is the window, it'll use the pageXOffset/pageYOffset or the documentElement's scrollTop/scrollLeft or document.body's. Basically this streamlines things and makes a very fast getter across browsers.
+  var p = "scroll" + (axis === "x" ? "Left" : "Top");
+
+  if (e === _window) {
+    if (e.pageXOffset != null) {
+      p = "page" + axis.toUpperCase() + "Offset";
+    } else {
+      e = _docEl[p] != null ? _docEl : _body;
+    }
+  }
+
+  return function () {
+    return e[p];
+  };
+},
+    _clean = function _clean(value, index, target, targets) {
+  _isFunction(value) && (value = value(index, target, targets));
+
+  if (typeof value !== "object") {
+    return _isString(value) && value !== "max" && value.charAt(1) !== "=" ? {
+      x: value,
+      y: value
+    } : {
+      y: value
+    }; //if we don't receive an object as the parameter, assume the user intends "y".
+  } else if (value.nodeType) {
+    return {
+      y: value,
+      x: value
+    };
+  } else {
+    var result = {},
+        p;
+
+    for (p in value) {
+      result[p] = p !== "onAutoKill" && _isFunction(value[p]) ? value[p](index, target, targets) : value[p];
+    }
+
+    return result;
+  }
+},
+    _getOffset = function _getOffset(element, container) {
+  element = _toArray(element)[0];
+
+  if (!element || !element.getBoundingClientRect) {
+    return console.warn("scrollTo target doesn't exist. Using 0") || {
+      x: 0,
+      y: 0
+    };
+  }
+
+  var rect = element.getBoundingClientRect(),
+      isRoot = !container || container === _window || container === _body,
+      cRect = isRoot ? {
+    top: _docEl.clientTop - (_window.pageYOffset || _docEl.scrollTop || _body.scrollTop || 0),
+    left: _docEl.clientLeft - (_window.pageXOffset || _docEl.scrollLeft || _body.scrollLeft || 0)
+  } : container.getBoundingClientRect(),
+      offsets = {
+    x: rect.left - cRect.left,
+    y: rect.top - cRect.top
+  };
+
+  if (!isRoot && container) {
+    //only add the current scroll position if it's not the window/body.
+    offsets.x += _buildGetter(container, "x")();
+    offsets.y += _buildGetter(container, "y")();
+  }
+
+  return offsets;
+},
+    _parseVal = function _parseVal(value, target, axis, currentVal, offset) {
+  return !isNaN(value) && typeof value !== "object" ? parseFloat(value) - offset : _isString(value) && value.charAt(1) === "=" ? parseFloat(value.substr(2)) * (value.charAt(0) === "-" ? -1 : 1) + currentVal - offset : value === "max" ? _max(target, axis) - offset : Math.min(_max(target, axis), _getOffset(value, target)[axis] - offset);
+},
+    _initCore = function _initCore() {
+  gsap = _getGSAP();
+
+  if (_windowExists() && gsap && document.body) {
+    _window = window;
+    _body = document.body;
+    _docEl = document.documentElement;
+    _toArray = gsap.utils.toArray;
+    gsap.config({
+      autoKillThreshold: 7
+    });
+    _config = gsap.config();
+    _coreInitted = 1;
+  }
+};
+
+var ScrollToPlugin = {
+  version: "3.11.1",
+  name: "scrollTo",
+  rawVars: 1,
+  register: function register(core) {
+    gsap = core;
+
+    _initCore();
+  },
+  init: function init(target, value, tween, index, targets) {
+    _coreInitted || _initCore();
+    var data = this,
+        snapType = gsap.getProperty(target, "scrollSnapType");
+    data.isWin = target === _window;
+    data.target = target;
+    data.tween = tween;
+    value = _clean(value, index, target, targets);
+    data.vars = value;
+    data.autoKill = !!value.autoKill;
+    data.getX = _buildGetter(target, "x");
+    data.getY = _buildGetter(target, "y");
+    data.x = data.xPrev = data.getX();
+    data.y = data.yPrev = data.getY();
+    gsap.getProperty(target, "scrollBehavior") === "smooth" && gsap.set(target, {
+      scrollBehavior: "auto"
+    });
+
+    if (snapType && snapType !== "none") {
+      // disable scroll snapping to avoid strange behavior
+      data.snap = 1;
+      data.snapInline = target.style.scrollSnapType;
+      target.style.scrollSnapType = "none";
+    }
+
+    if (value.x != null) {
+      data.add(data, "x", data.x, _parseVal(value.x, target, "x", data.x, value.offsetX || 0), index, targets);
+
+      data._props.push("scrollTo_x");
+    } else {
+      data.skipX = 1;
+    }
+
+    if (value.y != null) {
+      data.add(data, "y", data.y, _parseVal(value.y, target, "y", data.y, value.offsetY || 0), index, targets);
+
+      data._props.push("scrollTo_y");
+    } else {
+      data.skipY = 1;
+    }
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt,
+        target = data.target,
+        tween = data.tween,
+        autoKill = data.autoKill,
+        xPrev = data.xPrev,
+        yPrev = data.yPrev,
+        isWin = data.isWin,
+        snap = data.snap,
+        snapInline = data.snapInline,
+        x,
+        y,
+        yDif,
+        xDif,
+        threshold;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    x = isWin || !data.skipX ? data.getX() : xPrev;
+    y = isWin || !data.skipY ? data.getY() : yPrev;
+    yDif = y - yPrev;
+    xDif = x - xPrev;
+    threshold = _config.autoKillThreshold;
+
+    if (data.x < 0) {
+      //can't scroll to a position less than 0! Might happen if someone uses a Back.easeOut or Elastic.easeOut when scrolling back to the top of the page (for example)
+      data.x = 0;
+    }
+
+    if (data.y < 0) {
+      data.y = 0;
+    }
+
+    if (autoKill) {
+      //note: iOS has a bug that throws off the scroll by several pixels, so we need to check if it's within 7 pixels of the previous one that we set instead of just looking for an exact match.
+      if (!data.skipX && (xDif > threshold || xDif < -threshold) && x < _max(target, "x")) {
+        data.skipX = 1; //if the user scrolls separately, we should stop tweening!
+      }
+
+      if (!data.skipY && (yDif > threshold || yDif < -threshold) && y < _max(target, "y")) {
+        data.skipY = 1; //if the user scrolls separately, we should stop tweening!
+      }
+
+      if (data.skipX && data.skipY) {
+        tween.kill();
+        data.vars.onAutoKill && data.vars.onAutoKill.apply(tween, data.vars.onAutoKillParams || []);
+      }
+    }
+
+    if (isWin) {
+      _window.scrollTo(!data.skipX ? data.x : x, !data.skipY ? data.y : y);
+    } else {
+      data.skipY || (target.scrollTop = data.y);
+      data.skipX || (target.scrollLeft = data.x);
+    }
+
+    if (snap && (ratio === 1 || ratio === 0)) {
+      y = target.scrollTop;
+      x = target.scrollLeft;
+      snapInline ? target.style.scrollSnapType = snapInline : target.style.removeProperty("scroll-snap-type");
+      target.scrollTop = y + 1; // bug in Safari causes the element to totally reset its scroll position when scroll-snap-type changes, so we need to set it to a slightly different value and then back again to work around this bug.
+
+      target.scrollLeft = x + 1;
+      target.scrollTop = y;
+      target.scrollLeft = x;
+    }
+
+    data.xPrev = data.x;
+    data.yPrev = data.y;
+  },
+  kill: function kill(property) {
+    var both = property === "scrollTo";
+
+    if (both || property === "scrollTo_x") {
+      this.skipX = 1;
+    }
+
+    if (both || property === "scrollTo_y") {
+      this.skipY = 1;
+    }
+  }
+};
+ScrollToPlugin.max = _max;
+ScrollToPlugin.getOffset = _getOffset;
+ScrollToPlugin.buildGetter = _buildGetter;
+_getGSAP() && gsap.registerPlugin(ScrollToPlugin);
 
 
 /***/ }),
@@ -30218,14 +30645,16 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/loader */ "./src/scripts/modules/loader.js");
-/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
-/* harmony import */ var _modules_client_line__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/client-line */ "./src/scripts/modules/client-line.js");
-/* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
-/* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
-/* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
-/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
-/* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
-/* harmony import */ var _modules_tab_init__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tab-init */ "./src/scripts/modules/tab-init.js");
+/* harmony import */ var _modules_page_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/page-animations */ "./src/scripts/modules/page-animations.js");
+/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
+/* harmony import */ var _modules_client_line__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/client-line */ "./src/scripts/modules/client-line.js");
+/* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
+/* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
+/* harmony import */ var _modules_input_number_mask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/input-number-mask */ "./src/scripts/modules/input-number-mask.js");
+/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
+/* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
+/* harmony import */ var _modules_tab_init__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tab-init */ "./src/scripts/modules/tab-init.js");
+
 
 
 

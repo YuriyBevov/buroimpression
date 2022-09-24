@@ -17,7 +17,6 @@ if(section) {
   tl.fromTo(clients, {x: '0'}, timelineOptions(to));
 
   function timelineOptions(to) {
-    console.log(windowWidth, (windowWidth / 1000) * 2.5)
     return {
       repeat: -1,
       repeatDelay: 2,

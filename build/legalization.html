@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <title></title>
+    <title>Консульская легализация документов</title>
     <link rel="stylesheet" href="./assets/main.css"/>
     <script defer="defer" src="./assets/bundle.js"></script>
   </head>
@@ -32,7 +32,7 @@
     </div>
     <header class="header">
       <div class="container header__container">
-        <nav class="main-nav header__nav"><a class="main-nav__logo" href="index.html" arai-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
+        <nav class="main-nav header__nav"><a class="main-nav__logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
           <ul class="main-nav__list">
             <li class="main-nav__list-item"><a class="active" href="index.html">О нас</a></li>
             <li class="main-nav__list-item"><a href="translation.html">Переводы</a></li>
@@ -45,16 +45,10 @@
         </nav>
         <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
         <div class="header__burger">
-          <button class="burger" type="button" aria-hidden="Меню">
-            <div class="burger-line burger-line--top"></div>
-            <div class="burger-line burger-line--middle"></div>
-            <div class="burger-line burger-line--bottom"></div>
-          </button>
+          <button class="burger" type="button" aria-label="Меню"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
         </div>
       </div>
     </header>
-    <!--#smooth-wrapper#smooth-content
-    -->
     <main>
       <section class="hero">
         <picture>
@@ -88,7 +82,7 @@
       <section class="main-content">
         <div class="container">
                 <h2 class="lw-section-title">Консульская легализация документов</h2>
-                <section class="search-section search-section--countries">
+                <div class="search-section search-section--countries">
                         <div class="search">
                           <fieldset>
                             <input type="text" id="search-field" placeholder="Введите название страны или выберите из списка">
@@ -101,13 +95,13 @@
                           <div class="search__list"><a href="#">Алжир</a><a href="#">Афганистан</a><a href="#">Бразилия</a><a href="#">Вьетнам</a><a href="#">Египет</a><a href="#">Индия</a><a href="#">Индонезия</a><a href="#">Иордания</a><a href="#">Ирак</a><a href="#">Иран</a><a href="#">Камерун</a><a href="#">Канада</a><a href="#">Катар</a><a href="#">КНР</a><a href="#">Колумбия</a><a href="#">Коста-Рика</a><a href="#">Кувейт</a><a href="#">Ливан</a><a href="#">Ливия</a><a href="#">Марокко</a><a href="#">ОАЭ</a><a href="#">Оман</a><a href="#">Пакистан</a><a href="#">Перу</a><a href="#">Саудовская Аравия</a><a href="#">Сирия</a><a href="#">Судан</a><a href="#">Тайвань</a><a href="#">Тайланд</a><a href="#">Уругвай</a><a href="#">Чили</a><a href="#">Эквадор</a>
                           </div>
                         </div><a class="search-section__btn main-btn" href="#order" data-anchor="order">Рассчитать стоимость</a>
-                </section>
+                </div>
                 <section class="info-section">
                   <h3>Порядок размещения заказа по легализации документа</h3>
               <ul class="order-step-list">
                 <li>
                   <span>1.</span>
-                  <p>Выслать нам скан документа на электронную почту <a href="mailto:info@buroimpression.ru" noopener noreferrer nofollow>info@buroimpression.ru</a></p>
+                  <p>Выслать нам скан документа на электронную почту <a href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></p>
                 </li>
                 <li>
                   <span>2.</span>
@@ -266,7 +260,7 @@
               <p>после прохождения экспертизы в МИДе РФ документ подаётся в Консульский отдел посольства страны назначения,
               где удостоверяется подлинность подписи и печати сотрудника Министерства иностранных дел РФ, заверившего данный документ</p>
             </li>
-          </ul></p>В результате прохождения консульской легализации на документе должны появиться отметки посольства.
+          </ul><p>В результате прохождения консульской легализации на документе должны появиться отметки посольства.
           См. примеры отметок посольств в разделе <a href="#">Примеры консульской легализации документов</a>.</p>
                               <h3>Требования к документам, подаваемым на легализацию</h3><ul>
             <li>
@@ -535,13 +529,15 @@
       <div class="container footer__container">
         <div class="footer__company-info">
           <div class="company-info">
-            <h4>© 2022, Бюро переводов «Импрешн»</h4><span><span>Общество с ограниченной ответственностью «Импрешн»</span><span>ИНН/КПП 7721677539/773401001 ОГРН 1097746707662</span>
-              <address>109147, г. Москва, ул. Марксистская, дом 10, стр.1, офис 306</address><span>Расч. счет 40702810638000075695 в банке ПАО СБЕРБАНК, г. Москва.</span><span>к/с 30101810400000000225 БИК 044525225 ОКПО 63782765</span></span>
+            <h4>© 2022, Бюро переводов «Импрешн»</h4>
+            <div><span>Общество с ограниченной ответственностью «Импрешн»</span><span>ИНН/КПП 7721677539/773401001 ОГРН 1097746707662</span>
+              <address>109147, г. Москва, ул. Марксистская, дом 10, стр.1, офис 306</address><span>Расч. счет 40702810638000075695 в банке ПАО СБЕРБАНК, г. Москва.</span><span>к/с 30101810400000000225 БИК 044525225 ОКПО 63782765</span>
+            </div>
           </div>
         </div>
         <nav class="footer__nav">
           <ul class="footer__nav-list">
-            <li class="footer__nav-list-item"><a href="company.html">О компании</a></li>
+            <li class="footer__nav-list-item"><a href="index.html">О компании</a></li>
             <li class="footer__nav-list-item"><a href="vacancies.html">Вакансии переводчиков</a></li>
             <li class="footer__nav-list-item"><a href="contacts.html">Контакты</a></li>
             <li class="footer__nav-list-item"><a href="partners.html">Наши партнеры</a></li>
@@ -573,6 +569,5 @@
       </div>
     </footer>
     <!--include ./modals/...-->
-    <!--script(src="./js/bundle.js")-->
   </body>
 </html>

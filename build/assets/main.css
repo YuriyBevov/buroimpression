@@ -1424,7 +1424,7 @@ fieldset {
 }
 
 /*text*/
-.text-nowrap {
+.text-nowrap, .search fieldset input {
   white-space: nowrap;
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -1530,13 +1530,13 @@ fieldset {
 }
 
 /*transitions*/
-.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .info-block a, .faq-section > a, .info-section a, .search-section__note, .apostille-info__banner a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .contact-card a, .tab-switchers a, .main-accordeon a, .main-accordeon__item.collapsed .accordeon-item-header, .main-btn {
+.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .info-block a, .faq-section > a, .info-section a, .search-section__note, .apostille-info__banner a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .contact-card a, .tab-content-field a, .tab-switchers a, .main-accordeon a, .main-accordeon__item.collapsed .accordeon-item-header, .main-btn {
   -webkit-transition: opacity var(--main-transition);
   -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
 @media (min-width: 960px) {
-  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .info-block a:hover, .faq-section > a:hover, .info-section a:hover, .search-section__note:hover, .apostille-info__banner a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .contact-card a:hover, .tab-switchers a:hover, .main-accordeon a:hover, .main-accordeon__item.collapsed .accordeon-item-header:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .info-block a:focus, .faq-section > a:focus, .info-section a:focus, .search-section__note:focus, .apostille-info__banner a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .contact-card a:focus, .tab-switchers a:focus, .main-accordeon a:focus, .main-accordeon__item.collapsed .accordeon-item-header:focus, .main-btn:focus {
+  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .info-block a:hover, .faq-section > a:hover, .info-section a:hover, .search-section__note:hover, .apostille-info__banner a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .contact-card a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .main-accordeon a:hover, .main-accordeon__item.collapsed .accordeon-item-header:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .info-block a:focus, .faq-section > a:focus, .info-section a:focus, .search-section__note:focus, .apostille-info__banner a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .contact-card a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .main-accordeon a:focus, .main-accordeon__item.collapsed .accordeon-item-header:focus, .main-btn:focus {
     opacity: 0.7;
   }
 }

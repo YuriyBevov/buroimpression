@@ -1,4 +1,8 @@
-import { getBoundingClientRect } from "../utils/functions";
+import { gsap } from "gsap";
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
+import { header, tabSwitchers } from "../utils/nodesHelper";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 export class Tab {
   #container = null;
@@ -12,7 +16,7 @@ export class Tab {
     this.#init();
   }
 
-  #initActiveTab = (id = 1) => {
+  #initActiveTab = (id = 1, preload = true) => {
     this.#switchers.forEach(switcher => {
       if(switcher.dataset.id != id && switcher.classList.contains('active-tab') ) {
         switcher.classList.remove('active-tab');
@@ -27,17 +31,21 @@ export class Tab {
       } else if (field.dataset.tab == id && field.classList.contains('collapsed')) {
         field.classList.remove('collapsed');
 
-        console.log('scroll to top');
+        if(!preload) {
+          if(window.innerWidth > 768) {
+            gsap.to(window, {duration: 0.6, scrollTo: {y: field, offsetY: header.getBoundingClientRect().height}});
+          } else {
+            gsap.to(window, {duration: 0.6, scrollTo: {y: field, offsetY: header.getBoundingClientRect().height + tabSwitchers.getBoundingClientRect().height }});
+          }
+        }
       }
-    })
-
-
+    });
   };
 
   #onClickHandler = (evt) => {
     evt.preventDefault();
 
-    this.#initActiveTab( evt.target.dataset.id );
+    this.#initActiveTab( evt.target.dataset.id, false );
   }
 
   #init() {

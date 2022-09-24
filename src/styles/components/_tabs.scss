@@ -132,6 +132,8 @@
     a {
       text-decoration: underline;
       color: var(--accent);
+
+      @extend .hover-opacity-transition;
     }
 
     strong {
