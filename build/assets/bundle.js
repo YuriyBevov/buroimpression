@@ -176,12 +176,22 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
 
   _classPrivateFieldInitSpec(this, _openNavTl, {
     writable: true,
-    value: gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.timeline()
+    value: gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.timeline({
+      onComplete: function onComplete() {
+        _classPrivateFieldSet(_this, _debounce, false);
+      }
+    })
   });
 
   _classPrivateFieldInitSpec(this, _closeNavTl, {
     writable: true,
-    value: gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.timeline()
+    value: gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.timeline({
+      onComplete: function onComplete() {
+        _classPrivateFieldSet(_this, _debounce, false);
+
+        _classPrivateFieldSet(_this, _isNavOpened, false);
+      }
+    })
   });
 
   _classPrivateFieldInitSpec(this, _isNavOpened, {
@@ -202,13 +212,12 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
       if (!_classPrivateFieldGet(_this, _debounce)) {
         _classPrivateFieldSet(_this, _debounce, true);
 
+        _classPrivateFieldSet(_this, _isNavOpened, true);
+
         gsap__WEBPACK_IMPORTED_MODULE_3__.gsap.set(_classPrivateFieldGet(_this, _container), {
           opacity: 0,
           display: 'block'
         });
-
-        _classPrivateFieldSet(_this, _isNavOpened, true);
-
         (0,_modules_burgerAnimation__WEBPACK_IMPORTED_MODULE_1__.burgerLinesAnimationIn)();
         (0,_utils_functions__WEBPACK_IMPORTED_MODULE_2__.bodyLocker)(true);
         (0,_utils_functions__WEBPACK_IMPORTED_MODULE_2__.focusTrap)(_classPrivateFieldGet(_this, _container));
@@ -234,10 +243,6 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
           stagger: 0.2,
           ease: 'ease-in'
         }, "-=0.3");
-
-        setTimeout(function () {
-          _classPrivateFieldSet(_this, _debounce, false);
-        }, 1200);
       }
     }
   });
@@ -262,13 +267,6 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
           display: 'none',
           delay: .1
         });
-
-        setTimeout(function () {
-          _classPrivateFieldSet(_this, _isNavOpened, false);
-        }, 800);
-        setTimeout(function () {
-          _classPrivateFieldSet(_this, _debounce, false);
-        }, 1200);
       }
     }
   });

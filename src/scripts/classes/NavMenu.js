@@ -6,8 +6,8 @@ import {gsap} from 'gsap';
 export class NavMenu {
   #container = null;
   #opener = null;
-  #openNavTl = gsap.timeline();
-  #closeNavTl = gsap.timeline();
+  #openNavTl = gsap.timeline({ onComplete: () => { this.#debounce = false; } });
+  #closeNavTl = gsap.timeline({ onComplete: () => { this.#debounce = false; this.#isNavOpened = false; } });
   #isNavOpened = false;
   #debounce = false;
 
@@ -23,17 +23,13 @@ export class NavMenu {
 
     if(!this.#debounce) {
       this.#debounce = true;
+      this.#isNavOpened = true;
 
       gsap.set(this.#container, {opacity: 0, display: 'block'});
 
-      this.#isNavOpened = true;
-
       burgerLinesAnimationIn();
-
       bodyLocker(true);
-
       focusTrap(this.#container);
-
       this.#addListeners();
 
       this.#openNavTl
@@ -56,10 +52,6 @@ export class NavMenu {
           stagger: 0.2,
           ease: 'ease-in'
         }, "-=0.3");
-
-      setTimeout(() => {
-        this.#debounce = false;
-      }, 1200);
     }
   }
 
@@ -70,9 +62,7 @@ export class NavMenu {
       this.#debounce = true;
 
       burgerLinesAnimationOut();
-
       bodyLocker(false);
-
       this.#removeListeners();
 
       this.#closeNavTl
@@ -84,14 +74,6 @@ export class NavMenu {
           display: 'none',
           delay: .1
         });
-
-      setTimeout(() => {
-        this.#isNavOpened = false;
-      }, 800);
-
-      setTimeout(() => {
-        this.#debounce = false;
-      }, 1200);
     }
   }
 
