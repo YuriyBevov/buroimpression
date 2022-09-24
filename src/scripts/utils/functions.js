@@ -37,6 +37,52 @@ const getMousePos = evt => {
     };
 };
 
+function focusTrap(el, initialFocusedEl = null) {
+  const focusableElements = [
+    'a[href]',
+    'input',
+    'select',
+    'textarea',
+    'button',
+    'iframe',
+    '[contenteditable]',
+    '[tabindex]:not([tabindex^="-"])'
+  ];
+
+  const firstFocusableElement = el.querySelectorAll(focusableElements)[0];
+  const focusableContent = el.querySelectorAll(focusableElements);
+  const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+  let onBtnClickHandler = (evt) => {
+      let isTabPressed = evt.key === 'Tab' || evt.key === 9;
+
+      if(evt.key === 'Escape') {
+          document.removeEventListener('keydown', onBtnClickHandler);
+          console.log('ESC')
+      }
+
+      if (!isTabPressed) {
+          return;
+      }
+
+      if (evt.shiftKey) {
+          if (document.activeElement === firstFocusableElement) {
+              lastFocusableElement.focus();
+              evt.preventDefault();
+          }
+      } else {
+          if (document.activeElement === lastFocusableElement) {
+              firstFocusableElement.focus();
+              evt.preventDefault();
+          }
+      }
+  }
+
+  document.addEventListener('keydown', onBtnClickHandler);
+  initialFocusedEl !== null ?
+  initialFocusedEl.focus() : firstFocusableElement.focus();
+}
+
 //получение радиан из градусов(для канваса)
 function getRadians(degrees) {
 	return (Math.PI/180)*degrees;
@@ -56,10 +102,10 @@ function bodyLocker(bool) {
   let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
 
   if(bool) {
-      body.style.overflow = 'hidden';
+      body.style.overflowY = 'hidden';
       body.style.paddingRight = paddingOffset;
   } else {
-      body.style.overflow = 'auto';
+      body.style.overflowY = 'auto';
       body.style.paddingRight = '0px';
   }
 }
@@ -99,4 +145,4 @@ function getBoundingClientRect(elem, side) {
   }
 }
 
-export  { getCssPropertyValue, setCssProperty, lerp, getMousePos, getRadians,limitStr, addClass, removeClass, checkClass, toggleClass, bodyLocker, getBoundingClientRect }
+export  { focusTrap, getCssPropertyValue, setCssProperty, lerp, getMousePos, getRadians,limitStr, addClass, removeClass, checkClass, toggleClass, bodyLocker, getBoundingClientRect }

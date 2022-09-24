@@ -5,4 +5,4 @@ mixin main-btn(data)
     a(href= data.url class= data.cls ? data.cls : null).main-btn= data.text
 
   if data.type === 'anchor'
-    a(href= `#${data.anchor}` data-anchor= data.anchor class= data.cls ? data.cls : null).main-btn= data.text
+    a(href= `#${data.anchor}` data-scroll-to= data.anchor class= data.cls ? data.cls : null).main-btn.anchor-link= data.text

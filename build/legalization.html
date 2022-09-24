@@ -31,8 +31,8 @@
 </svg>
     </div>
     <header class="header">
-      <div class="container header__container">
-        <nav class="main-nav header__nav"><a class="main-nav__logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
+      <div class="container header__container"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
+        <nav class="main-nav header__nav">
           <ul class="main-nav__list">
             <li class="main-nav__list-item"><a class="active" href="index.html">О нас</a></li>
             <li class="main-nav__list-item"><a href="translation.html">Переводы</a></li>
@@ -45,7 +45,7 @@
         </nav>
         <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
         <div class="header__burger">
-          <button class="burger" type="button" aria-label="Меню"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
+          <button class="burger" type="button" aria-label="Меню" tabindex="0"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
         </div>
       </div>
     </header>
@@ -58,7 +58,7 @@
           <div class="container hero__container">
             <div class="hero__content">
               <h1><span>Многопрофильное </span><br/>Бюро переводов</h1>
-              <p>Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов</p><a class="main-btn" href="#order" data-anchor="order">Заказать перевод</a>
+              <p>Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов</p><a class="main-btn anchor-link" href="#order" data-scroll-to="order">Заказать перевод</a>
             </div>
           </div>
           <div class="social">
@@ -92,9 +92,9 @@
                               </svg>
                             </label>
                           </fieldset>
-                          <div class="search__list"><a href="#">Алжир</a><a href="#">Афганистан</a><a href="#">Бразилия</a><a href="#">Вьетнам</a><a href="#">Египет</a><a href="#">Индия</a><a href="#">Индонезия</a><a href="#">Иордания</a><a href="#">Ирак</a><a href="#">Иран</a><a href="#">Камерун</a><a href="#">Канада</a><a href="#">Катар</a><a href="#">КНР</a><a href="#">Колумбия</a><a href="#">Коста-Рика</a><a href="#">Кувейт</a><a href="#">Ливан</a><a href="#">Ливия</a><a href="#">Марокко</a><a href="#">ОАЭ</a><a href="#">Оман</a><a href="#">Пакистан</a><a href="#">Перу</a><a href="#">Саудовская Аравия</a><a href="#">Сирия</a><a href="#">Судан</a><a href="#">Тайвань</a><a href="#">Тайланд</a><a href="#">Уругвай</a><a href="#">Чили</a><a href="#">Эквадор</a><span class="hidden">Нет подходящих результатов, соответствующих Вашему поиску...</span>
+                          <div class="search__list"><a href="country-page-layout.html">Алжир</a><a href="country-page-layout.html">Афганистан</a><a href="country-page-layout.html">Бразилия</a><a href="country-page-layout.html">Вьетнам</a><a href="country-page-layout.html">Египет</a><a href="country-page-layout.html">Индия</a><a href="country-page-layout.html">Индонезия</a><a href="country-page-layout.html">Иордания</a><a href="country-page-layout.html">Ирак</a><a href="country-page-layout.html">Иран</a><a href="country-page-layout.html">Камерун</a><a href="country-page-layout.html">Канада</a><a href="country-page-layout.html">Катар</a><a href="country-page-layout.html">КНР</a><a href="country-page-layout.html">Колумбия</a><a href="country-page-layout.html">Коста-Рика</a><a href="country-page-layout.html">Кувейт</a><a href="country-page-layout.html">Ливан</a><a href="country-page-layout.html">Ливия</a><a href="country-page-layout.html">Марокко</a><a href="country-page-layout.html">ОАЭ</a><a href="country-page-layout.html">Оман</a><a href="country-page-layout.html">Пакистан</a><a href="country-page-layout.html">Перу</a><a href="country-page-layout.html">Саудовская Аравия</a><a href="country-page-layout.html">Сирия</a><a href="country-page-layout.html">Судан</a><a href="country-page-layout.html">Тайвань</a><a href="country-page-layout.html">Тайланд</a><a href="country-page-layout.html">Уругвай</a><a href="country-page-layout.html">Чили</a><a href="country-page-layout.html">Эквадор</a><span class="hidden">Нет подходящих результатов, соответствующих Вашему поиску...</span>
                           </div>
-                        </div><a class="search-section__btn main-btn" href="#order" data-anchor="order">Рассчитать стоимость</a>
+                        </div><a class="search-section__btn main-btn anchor-link" href="#order" data-scroll-to="order">Рассчитать стоимость</a>
                 </div>
                 <section class="info-section">
                   <h3>Порядок размещения заказа по легализации документа</h3>
@@ -493,7 +493,7 @@
           </ul>
         </div>
       </section>
-      <section class="order">
+      <section class="order" id="order">
         <div class="container">
           <div class="order-form">
             <h2 class="lw-section-title">Заказать звонок</h2>

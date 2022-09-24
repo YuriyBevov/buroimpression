@@ -31,8 +31,8 @@
 </svg>
     </div>
     <header class="header">
-      <div class="container header__container">
-        <nav class="main-nav header__nav"><a class="main-nav__logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
+      <div class="container header__container"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
+        <nav class="main-nav header__nav">
           <ul class="main-nav__list">
             <li class="main-nav__list-item"><a class="active" href="index.html">О нас</a></li>
             <li class="main-nav__list-item"><a href="translation.html">Переводы</a></li>
@@ -45,7 +45,7 @@
         </nav>
         <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
         <div class="header__burger">
-          <button class="burger" type="button" aria-label="Меню"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
+          <button class="burger" type="button" aria-label="Меню" tabindex="0"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
         </div>
       </div>
     </header>
@@ -58,7 +58,7 @@
           <div class="container hero__container">
             <div class="hero__content">
               <h1><span>Многопрофильное </span><br/>Бюро переводов</h1>
-              <p>Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов</p><a class="main-btn" href="#order" data-anchor="order">Заказать перевод</a>
+              <p>Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов</p><a class="main-btn anchor-link" href="#order" data-scroll-to="order">Заказать перевод</a>
             </div>
           </div>
           <div class="social">
@@ -185,7 +185,7 @@
               <h3>Истребование документов</h3>
               <p>Если Ваш документ утерян или пришел в негодность, мы получим его дубликат, в том числе без личного присутствия в нашем офисе. Истребуем дубликаты документов из органов ЗАГС, образовательных документов и многих других, как в Москве, так и в любых городах России, Украины и Беларуссии. После получения истребованных документов компания «Импрешн» может предоставить услугу по их апостилированию и легализации, а также пересылку по указанному адресу.</p><a href="services.html">Подробнее</a>
             </li>
-          </ul><a class="service__btn main-btn" href="#order" data-anchor="order">Рассчитать стоимость</a>
+          </ul><a class="service__btn main-btn anchor-link" href="#order" data-scroll-to="order">Рассчитать стоимость</a>
         </div>
       </section>
       <section class="review">
@@ -381,7 +381,7 @@
                 </div>
         </div>
       </section>
-      <section class="order">
+      <section class="order" id="order">
         <div class="container">
           <div class="order-form">
             <h2 class="lw-section-title">Заказать звонок</h2>

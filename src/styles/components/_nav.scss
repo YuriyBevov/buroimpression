@@ -1,12 +1,24 @@
 .main-nav {
   @extend .flex-wrap;
   align-items: center;
-  padding-right: 20px;
-  margin-right: auto;
+  margin: 0 30px;
 
-  &__logo {
-    @extend .flex-centered-content;
-    margin-right: 20px;
+
+  @include m-b-desktop-down {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+
+    background-color: rgba(0,0,0,.6);
+
+    overflow: hidden;
+    overflow-y: auto;
   }
 
   &__list {
@@ -14,12 +26,28 @@
     align-items: center;
 
     @include m-b-desktop-down {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--main-bg-color);
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 600px;
+      padding: 100px 0;
+      justify-content: center;
+      flex-wrap: nowrap;
+      min-height: 500px;
     }
   }
 
   &__list-item {
     margin: 0 15px;
+
+    @include m-b-desktop-down {
+      margin-bottom: 10px;
+    }
 
     a {
       position: relative;

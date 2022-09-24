@@ -1,6 +1,6 @@
 import {gsap} from 'gsap';
 
-const logo = document.querySelector('.main-nav__logo');
+const logo = document.querySelector('.main-logo');
 const logoTopPos = logo.getBoundingClientRect().top;
 const logoLeftPos = logo.getBoundingClientRect().left;
 

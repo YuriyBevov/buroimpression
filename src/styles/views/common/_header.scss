@@ -11,6 +11,15 @@
     align-items: center;
   }
 
+  .main-logo {
+    @extend .flex-centered-content;
+    margin-right: 20px;
+
+    @include m-b-mobile-lg-down {
+      margin-right: auto;
+    }
+  }
+
   &__contact {
     @extend .flex-column;
 
@@ -41,7 +50,8 @@
 
   &__burger {
     display: none;
-
+    margin-left: 15px;
+    z-index: 101;
     @include m-b-desktop-down {
       display: flex;
     }

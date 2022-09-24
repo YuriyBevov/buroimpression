@@ -1,5 +1,7 @@
 import "./modules/loader";
+import "./modules/nav";
 import "./modules/page-animations";
+import "./modules/anchor-link";
 import "./modules/swiper";
 import "./modules/client-line";
 import "./modules/img-zoom";

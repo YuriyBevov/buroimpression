@@ -5,4 +5,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  @include m-b-laptop-down {
+    .main-btn {
+      width: 100%;
+    }
+  }
 }

@@ -11,10 +11,9 @@
 
 header.header
   .container.header__container
-    nav.main-nav.header__nav
-      a(href="index.html" aria-label="На главную").main-nav__logo
+    a(href="index.html" aria-label="На главную").main-logo
         img(src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50")
-
+    nav.main-nav.header__nav
       ul.main-nav__list
         each item in navList
           li.main-nav__list-item

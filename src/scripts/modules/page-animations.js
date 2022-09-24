@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 const section = document.querySelector('.hero');
 
 if(section) {
-  const feature = document.querySelector('.feature');
+  //const feature = document.querySelector('.feature');
   const service = document.querySelector('.service');
   const order = document.querySelector('.order');
   const stepList = document.querySelector('.order-step-list');
@@ -13,19 +13,19 @@ if(section) {
 
   window.addEventListener('load', () => {
 
-    if(feature) {
+    /*if(feature) {
       const items = document.querySelectorAll('.feature__list-item p');
 
       items.forEach((item,i) => {
-        gsap.fromTo(item, {opacity: 0, opacity: 0, y: 50 }, {
+        gsap.fromTo(item, {opacity: 0, y: 50 }, {
           scrollTrigger: item,
           opacity: 1,
           y: 0,
           duration: .6,
-          delay: i * 0.15,
+          delay: 0.35,
         });
       });
-    }
+    }*/
 
     if(service) {
       const items = document.querySelectorAll('.service__list-item');
@@ -36,7 +36,7 @@ if(section) {
           opacity: 1,
           y: 0,
           duration: .6,
-          delay: i * 0.15,
+          delay: 0.35,
         });
       });
     }
