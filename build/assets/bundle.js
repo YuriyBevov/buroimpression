@@ -1168,7 +1168,7 @@ if (input) {
     words.push(link.textContent.toLowerCase().trim());
   });
   input.addEventListener('input', function () {
-    var value = input.value.trim();
+    var value = input.value.toLowerCase().trim();
     words.forEach(function (w, i) {
       if (w.includes(value)) {
         hideLink(i, true);

@@ -32,7 +32,7 @@ if(input) {
   });
 
   input.addEventListener('input', () => {
-    let value = input.value.trim();
+    let value = input.value.toLowerCase().trim();
     words.forEach((w,i) => {
       if(w.includes(value)) {
         hideLink(i, true);
