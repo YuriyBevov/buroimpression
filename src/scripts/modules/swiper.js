@@ -17,7 +17,7 @@ if(sliders) {
 
       slidesOffsetAfter: 15,
       slidesOffsetBefore: 15,
-      slideToClickedSlide: true,
+      //slideToClickedSlide: true,
 
       navigation: {
         nextEl: btnNext ? btnNext : null,

@@ -4,7 +4,7 @@ import "./modules/page-animations";
 import "./modules/anchor-link";
 import "./modules/swiper";
 import "./modules/client-line";
-import "./modules/img-zoom";
+//import "./modules/img-zoom";
 import "./modules/custom-select";
 import "./modules/input-number-mask";
 import "./modules/order-form";
