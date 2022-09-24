@@ -2307,6 +2307,7 @@ fieldset {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  min-height: 50px;
   max-height: 140px;
   padding-left: 12px;
   margin-bottom: 40px;
@@ -2326,6 +2327,16 @@ fieldset {
   .search__list a:hover, .search__list a:focus {
     color: var(--accent);
   }
+}
+.search__list a.hidden {
+  display: none;
+}
+.search__list span {
+  font-size: 18px;
+  color: var(--accent);
+}
+.search__list span.hidden {
+  display: none;
 }
 
 .main-accordeon__item {

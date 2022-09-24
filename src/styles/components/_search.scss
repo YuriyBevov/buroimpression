@@ -50,6 +50,7 @@
     max-width: 760px;
 
     height: fit-content;
+    min-height: 50px;
     max-height: 140px;
 
     padding-left: 12px;
@@ -72,7 +73,19 @@
         &:focus {
           color: var(--accent);
         }
+      }
 
+      &.hidden {
+        display: none;
+      }
+    }
+
+    span {
+      font-size: 18px;
+      color: var(--accent);
+
+      &.hidden {
+        display: none;
       }
     }
   }

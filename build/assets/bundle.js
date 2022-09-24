@@ -581,6 +581,8 @@ if (form) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
@@ -594,17 +596,18 @@ if (section) {
   var apostille = document.querySelector('.apostille-info');
   window.addEventListener('load', function () {
     if (feature) {
-      var items = document.querySelectorAll('.feature__list-item');
+      var items = document.querySelectorAll('.feature__list-item p');
       items.forEach(function (item, i) {
-        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(item, {
-          opacity: 0,
-          scale: 0
-        }, {
+        var _gsap$fromTo;
+
+        gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.fromTo(item, (_gsap$fromTo = {
+          opacity: 0
+        }, _defineProperty(_gsap$fromTo, "opacity", 0), _defineProperty(_gsap$fromTo, "y", 50), _gsap$fromTo), {
           scrollTrigger: item,
           opacity: 1,
-          scale: 1,
+          y: 0,
           duration: .6,
-          delay: i * 0.35
+          delay: i * 0.15
         });
       });
     }
@@ -621,7 +624,7 @@ if (section) {
           opacity: 1,
           y: 0,
           duration: .6,
-          delay: i * 0.3
+          delay: i * 0.15
         });
       });
     }
@@ -684,6 +687,55 @@ if (section) {
         stagger: 0.25
       });
     }
+  });
+}
+
+/***/ }),
+
+/***/ "./src/scripts/modules/search.js":
+/*!***************************************!*\
+  !*** ./src/scripts/modules/search.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+var input = document.querySelector('#search-field');
+
+if (input) {
+  var empty = document.querySelector('.search__list span');
+
+  function hideLink(index) {
+    var bool = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    if (bool) {
+      links[index].classList.contains('hidden') ? links[index].classList.remove('hidden') : null;
+      !empty.classList.contains('hidden') ? empty.classList.add('hidden') : null;
+    } else {
+      !links[index].classList.contains('hidden') ? links[index].classList.add('hidden') : null;
+      var hidden = document.querySelectorAll('.search__list a.hidden');
+
+      if (hidden.length === links.length) {
+        empty.classList.remove('hidden');
+      }
+    }
+  }
+
+  var links = document.querySelectorAll('.search__list a');
+  var words = [];
+  links.forEach(function (link) {
+    words.push(link.textContent.toLowerCase().trim());
+  });
+  input.addEventListener('input', function () {
+    var value = input.value.trim();
+    words.forEach(function (w, i) {
+      if (w.includes(value)) {
+        hideLink(i, true);
+      } else {
+        hideLink(i);
+      }
+    });
   });
 }
 
@@ -30654,6 +30706,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
 /* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
 /* harmony import */ var _modules_tab_init__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tab-init */ "./src/scripts/modules/tab-init.js");
+/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/search */ "./src/scripts/modules/search.js");
+
 
 
 

@@ -11,3 +11,5 @@ mixin search(data)
     .search__list
       each country in data.countries
         a(href= country.url)= country.name
+
+      span.hidden Нет подходящих результатов, соответствующих Вашему поиску...

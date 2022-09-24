@@ -12,18 +12,19 @@ if(section) {
   const apostille = document.querySelector('.apostille-info');
 
   window.addEventListener('load', () => {
+
     if(feature) {
-      const items = document.querySelectorAll('.feature__list-item');
+      const items = document.querySelectorAll('.feature__list-item p');
 
       items.forEach((item,i) => {
-        gsap.fromTo(item, {opacity: 0, scale: 0 }, {
+        gsap.fromTo(item, {opacity: 0, opacity: 0, y: 50 }, {
           scrollTrigger: item,
           opacity: 1,
-          scale: 1,
+          y: 0,
           duration: .6,
-          delay: i * 0.35,
+          delay: i * 0.15,
         });
-      })
+      });
     }
 
     if(service) {
@@ -35,7 +36,7 @@ if(section) {
           opacity: 1,
           y: 0,
           duration: .6,
-          delay: i * 0.3,
+          delay: i * 0.15,
         });
       });
     }
@@ -84,5 +85,6 @@ if(section) {
         stagger: 0.25
       });
     }
+
   });
 }
