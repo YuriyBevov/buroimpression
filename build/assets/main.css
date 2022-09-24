@@ -3323,6 +3323,8 @@ fieldset {
   grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  width: 100%;
+  overflow: hidden;
 }
 @media (max-width: 1140px) {
   .info-section .order-step-list {

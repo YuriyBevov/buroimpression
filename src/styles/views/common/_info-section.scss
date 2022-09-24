@@ -17,6 +17,8 @@
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    width: 100%;
+    overflow: hidden;
 
     @include m-b-laptop-down {
       grid-template-columns: repeat(3, 1fr);
