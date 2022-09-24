@@ -3245,10 +3245,6 @@ fieldset {
   line-height: 26px;
 }
 
-.main-content {
-  overflow-x: hidden;
-}
-
 .search-section {
   position: relative;
   padding-right: 540px;
