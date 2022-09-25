@@ -41,13 +41,14 @@
 
 @import "./views/contact-page/contact";
 
-@import "./views/template-page/template";
-
 @import "./views/partner-page/partner";
 
 @import "./views/example-page/example";
 
 @import "./views/review-page/review";
+
+@import "./views/nostrification-page/nostrification";
+
 
 //main-content-sections
 @import "./views/common/main-content";
@@ -60,6 +61,7 @@
 @import "./views/common/preview";
 @import "./views/common/info-page";
 @import "./views/common/info-block";
+@import "./views/common/info-block-section";
 
 @import "./views/common/footer";
 /* modals */
