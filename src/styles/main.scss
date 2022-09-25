@@ -25,7 +25,6 @@
 @import "./components/note-banner";
 @import "./components/contact-card";
 @import "./components/map-pin";
-@import "./components/partner-card";
 @import "./components/review-card";
 
 /* views */
@@ -41,14 +40,11 @@
 
 @import "./views/contact-page/contact";
 
-@import "./views/partner-page/partner";
-
 @import "./views/example-page/example";
 
 @import "./views/review-page/review";
 
 @import "./views/nostrification-page/nostrification";
-
 
 //main-content-sections
 @import "./views/common/main-content";
