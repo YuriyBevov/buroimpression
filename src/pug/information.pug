@@ -1,0 +1,16 @@
+extends layouts/main-layout.pug
+
+block variables
+  -
+    const title = "Полезная информация"
+    const desc = ""
+    const keywords = ""
+
+block content
+  include ./views/index-page/hero-section
+  include ./views/information-page/main-content-section
+  include ./views/common/client-section
+  include ./views/common/order-section
+
+block modals
+  //include ./modals/...

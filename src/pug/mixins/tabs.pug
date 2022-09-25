@@ -10,8 +10,9 @@ mixin tabs(data)
             if data.type === 'banner'
               .tab-content-field-banner
                 h3!= data.title
-                each content in data.content
-                  != content
+                if data.content
+                  each content in data.content
+                    != content
             else
               if data.title
                 h3!= data.title
@@ -19,6 +20,7 @@ mixin tabs(data)
                 h4!= data.subtitle
               if data.strong
                 strong!= data.strong
-              each content in data.content
-                != content
+              if data.content
+                each content in data.content
+                  != content
 

@@ -1,0 +1,19 @@
+include ../../mixins/main-page-content
+include ../../content/information-page
+
+section.main-content
+  .container
+    +main-page-content(
+      {
+        title: 'Полезная информация',
+
+        content: [
+          {
+            type: 'tab-section',
+            cls: 'page-main-content-section',
+            tabs: Tabs,
+            tabsClass: '',
+          }
+        ]
+      }
+    )
