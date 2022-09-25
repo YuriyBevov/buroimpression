@@ -25,6 +25,7 @@
 @import "./components/note-banner";
 @import "./components/contact-card";
 @import "./components/map-pin";
+@import "./components/partner-card";
 
 /* views */
 @import "./views/common/header";
@@ -37,9 +38,11 @@
 
 @import "./views/apostille-page/apostille-info";
 
-@import "./views/contacts-page/contacts";
+@import "./views/contact-page/contact";
 
 @import "./views/template-page/template";
+
+@import "./views/partner-page/partner";
 
 //main-content-sections
 @import "./views/common/main-content";

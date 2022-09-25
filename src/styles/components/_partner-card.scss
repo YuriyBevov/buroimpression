@@ -1,0 +1,38 @@
+.partner-card {
+  @extend .flex-column;
+
+  @extend .inner-offset;
+  background-color: #fff8f2;
+
+  h3 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+
+    @include m-b-tablet-lg-down {
+      font-size: 20px;
+    }
+
+    @include m-b-tablet-down {
+      font-size: 18px;
+    }
+
+    @include m-b-mobile-lg-down {
+      font-size: 16px;
+    }
+  }
+
+  p {
+    color: var(--secondary);
+    margin-bottom: 30px;
+  }
+
+  a {
+    text-decoration: underline;
+    margin-top: auto;
+    color: var(--accent);
+
+    @extend .hover-opacity-transition;
+  }
+}
