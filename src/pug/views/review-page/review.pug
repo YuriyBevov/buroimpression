@@ -1,0 +1,57 @@
+include ../../mixins/review-card
+include ../../mixins/main-btn
+include ../../mixins/main-input
+
+-
+  const reviews = [
+    {
+      text: 'Здравствуйте! Спасибо большое за работу! Я очень довольна качеством и сервисом услуг, обращаюсь к вам не в первый раз и все на высшем уровне. Всему коллективу желаю всего самого самого, вы классные!',
+      userName: 'Константин Константинов',
+      dateFrom: '26.12.2022'
+    },
+
+    {
+      text: 'Здравствуйте! Спасибо большое за работу! Я очень довольна качеством и сервисом услуг, обращаюсь к вам не в первый раз и все на высшем уровне. Всему коллективу желаю всего самого самого, вы классные! Я очень довольна качеством и сервисом услуг, обращаюсь к вам не в первый раз и все на высшем уровне. Всему коллективу желаю всего самого самого, вы классные!',
+      userName: 'Константин Константинов',
+      dateFrom: '26.12.2022'
+    },
+
+    {
+      text: 'Здравствуйте! Спасибо большое за работу! Я очень довольна качеством и сервисом услуг!',
+      userName: 'Константин Константинов',
+      dateFrom: '26.12.2022'
+    },
+  ]
+
+section.review
+  .container
+    h2.lw-section-title Отзывы
+
+    .review__content
+      .review__content-list
+        each review in reviews
+          +review-card(review)
+      .review__content-side
+        h3.lw-section-title Оставить отзыв
+
+        p Вы можете оставить свой отзыв в данной форме.
+
+        form(action="#")
+          +main-input({
+            type: 'text',
+            placeholder: 'Ваше имя',
+            id: 'review_user_name',
+          })
+
+          +main-input({
+            type: 'text',
+            placeholder: 'Email',
+            id: 'review_user_mail',
+          })
+
+          textarea(name="review_user_text" id="review_user_text" placeholder="Ваш отзыв")
+
+          +main-btn({
+            type: 'submit',
+            text: 'Оставить отзыв'
+          })

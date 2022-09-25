@@ -1,0 +1,42 @@
+.review-card {
+  @extend .inner-offset;
+  position: relative;
+
+  margin-bottom: 40px;
+  border-radius: 20px;
+  background-color: var(--review-card-bg);
+
+  &::after {
+    position: absolute;
+    left: 50px;
+    bottom: -10px;
+    width: 30px;
+    height: 30px;
+    content: "";
+    background-color: var(--review-card-bg);
+    border-radius: 5px;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    color: var(--secondary);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: baseline;
+
+    font-size: 16px;
+    line-height: 1;
+    color: var(--secondary);
+
+    strong {
+      margin-right: 10px;
+      color: var(--main-color);
+    }
+  }
+}

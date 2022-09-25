@@ -252,6 +252,11 @@ const images = () => {
   .pipe(dest(PATHS.images.dest))
 }
 
+const pdf = () => {
+  return src(PATHS.pdf.src)
+  .pipe(dest(PATHS.pdf.dest))
+}
+
 const toWebp = () => {
   return src(PATHS.images.src)
     .pipe(webp())
@@ -283,6 +288,6 @@ const refresh = (done) => {
     done();
 }
 
-exports.start = series(clean, fonts, isPugEnabled ? pug : html, styles, js, resources, sprite, images, toWebp, svg, server);
-exports.build = series(toProd, clean, fonts, isPugEnabled ? pug : html, styles, js, resources, sprite, images, toWebp, svg);
-exports.buildMinAll = series(htmlMinify, toProd, clean, fonts, isPugEnabled ? pug : html, styles, js, resources, sprite, images, toWebp, svg);
+exports.start = series(clean, fonts, isPugEnabled ? pug : html, styles, js, resources, sprite, pdf, images, toWebp, svg, server);
+exports.build = series(toProd, clean, fonts, isPugEnabled ? pug : html, styles, js, resources, sprite, pdf, images, toWebp, svg);
+exports.buildMinAll = series(htmlMinify, toProd, clean, fonts, isPugEnabled ? pug : html, styles, js, resources, sprite, pdf, images, toWebp, svg);

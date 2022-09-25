@@ -66,7 +66,13 @@ const PATHS = {
   resources: {
     src: `${SOURCE_PATH}root-resources/**`,
     dest: BUILD_PATH
-  }
+  },
+
+  pdf: {
+    src: `${SOURCE_PATH}assets/pdf/**/*.pdf`,
+    watchSrc: `${SOURCE_PATH}assets/pdf/**/*.pdf`,
+    dest: `${BUILD_PATH}assets/pdf/`
+  },
 };
 
 module.exports = { PATHS, BUILD_PATH, isProd, isHtmlMin, isPugEnabled, isVueEnabled  }

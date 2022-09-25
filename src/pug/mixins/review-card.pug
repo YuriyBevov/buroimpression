@@ -1,0 +1,7 @@
+mixin review-card(data)
+ .review-card
+   p!= data.text
+
+   .review-card__footer
+     strong!= data.userName
+     span!= data.dateFrom
