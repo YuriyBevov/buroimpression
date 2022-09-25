@@ -28,14 +28,16 @@ if(section) {
   }
 
   window.addEventListener('resize', () => {
-    width = clients.getBoundingClientRect().width;
-    windowWidth = window.innerWidth;
-    to = `${windowWidth - width}px`;
+    if(windowWidth !== window.innerWidth) {
+      width = clients.getBoundingClientRect().width;
+      windowWidth = window.innerWidth;
+      to = `${windowWidth - width}px`;
 
-    tl.kill();
-    tl = null;
-    tl = gsap.timeline();
+      tl.kill();
+      tl = null;
+      tl = gsap.timeline();
 
-    tl.fromTo(clients, {x: '0'}, timelineOptions(to));
+      tl.fromTo(clients, {x: '0'}, timelineOptions(to));
+    }
   });
 };

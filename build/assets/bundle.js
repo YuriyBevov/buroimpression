@@ -633,15 +633,17 @@ if (section) {
   }
 
   window.addEventListener('resize', function () {
-    width = clients.getBoundingClientRect().width;
-    windowWidth = window.innerWidth;
-    to = "".concat(windowWidth - width, "px");
-    tl.kill();
-    tl = null;
-    tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
-    tl.fromTo(clients, {
-      x: '0'
-    }, timelineOptions(to));
+    if (windowWidth !== window.innerWidth) {
+      width = clients.getBoundingClientRect().width;
+      windowWidth = window.innerWidth;
+      to = "".concat(windowWidth - width, "px");
+      tl.kill();
+      tl = null;
+      tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+      tl.fromTo(clients, {
+        x: '0'
+      }, timelineOptions(to));
+    }
   });
 }
 
