@@ -1,0 +1,35 @@
+-
+  const examples = [
+    {
+      title: 'Апостиль Министерства образования Российской Федерации',
+      link: '../assets/pdf/apostyle.pdf'
+    },
+
+    {
+      title: 'Апостиль ГИАЦ МВД',
+      link: '../assets/pdf/apostyle.pdf'
+    },
+
+    {
+      title: 'Апостиль Главного управления Министерства юстиции РФ по г.Москве',
+      link: '../assets/pdf/apostyle.pdf'
+    },
+
+    {
+      title: 'Апостиль Федеральной службы по надзору в сфере образования и науки',
+      link: '../assets/pdf/apostyle.pdf'
+    },
+
+    {
+      title: 'Апостиль ЗАГС г.Москвы',
+      link: '../assets/pdf/apostyle.pdf'
+    },
+   ]
+
+section.example
+  .container
+    h2.lw-section-title Примеры наших работ
+
+    .example__list
+      each example in examples
+        a(href= example.link target="_blank")!= example.title

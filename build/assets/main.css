@@ -1406,7 +1406,7 @@ fieldset {
   flex-wrap: wrap;
 }
 
-.flex-column, .info-block__section-list--iconed li, .faq-section, .apostille-info__banner, .service__list-item-info li a, .service__list-item, .header__contact, .partner-card, .tab-switchers, .order-form, .company-info {
+.flex-column, .info-block__section-list--iconed li, .faq-section, .example__list, .apostille-info__banner, .service__list-item-info li a, .service__list-item, .header__contact, .partner-card, .tab-switchers, .order-form, .company-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1530,33 +1530,33 @@ fieldset {
 }
 
 /*transitions*/
-.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .info-block a:not(.main-btn), .faq-section > a, .info-section a, .search-section__note, .apostille-info__banner a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .partner-card a, .contact-card a, .tab-content-field a, .tab-switchers a, .main-accordeon a, .main-accordeon__item.collapsed .accordeon-item-header, .main-btn {
+.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .info-block a:not(.main-btn), .faq-section > a, .info-section a, .search-section__note, .example__list a, .apostille-info__banner a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .partner-card a, .contact-card a, .tab-content-field a, .tab-switchers a, .main-accordeon a, .main-accordeon__item.collapsed .accordeon-item-header, .main-btn {
   -webkit-transition: opacity var(--main-transition);
   -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
 @media (min-width: 960px) {
-  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .info-block a:hover:not(.main-btn), .faq-section > a:hover, .info-section a:hover, .search-section__note:hover, .apostille-info__banner a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .partner-card a:hover, .contact-card a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .main-accordeon a:hover, .main-accordeon__item.collapsed .accordeon-item-header:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .info-block a:focus:not(.main-btn), .faq-section > a:focus, .info-section a:focus, .search-section__note:focus, .apostille-info__banner a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .partner-card a:focus, .contact-card a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .main-accordeon a:focus, .main-accordeon__item.collapsed .accordeon-item-header:focus, .main-btn:focus {
+  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .info-block a:hover:not(.main-btn), .faq-section > a:hover, .info-section a:hover, .search-section__note:hover, .example__list a:hover, .apostille-info__banner a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .partner-card a:hover, .contact-card a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .main-accordeon a:hover, .main-accordeon__item.collapsed .accordeon-item-header:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .info-block a:focus:not(.main-btn), .faq-section > a:focus, .info-section a:focus, .search-section__note:focus, .example__list a:focus, .apostille-info__banner a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .partner-card a:focus, .contact-card a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .main-accordeon a:focus, .main-accordeon__item.collapsed .accordeon-item-header:focus, .main-btn:focus {
     opacity: 0.7;
   }
 }
 
 /*section-offset*/
-.section-padding-80, .info-page, .order, .main-content, .partner, .template, .contact, .feature {
+.section-padding-80, .info-page, .order, .main-content, .example, .partner, .template, .contact, .feature {
   padding: 80px 0;
 }
 @media (max-width: 1140px) {
-  .section-padding-80, .info-page, .order, .main-content, .partner, .template, .contact, .feature {
+  .section-padding-80, .info-page, .order, .main-content, .example, .partner, .template, .contact, .feature {
     padding: 60px 0;
   }
 }
 @media (max-width: 960px) {
-  .section-padding-80, .info-page, .order, .main-content, .partner, .template, .contact, .feature {
+  .section-padding-80, .info-page, .order, .main-content, .example, .partner, .template, .contact, .feature {
     padding: 40px 0;
   }
 }
 @media (max-width: 768px) {
-  .section-padding-80, .info-page, .order, .main-content, .partner, .template, .contact, .feature {
+  .section-padding-80, .info-page, .order, .main-content, .example, .partner, .template, .contact, .feature {
     padding: 30px 0;
   }
 }
@@ -2721,35 +2721,31 @@ fieldset {
 .partner-card {
   background-color: #fff8f2;
 }
-.partner-card h3 {
+.partner-card a {
   font-weight: 700;
   font-size: 22px;
   line-height: 1.2;
   margin-bottom: 30px;
+  color: var(--main-color);
 }
 @media (max-width: 960px) {
-  .partner-card h3 {
+  .partner-card a {
     font-size: 20px;
   }
 }
 @media (max-width: 768px) {
-  .partner-card h3 {
+  .partner-card a {
     font-size: 18px;
   }
 }
 @media (max-width: 634px) {
-  .partner-card h3 {
+  .partner-card a {
     font-size: 16px;
   }
 }
 .partner-card p {
   color: var(--secondary);
   margin-bottom: 30px;
-}
-.partner-card a {
-  text-decoration: underline;
-  margin-top: auto;
-  color: var(--accent);
 }
 
 /* views */
@@ -3296,6 +3292,14 @@ fieldset {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
+}
+
+.example__list a {
+  line-height: 1.3;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  margin-bottom: 20px;
+  color: var(--accent);
 }
 
 .search-section {

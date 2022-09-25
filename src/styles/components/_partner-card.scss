@@ -4,11 +4,14 @@
   @extend .inner-offset;
   background-color: #fff8f2;
 
-  h3 {
+  a {
     font-weight: 700;
     font-size: 22px;
     line-height: 1.2;
     margin-bottom: 30px;
+    color: var(--main-color);
+
+    @extend .hover-opacity-transition;
 
     @include m-b-tablet-lg-down {
       font-size: 20px;
@@ -26,13 +29,5 @@
   p {
     color: var(--secondary);
     margin-bottom: 30px;
-  }
-
-  a {
-    text-decoration: underline;
-    margin-top: auto;
-    color: var(--accent);
-
-    @extend .hover-opacity-transition;
   }
 }

@@ -1,7 +1,4 @@
 mixin partner-card(data)
   .partner-card
-    h3!= data.title
-
+    a(href= data.link)!= data.title
     p!= data.desc
-
-    a(href= data.link)!= data.link
