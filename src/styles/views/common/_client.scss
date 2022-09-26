@@ -1,12 +1,27 @@
 .client {
   @extend .section-padding-60;
 
-  background-image: url("../assets/img/clients-bg@1x.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
-  overflow: hidden; //temp
+  .webp & {
+    background-image: url("../assets/img/clients-bg@1x.webp");
+
+    @media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+      background-image: url("../assets/img/clients-bg@1x.webp");
+    }
+  }
+
+  .no-webp & {
+    background-image: url("../assets/img/clients-bg@1x.jpg");
+
+    @media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+      background-image: url("../assets/img/clients-bg@2x.jpg");
+    }
+  }
+
+  overflow: hidden;
 
   &__title {
     color: var(--white);
