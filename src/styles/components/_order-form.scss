@@ -111,5 +111,11 @@
 
   &__btn {
     margin-top: auto;
+    margin-bottom: 20px;
+  }
+
+  span {
+    font-size: 14px;
+    color: var(--secondary);
   }
 }

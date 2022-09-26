@@ -5,7 +5,7 @@ include ../mixins/custom-select
 
 .order-form
   h2.lw-section-title Заказать звонок
-  p Оставьте свои данные и мы свяжемся с вами.
+  p Выберите интересующую Вас услугу и мы обязательно свяжемся с Вами!
 
   form(action='#' id="order-form")
     fieldset
@@ -29,7 +29,7 @@ include ../mixins/custom-select
         })
       .order-form__field
         +custom-select({
-          id: 'order-type',
+          id: 'order_type',
           options: [
             { value: 'callback', name: 'Обратный звонок', isSelected: true},
             { value: 'translate', name: 'Переводы'},
@@ -44,4 +44,6 @@ include ../mixins/custom-select
     text: 'Отправить',
     cls: 'order-form__btn order-form-submit'
   })
+
+  span * Отправляя форму Вы автоматически соглашаетесь с условиями на обработку персональных данных.
 

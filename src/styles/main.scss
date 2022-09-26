@@ -47,6 +47,8 @@
 
 @import "./views/nostrification-page/nostrification";
 
+@import "./views/vacancy-page/vacancy";
+
 //main-content-sections
 @import "./views/common/main-content";
 @import "./views/common/search-section";
@@ -61,6 +63,8 @@
 @import "./views/common/info-block-section";
 
 @import "./views/common/footer";
-/* modals */
 
+/* modals */
+@import "./modal/common";
+@import "./modal/zoom-modal";
 

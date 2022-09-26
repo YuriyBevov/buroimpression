@@ -96,7 +96,6 @@
             <div class="info-block__section">
               <h3>СПРАВКА О НЕСУДИМОСТИ</h3>
               <p><strong>Вы можете получить справку об отсутствии судимости через сотрудника компании «Импрешн».</strong> Это сбережёт для Вас время и нервы. Мы оказываем такую услугу регулярно. Для получения справки об отсутствии судимости через нашего сотрудника Вам необходимо оформить нотариально заверенную доверенность или доверенность, заверенную в консульстве РФ на территории иностранного государства.</p>
-              <p>Приблизительный текст доверенности на получение справки о наличии (отсутствии) судимости смотрите <a href="template.html">здесь</a>. Паспортные данные сотрудника компании «Импрешн» можно узнать, выслав запрос на нашу электронную почту.</p>
               <p>Подробнее о стоимости и сроках получения справки о наличии (отсутствии) судимости смотрите <a href="price.html">здесь</a>.</p>
             </div>
           </div>
@@ -175,7 +174,7 @@
         <div class="container">
           <div class="order-form">
             <h2 class="lw-section-title">Заказать звонок</h2>
-            <p>Оставьте свои данные и мы свяжемся с вами.</p>
+            <p>Выберите интересующую Вас услугу и мы обязательно свяжемся с Вами!</p>
             <form action="#" id="order-form">
               <fieldset>
                 <div class="order-form__field">
@@ -188,7 +187,7 @@
                             <input class="main-input" type="text" placeholder="Email" id="user_email">
                 </div>
                 <div class="order-form__field">
-                            <select class="custom-select" id="order-type">
+                            <select class="custom-select" id="order_type">
                               <option value="callback" selected>Обратный звонок</option>
                               <option value="translate">Переводы</option>
                               <option value="apostil">Апостиль</option>
@@ -198,7 +197,7 @@
                 </div>
               </fieldset>
             </form>
-                      <button class="order-form__btn order-form-submit main-btn main-btn--button" type="submit">Отправить</button>
+                      <button class="order-form__btn order-form-submit main-btn main-btn--button" type="submit">Отправить</button><span>* Отправляя форму Вы автоматически соглашаетесь с условиями на обработку персональных данных.</span>
           </div>
         </div>
       </section>
@@ -244,6 +243,13 @@
         </div>
       </div>
     </footer>
+    <div class="modal-overlay zoom-modal">
+      <button type="button">
+        <svg width="24" height="24">
+          <use xlink:href="./assets/sprite.svg#icon-close"></use>
+        </svg>
+      </button><img src="" alt="zoomed" width="540" height="740">
+    </div>
     <!--include ./modals/...-->
   </body>
 </html>
