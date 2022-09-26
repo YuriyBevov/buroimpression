@@ -6,4 +6,4 @@ mixin main-slider(data)
           .main-slider__item
             picture
               source(srcset=`./assets/img/${item.img}@1x.webp 1x, ./assets/img/${item.img}@2x.webp 2x` type="image/webp")
-              img(class="zoomable" src=`./assets/img/${item.img}@1x.png` srcset=`./assets/img/${item.img}.png 2x` alt= item.title width="240" height="300")
+              img(loading="lazy" class="zoomable" src=`./assets/img/${item.img}@1x.png` srcset=`./assets/img/${item.img}.png 2x` alt= item.title width="240" height="300")

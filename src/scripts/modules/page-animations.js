@@ -5,27 +5,11 @@ gsap.registerPlugin(ScrollTrigger);
 const section = document.querySelector('.hero');
 
 if(section) {
-  //const feature = document.querySelector('.feature');
   const service = document.querySelector('.service');
-  const order = document.querySelector('.order');
   const stepList = document.querySelector('.order-step-list');
   const apostille = document.querySelector('.apostille-info');
 
   window.addEventListener('load', () => {
-
-    /*if(feature) {
-      const items = document.querySelectorAll('.feature__list-item p');
-
-      items.forEach((item,i) => {
-        gsap.fromTo(item, {opacity: 0, y: 50 }, {
-          scrollTrigger: item,
-          opacity: 1,
-          y: 0,
-          duration: .6,
-          delay: 0.35,
-        });
-      });
-    }*/
 
     if(service) {
       const items = document.querySelectorAll('.service__list-item');
@@ -40,20 +24,6 @@ if(section) {
         });
       });
     }
-
-    /*if(order) {
-      const orderTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".order",
-          start: "top bottom",
-          onLeaveBack: () => orderTl.reverse() }
-      });
-
-      orderTl.fromTo('.order-form', {opacity: 0}, {
-        opacity: 1,
-        duration: 1
-      });
-    }*/
 
     if(apostille) {
       const apostilleTl = gsap.timeline({
