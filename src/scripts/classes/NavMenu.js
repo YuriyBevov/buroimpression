@@ -39,7 +39,7 @@ export class NavMenu {
           opacity: 1,
           duration: 0.7,
           ease: 'power2'
-        }, "-=0.5")
+        }, "-=0.7")
         .fromTo('.main-nav__list-item', {
           y: 50,
           opacity: 0

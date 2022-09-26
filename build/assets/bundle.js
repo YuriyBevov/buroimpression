@@ -246,7 +246,7 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
           opacity: 1,
           duration: 0.7,
           ease: 'power2'
-        }, "-=0.5").fromTo('.main-nav__list-item', {
+        }, "-=0.7").fromTo('.main-nav__list-item', {
           y: 50,
           opacity: 0
         }, {
