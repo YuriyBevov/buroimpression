@@ -100,6 +100,191 @@ function _init2() {
 
 /***/ }),
 
+/***/ "./src/scripts/classes/ImageZoom.js":
+/*!******************************************!*\
+  !*** ./src/scripts/classes/ImageZoom.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ImageZoom": () => (/* binding */ ImageZoom)
+/* harmony export */ });
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions */ "./src/scripts/utils/functions.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+
+
+
+
+var _target = /*#__PURE__*/new WeakMap();
+
+var _container = /*#__PURE__*/new WeakMap();
+
+var _img = /*#__PURE__*/new WeakMap();
+
+var _closer = /*#__PURE__*/new WeakMap();
+
+var _openModal = /*#__PURE__*/new WeakSet();
+
+var _closeModal = /*#__PURE__*/new WeakSet();
+
+var _addEventListeners = /*#__PURE__*/new WeakMap();
+
+var _removeListeners = /*#__PURE__*/new WeakMap();
+
+var _onClickCloseHandler = /*#__PURE__*/new WeakMap();
+
+var _onOverlayClickHandler = /*#__PURE__*/new WeakMap();
+
+var _onKeypressHandler = /*#__PURE__*/new WeakMap();
+
+var ImageZoom = /*#__PURE__*/_createClass(function ImageZoom(target) {
+  var _this = this;
+
+  _classCallCheck(this, ImageZoom);
+
+  _classPrivateMethodInitSpec(this, _closeModal);
+
+  _classPrivateMethodInitSpec(this, _openModal);
+
+  _classPrivateFieldInitSpec(this, _target, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _container, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _img, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _closer, {
+    writable: true,
+    value: null
+  });
+
+  _classPrivateFieldInitSpec(this, _addEventListeners, {
+    writable: true,
+    value: function value() {
+      _classPrivateFieldGet(_this, _closer).addEventListener('click', _classPrivateFieldGet(_this, _onClickCloseHandler));
+
+      document.addEventListener('click', _classPrivateFieldGet(_this, _onOverlayClickHandler));
+      document.addEventListener('keydown', _classPrivateFieldGet(_this, _onKeypressHandler));
+    }
+  });
+
+  _classPrivateFieldInitSpec(this, _removeListeners, {
+    writable: true,
+    value: function value() {
+      _classPrivateFieldGet(_this, _closer).removeEventListener('click', _classPrivateFieldGet(_this, _onClickCloseHandler));
+
+      document.removeEventListener('click', _classPrivateFieldGet(_this, _onOverlayClickHandler));
+      document.removeEventListener('keydown', _classPrivateFieldGet(_this, _onKeypressHandler));
+    }
+  });
+
+  _classPrivateFieldInitSpec(this, _onClickCloseHandler, {
+    writable: true,
+    value: function value() {
+      _classPrivateMethodGet(_this, _closeModal, _closeModal2).call(_this);
+    }
+  });
+
+  _classPrivateFieldInitSpec(this, _onOverlayClickHandler, {
+    writable: true,
+    value: function value(evt) {
+      if (evt.target === _classPrivateFieldGet(_this, _container)) {
+        _classPrivateMethodGet(_this, _closeModal, _closeModal2).call(_this);
+      }
+    }
+  });
+
+  _classPrivateFieldInitSpec(this, _onKeypressHandler, {
+    writable: true,
+    value: function value(evt) {
+      if (evt.key === 'Esc' || evt.key === 'Escape') {
+        _classPrivateMethodGet(_this, _closeModal, _closeModal2).call(_this);
+      }
+    }
+  });
+
+  _classPrivateFieldSet(this, _target, target);
+
+  _classPrivateFieldSet(this, _container, document.querySelector('.zoom-popup'));
+
+  _classPrivateFieldSet(this, _img, _classPrivateFieldGet(this, _container).querySelector('img'));
+
+  _classPrivateFieldSet(this, _closer, _classPrivateFieldGet(this, _container).querySelector('button'));
+
+  _classPrivateMethodGet(this, _openModal, _openModal2).call(this);
+});
+
+function _openModal2() {
+  (0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.bodyLocker)(true);
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(_classPrivateFieldGet(this, _container), {
+    opacity: 0,
+    display: 'block'
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(_classPrivateFieldGet(this, _container), {
+    opacity: 1,
+    duration: 0.8,
+    ease: 'ease-in'
+  });
+
+  _classPrivateFieldGet(this, _img).setAttribute('src', _classPrivateFieldGet(this, _target).getAttribute('src'));
+
+  _classPrivateFieldGet(this, _addEventListeners).call(this);
+}
+
+function _closeModal2() {
+  var _this2 = this;
+
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(_classPrivateFieldGet(this, _container), {
+    opacity: 0,
+    duration: 0.8,
+    ease: 'ease-out',
+    onComplete: function onComplete() {
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(_classPrivateFieldGet(_this2, _container), {
+        display: 'none'
+      });
+    }
+  });
+
+  _classPrivateFieldGet(this, _removeListeners).call(this);
+
+  (0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.bodyLocker)(false);
+}
+
+/***/ }),
+
 /***/ "./src/scripts/classes/NavMenu.js":
 /*!****************************************!*\
   !*** ./src/scripts/classes/NavMenu.js ***!
@@ -706,184 +891,15 @@ function setDebounce(timeoutTime) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions */ "./src/scripts/utils/functions.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
-
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-
-function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
-
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-
-
+/* harmony import */ var _classes_ImageZoom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/ImageZoom */ "./src/scripts/classes/ImageZoom.js");
 
 var images = document.querySelectorAll('.zoomable');
 
 if (images) {
-  var _target = /*#__PURE__*/new WeakMap();
-
-  var _container = /*#__PURE__*/new WeakMap();
-
-  var _img = /*#__PURE__*/new WeakMap();
-
-  var _closer = /*#__PURE__*/new WeakMap();
-
-  var _openModal = /*#__PURE__*/new WeakSet();
-
-  var _closeModal = /*#__PURE__*/new WeakSet();
-
-  var _addEventListeners = /*#__PURE__*/new WeakMap();
-
-  var _removeListeners = /*#__PURE__*/new WeakMap();
-
-  var _onClickCloseHandler = /*#__PURE__*/new WeakMap();
-
-  var _onOverlayClickHandler = /*#__PURE__*/new WeakMap();
-
-  var _onKeypressHandler = /*#__PURE__*/new WeakMap();
-
-  var Modal = /*#__PURE__*/_createClass(function Modal(target) {
-    var _this = this;
-
-    _classCallCheck(this, Modal);
-
-    _classPrivateMethodInitSpec(this, _closeModal);
-
-    _classPrivateMethodInitSpec(this, _openModal);
-
-    _classPrivateFieldInitSpec(this, _target, {
-      writable: true,
-      value: null
-    });
-
-    _classPrivateFieldInitSpec(this, _container, {
-      writable: true,
-      value: null
-    });
-
-    _classPrivateFieldInitSpec(this, _img, {
-      writable: true,
-      value: null
-    });
-
-    _classPrivateFieldInitSpec(this, _closer, {
-      writable: true,
-      value: null
-    });
-
-    _classPrivateFieldInitSpec(this, _addEventListeners, {
-      writable: true,
-      value: function value() {
-        _classPrivateFieldGet(_this, _closer).addEventListener('click', _classPrivateFieldGet(_this, _onClickCloseHandler));
-
-        document.addEventListener('click', _classPrivateFieldGet(_this, _onOverlayClickHandler));
-        document.addEventListener('keydown', _classPrivateFieldGet(_this, _onKeypressHandler));
-      }
-    });
-
-    _classPrivateFieldInitSpec(this, _removeListeners, {
-      writable: true,
-      value: function value() {
-        _classPrivateFieldGet(_this, _closer).removeEventListener('click', _classPrivateFieldGet(_this, _onClickCloseHandler));
-
-        document.removeEventListener('click', _classPrivateFieldGet(_this, _onOverlayClickHandler));
-        document.removeEventListener('keydown', _classPrivateFieldGet(_this, _onKeypressHandler));
-      }
-    });
-
-    _classPrivateFieldInitSpec(this, _onClickCloseHandler, {
-      writable: true,
-      value: function value() {
-        _classPrivateMethodGet(_this, _closeModal, _closeModal2).call(_this);
-      }
-    });
-
-    _classPrivateFieldInitSpec(this, _onOverlayClickHandler, {
-      writable: true,
-      value: function value(evt) {
-        if (evt.target === _classPrivateFieldGet(_this, _container)) {
-          _classPrivateMethodGet(_this, _closeModal, _closeModal2).call(_this);
-        }
-      }
-    });
-
-    _classPrivateFieldInitSpec(this, _onKeypressHandler, {
-      writable: true,
-      value: function value(evt) {
-        if (evt.key === 'Esc' || evt.key === 'Escape') {
-          _classPrivateMethodGet(_this, _closeModal, _closeModal2).call(_this);
-        }
-      }
-    });
-
-    _classPrivateFieldSet(this, _target, target);
-
-    _classPrivateFieldSet(this, _container, document.querySelector('.zoom-modal'));
-
-    _classPrivateFieldSet(this, _img, _classPrivateFieldGet(this, _container).querySelector('img'));
-
-    _classPrivateFieldSet(this, _closer, _classPrivateFieldGet(this, _container).querySelector('button'));
-
-    _classPrivateMethodGet(this, _openModal, _openModal2).call(this);
-  });
-
-  function _openModal2() {
-    (0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.bodyLocker)(true);
-    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(_classPrivateFieldGet(this, _container), {
-      opacity: 0,
-      display: 'block'
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(_classPrivateFieldGet(this, _container), {
-      opacity: 1,
-      duration: 0.8,
-      ease: 'ease-in'
-    });
-
-    _classPrivateFieldGet(this, _img).setAttribute('src', _classPrivateFieldGet(this, _target).getAttribute('src'));
-
-    _classPrivateFieldGet(this, _addEventListeners).call(this);
-  }
-
-  function _closeModal2() {
-    var _this2 = this;
-
-    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(_classPrivateFieldGet(this, _container), {
-      opacity: 0,
-      duration: 0.8,
-      ease: 'ease-out',
-      onComplete: function onComplete() {
-        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(_classPrivateFieldGet(_this2, _container), {
-          display: 'none'
-        });
-      }
-    });
-
-    _classPrivateFieldGet(this, _removeListeners).call(this);
-
-    (0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.bodyLocker)(false);
-  }
-
   var onClickHandler = function onClickHandler(evt) {
     evt.stopPropagation();
     var target = evt.target;
-    new Modal(target);
+    new _classes_ImageZoom__WEBPACK_IMPORTED_MODULE_0__.ImageZoom(target);
   };
 
   images.forEach(function (image) {

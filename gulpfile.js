@@ -41,7 +41,7 @@ const cheerio = require('gulp-cheerio');
 
 // JS
 const webpackStream = require('webpack-stream');
-const { VueLoaderPlugin } = require('vue-loader');
+//const { VueLoaderPlugin } = require('vue-loader');
 
 // CONFIG
 const { PATHS, BUILD_PATH } = require('./gulp.config');

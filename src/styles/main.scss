@@ -27,6 +27,7 @@
 @import "./components/map-pin";
 @import "./components/review-card";
 @import "./components/price-list";
+@import "./components/zoom-popup";
 
 /* views */
 @import "./views/common/header";
@@ -66,5 +67,4 @@
 
 /* modals */
 @import "./modal/common";
-@import "./modal/zoom-modal";
 
