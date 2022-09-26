@@ -33,9 +33,9 @@ export class Tab {
 
         if(!preload) {
           if(window.innerWidth > 768) {
-            gsap.to(window, {duration: 0.6, scrollTo: {y: field, offsetY: header.getBoundingClientRect().height}});
+            gsap.to(window, {duration: 0, scrollTo: {y: field, offsetY: header.getBoundingClientRect().height}});
           } else {
-            gsap.to(window, {duration: 0.6, scrollTo: {y: field, offsetY: header.getBoundingClientRect().height + tabSwitchers.getBoundingClientRect().height }});
+            gsap.to(window, {duration: 0, scrollTo: {y: field, offsetY: header.getBoundingClientRect().height + tabSwitchers.getBoundingClientRect().height }});
           }
         }
       }

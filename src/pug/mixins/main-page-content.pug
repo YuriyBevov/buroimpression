@@ -31,7 +31,7 @@ mixin main-page-content(data)
         +tabs(item.tabs)
 
     if item.type === 'accordeon-section'
-      section.faq-section
+      section(class= item.cls ? item.cls : null).accordeon-section
         +main-accordeon(item.accordeon, item.accordeonClass)
 
         a(href= item.linkUrl)= item.linkText

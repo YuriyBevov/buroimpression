@@ -1,3 +1,9 @@
+import { gsap } from "gsap";
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
+
+import { header } from "../utils/nodesHelper";
+gsap.registerPlugin(ScrollToPlugin);
+
 export class Accordeon {
   #container = null;
   #headers = null;
@@ -14,6 +20,8 @@ export class Accordeon {
 
     body.classList.contains('collapsed') ?
     body.classList.remove('collapsed') : body.classList.add('collapsed')
+
+    gsap.to(window, {duration: 0, scrollTo: {y: target, offsetY: header.getBoundingClientRect().height}});
   }
 
   #init() {

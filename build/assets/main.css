@@ -1407,7 +1407,7 @@ fieldset {
   flex-wrap: wrap;
 }
 
-.flex-column, .info-block__section-list--iconed li, .faq-section, .example__list, .apostille-info__banner, .service__list-item-info li a, .service__list-item, .header__contact, .tab-switchers, .order-form, .company-info {
+.flex-column, .info-block__section-list--iconed li, .accordeon-section, .example__list, .apostille-info__banner, .service__list-item-info li a, .service__list-item, .header__contact, .tab-switchers, .order-form, .company-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1463,11 +1463,12 @@ fieldset {
 }
 
 /*scroll*/
-.main-scroll::-webkit-scrollbar, ::-webkit-scrollbar {
+.main-scroll::-webkit-scrollbar, .tab-content-field .table-wrapper::-webkit-scrollbar, ::-webkit-scrollbar {
   background-color: var(--main-scrollbar-color);
   width: var(--main-scrollbar-width);
+  height: var(--main-scrollbar-width);
 }
-.main-scroll::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+.main-scroll::-webkit-scrollbar-thumb, .tab-content-field .table-wrapper::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
   background-color: var(--main-scrollbar-thumb-color);
 }
 
@@ -1531,13 +1532,13 @@ fieldset {
 }
 
 /*transitions*/
-.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .info-block a:not(.main-btn), .faq-section > a, .info-section a, .search-section__note, .example__list a, .apostille-info__banner a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .contact-card a, .tab-content-field a, .tab-switchers a, .main-accordeon a, .main-accordeon__item.collapsed .accordeon-item-header, .main-btn {
+.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .info-block a:not(.main-btn), .accordeon-section > a, .info-section a, .search-section__note, .example__list a, .apostille-info__banner a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .contact-card a, .tab-content-field a, .tab-switchers a, .main-accordeon a, .main-accordeon__item.collapsed .accordeon-item-header, .main-btn {
   -webkit-transition: opacity var(--main-transition);
   -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
 @media (min-width: 960px) {
-  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .info-block a:hover:not(.main-btn), .faq-section > a:hover, .info-section a:hover, .search-section__note:hover, .example__list a:hover, .apostille-info__banner a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .contact-card a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .main-accordeon a:hover, .main-accordeon__item.collapsed .accordeon-item-header:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .info-block a:focus:not(.main-btn), .faq-section > a:focus, .info-section a:focus, .search-section__note:focus, .example__list a:focus, .apostille-info__banner a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .contact-card a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .main-accordeon a:focus, .main-accordeon__item.collapsed .accordeon-item-header:focus, .main-btn:focus {
+  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .info-block a:hover:not(.main-btn), .accordeon-section > a:hover, .info-section a:hover, .search-section__note:hover, .example__list a:hover, .apostille-info__banner a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .contact-card a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .main-accordeon a:hover, .main-accordeon__item.collapsed .accordeon-item-header:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .info-block a:focus:not(.main-btn), .accordeon-section > a:focus, .info-section a:focus, .search-section__note:focus, .example__list a:focus, .apostille-info__banner a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .contact-card a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .main-accordeon a:focus, .main-accordeon__item.collapsed .accordeon-item-header:focus, .main-btn:focus {
     opacity: 0.7;
   }
 }
@@ -2478,7 +2479,7 @@ fieldset {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  padding-top: 30px;
+  padding: 30px 0;
   margin-bottom: 70px;
   background-color: var(--white);
   z-index: 3;
@@ -2563,6 +2564,70 @@ fieldset {
   line-height: 26px;
   margin-bottom: 40px;
   color: var(--secondary);
+  /*.grid-table{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 3px;
+    font-size: 14px;
+    line-height: 1.4;
+    overflow: hidden;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    color: var(--main-color);
+
+    &-head {
+      font-weight: 700;
+    }
+
+    &-row {
+      display: grid;
+      grid-column-gap: 3px;
+      min-width: 650px;
+
+      @extend .main-scroll;
+
+      &--letter {
+        font-weight: 700;
+        font-size: 16px;
+
+        color: var(--secondary);
+      }
+
+      & > div {
+        @extend .flex-centered-content;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+      }
+
+      &:nth-child(odd) {
+        background-color: #ffffff;
+
+        & > div {
+          background-color: #f1f1f1;
+        }
+      }
+
+      &:nth-child(even) {
+        background-color: #f1f1f1;
+
+        & > div {
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    &-rows-3 {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    small {
+      line-height: 1.2;
+      margin-bottom: 0;
+      color: var(--secondary);
+    }
+  }*/
 }
 .tab-content-field.collapsed {
   display: none;
@@ -2599,6 +2664,11 @@ fieldset {
 }
 .tab-content-field strong {
   color: var(--main-color);
+}
+.tab-content-field small {
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 15px;
 }
 .tab-content-field ul {
   padding-left: 20px;
@@ -2640,6 +2710,62 @@ fieldset {
     padding-right: 15px;
   }
 }
+.tab-content-field .table-wrapper {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+}
+.tab-content-field table {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  min-width: 720px;
+  /*max-width: 800px;
+  overflow: hidden;
+  overflow-x: auto;
+
+  */
+}
+.tab-content-field table tr {
+  width: 100%;
+}
+.tab-content-field table tr:nth-child(odd) td {
+  background-color: #f1f1f1;
+}
+.tab-content-field table tr:nth-child(even) td {
+  background-color: #fbfafa;
+}
+.tab-content-field table tr:first-child td {
+  font-weight: 700;
+  text-align: center;
+}
+.tab-content-field table td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  min-width: 240px;
+  color: var(--main-color);
+}
+.tab-content-field table td:first-child {
+  font-weight: 400;
+  text-align: left;
+}
+.tab-content-field table td small {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--secondary);
+}
+.tab-content-field table td.table-letter {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: var(--secondary);
+}
+
 .note-banner {
   margin-bottom: 40px;
   background-color: var(--page-note-banner-bg);
@@ -2759,6 +2885,81 @@ fieldset {
 .review-card__footer strong {
   margin-right: 10px;
   color: var(--main-color);
+}
+
+.price-list .accordeon-item-header {
+  position: sticky;
+  top: 85px;
+  background-color: #fbfafa;
+}
+.price-list h4 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+.price-list p, .price-list small {
+  margin-bottom: 15px;
+}
+.price-list strong {
+  color: var(--main-color);
+}
+.price-list small {
+  display: block;
+  font-size: 12px;
+}
+.price-list small:last-child {
+  margin-bottom: 30px;
+}
+.price-list .table-wrapper {
+  overflow: hidden;
+  width: 100%;
+  overflow-x: auto;
+}
+.price-list table {
+  margin-bottom: 20px;
+  width: 100%;
+  min-width: 720px;
+}
+.price-list table tr {
+  width: 100%;
+}
+.price-list table tr:nth-child(odd) td {
+  background-color: #f1f1f1;
+}
+.price-list table tr:nth-child(even) td {
+  background-color: #fbfafa;
+}
+.price-list table tr:first-child td {
+  font-weight: 700;
+  text-align: center;
+}
+.price-list table td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  min-width: 240px;
+  color: var(--main-color);
+}
+.price-list table td:first-child {
+  font-weight: 400;
+  text-align: left;
+}
+.price-list table td small {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--secondary);
+}
+.price-list table td.table-letter {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: var(--secondary);
 }
 
 /* views */
@@ -3523,10 +3724,10 @@ fieldset {
   }
 }
 
-.faq-section .accordeon {
+.accordeon-section .accordeon {
   margin-bottom: clamp(20px, 4vw, 60px);
 }
-.faq-section > a {
+.accordeon-section > a {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.3;
@@ -3539,7 +3740,7 @@ fieldset {
   color: var(--accent);
 }
 @media (max-width: 375px) {
-  .faq-section > a {
+  .accordeon-section > a {
     font-size: 14px;
   }
 }

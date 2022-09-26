@@ -26,6 +26,7 @@
 @import "./components/contact-card";
 @import "./components/map-pin";
 @import "./components/review-card";
+@import "./components/price-list";
 
 /* views */
 @import "./views/common/header";
@@ -50,7 +51,7 @@
 @import "./views/common/main-content";
 @import "./views/common/search-section";
 @import "./views/common/info-section";
-@import "./views/common/faq-section";
+@import "./views/common/accordeon-section";
 
 @import "./views/common/client";
 @import "./views/common/order";

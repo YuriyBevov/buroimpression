@@ -113,6 +113,7 @@
     &::-webkit-scrollbar {
         background-color: var(--main-scrollbar-color);
         width: var(--main-scrollbar-width);
+        height: var(--main-scrollbar-width);
     }
 
     &::-webkit-scrollbar-thumb {

@@ -12,6 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Accordeon": () => (/* binding */ Accordeon)
 /* harmony export */ });
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
+/* harmony import */ var _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/nodesHelper */ "./src/scripts/utils/nodesHelper.js");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -35,6 +38,11 @@ function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__.ScrollToPlugin);
 
 var _container = /*#__PURE__*/new WeakMap();
 
@@ -65,6 +73,13 @@ var Accordeon = /*#__PURE__*/_createClass(function Accordeon(container) {
       var target = evt.currentTarget;
       var body = target.parentNode;
       body.classList.contains('collapsed') ? body.classList.remove('collapsed') : body.classList.add('collapsed');
+      gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(window, {
+        duration: 0,
+        scrollTo: {
+          y: target,
+          offsetY: _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.header.getBoundingClientRect().height
+        }
+      });
     }
   });
 
@@ -429,7 +444,7 @@ var Tab = /*#__PURE__*/_createClass(function Tab(container) {
           if (!preload) {
             if (window.innerWidth > 768) {
               gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(window, {
-                duration: 0.6,
+                duration: 0,
                 scrollTo: {
                   y: field,
                   offsetY: _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.header.getBoundingClientRect().height
@@ -437,7 +452,7 @@ var Tab = /*#__PURE__*/_createClass(function Tab(container) {
               });
             } else {
               gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(window, {
-                duration: 0.6,
+                duration: 0,
                 scrollTo: {
                   y: field,
                   offsetY: _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.header.getBoundingClientRect().height + _utils_nodesHelper__WEBPACK_IMPORTED_MODULE_0__.tabSwitchers.getBoundingClientRect().height

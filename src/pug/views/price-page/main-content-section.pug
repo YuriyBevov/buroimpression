@@ -1,0 +1,26 @@
+include ../../mixins/main-page-content
+include ../../content/price-page
+
+section.main-content
+  .container
+    +main-page-content(
+      {
+        title: 'Цены',
+
+        content: [
+          /*{
+            type: 'tab-section',
+            cls: 'page-main-content-section',
+            tabs: Tabs,
+            tabsClass: '',
+          },*/
+
+          {
+            type: 'accordeon-section',
+            cls: 'price-list',
+            accordeon: priceList,
+            accordeonClass: 'main',
+          },
+        ]
+      }
+    )
