@@ -4138,6 +4138,7 @@ fieldset {
 
 /* modals */
 .modal-overlay {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -4145,26 +4146,6 @@ fieldset {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 201;
-  display: none;
-}
-.modal-overlay.active {
-  display: block;
-}
-@-webkit-keyframes fadeIn {
-  100% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  100% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-  }
 }
 
 .zoom-modal button {
@@ -4186,7 +4167,10 @@ fieldset {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 95vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 95vh;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
