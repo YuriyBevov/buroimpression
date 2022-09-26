@@ -4,8 +4,6 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const anchors = document.querySelectorAll('.anchor-link');
 
-console.log(anchors)
-
 if(anchors) {
 
   const onClickScrollToAnchor = (evt) => {
