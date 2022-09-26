@@ -1,4 +1,5 @@
 import "./modules/loader";
+import "./modules/webp";
 import "./modules/nav";
 import "./modules/page-animations";
 import "./modules/anchor-link";

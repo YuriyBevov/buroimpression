@@ -13,7 +13,7 @@ mixin contact-card(data)
 
     .contact-card__field
       strong Телефон:
-      .contacts-card__field-row
+      .contact-card__field-row
         each phone in data.phones
           a(href=`tel:${phone.link}`)= phone.text
 

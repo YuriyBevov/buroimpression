@@ -24,10 +24,25 @@
 
     content: '';
 
-    background-image: url("../assets/img/woman@1x.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    .webp & {
+      background-image: url("../assets/img/woman@1x.webp");
+
+      @media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+        background-image: url("../assets/img/woman@1x.webp");
+      }
+    }
+
+    .no-webp & {
+      background-image: url("../assets/img/woman@1x.jpg");
+
+      @media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+        background-image: url("../assets/img/woman@2x.jpg");
+      }
+    }
 
     @include m-b-down(1240px) {
       width: 50%;

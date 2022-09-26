@@ -1,7 +1,7 @@
 .company-info {
   @extend .flex-column;
 
-  h4 {
+  strong {
     display: block;
     font-weight: 400;
     margin-bottom: 25px;
