@@ -222,8 +222,6 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
   _classPrivateFieldInitSpec(this, _openNav, {
     writable: true,
     value: function value() {
-      console.log('DEBOUNCE:', _classPrivateFieldGet(_this, _debounce));
-
       if (!_classPrivateFieldGet(_this, _debounce)) {
         _classPrivateFieldSet(_this, _debounce, true);
 
@@ -243,9 +241,9 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
           opacity: 1,
           duration: 0.7
         }).fromTo('.main-nav__list', {
-          x: '100vw'
+          opacity: 0
         }, {
-          x: 0,
+          opacity: 1,
           duration: 0.7,
           ease: 'power2'
         }, "-=0.5").fromTo('.main-nav__list-item', {
@@ -265,8 +263,6 @@ var NavMenu = /*#__PURE__*/_createClass(function NavMenu(container, opener) {
   _classPrivateFieldInitSpec(this, _closeNav, {
     writable: true,
     value: function value() {
-      console.log('DEBOUNCE:', _classPrivateFieldGet(_this, _debounce));
-
       if (!_classPrivateFieldGet(_this, _debounce)) {
         _classPrivateFieldSet(_this, _debounce, true);
 
@@ -711,6 +707,7 @@ function setDebounce(timeoutTime) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions */ "./src/scripts/utils/functions.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -736,6 +733,7 @@ function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!priva
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 
 
+
 var images = document.querySelectorAll('.zoomable');
 
 if (images) {
@@ -747,7 +745,7 @@ if (images) {
 
   var _closer = /*#__PURE__*/new WeakMap();
 
-  var _init = /*#__PURE__*/new WeakSet();
+  var _openModal = /*#__PURE__*/new WeakSet();
 
   var _closeModal = /*#__PURE__*/new WeakSet();
 
@@ -768,7 +766,7 @@ if (images) {
 
     _classPrivateMethodInitSpec(this, _closeModal);
 
-    _classPrivateMethodInitSpec(this, _init);
+    _classPrivateMethodInitSpec(this, _openModal);
 
     _classPrivateFieldInitSpec(this, _target, {
       writable: true,
@@ -843,13 +841,20 @@ if (images) {
 
     _classPrivateFieldSet(this, _closer, _classPrivateFieldGet(this, _container).querySelector('button'));
 
-    _classPrivateMethodGet(this, _init, _init2).call(this);
+    _classPrivateMethodGet(this, _openModal, _openModal2).call(this);
   });
 
-  function _init2() {
+  function _openModal2() {
     (0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.bodyLocker)(true);
-
-    _classPrivateFieldGet(this, _container).classList.add('active');
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(_classPrivateFieldGet(this, _container), {
+      opacity: 0,
+      display: 'block'
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(_classPrivateFieldGet(this, _container), {
+      opacity: 1,
+      duration: 0.8,
+      ease: 'ease-in'
+    });
 
     _classPrivateFieldGet(this, _img).setAttribute('src', _classPrivateFieldGet(this, _target).getAttribute('src'));
 
@@ -857,7 +862,18 @@ if (images) {
   }
 
   function _closeModal2() {
-    _classPrivateFieldGet(this, _container).classList.remove('active');
+    var _this2 = this;
+
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(_classPrivateFieldGet(this, _container), {
+      opacity: 0,
+      duration: 0.8,
+      ease: 'ease-out',
+      onComplete: function onComplete() {
+        gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.set(_classPrivateFieldGet(_this2, _container), {
+          display: 'none'
+        });
+      }
+    });
 
     _classPrivateFieldGet(this, _removeListeners).call(this);
 
@@ -952,74 +968,7 @@ var burger = document.querySelector('.burger');
 
 if (nav && burger) {
   new _classes_NavMenu__WEBPACK_IMPORTED_MODULE_0__.NavMenu(nav, burger);
-} //focus-trap
-//listeners
-//body-locker
-//animations
-
-/*const nav = document.querySelector('.main-nav');
-
-const tl = gsap.timeline();
-let debounce = false;
-
-export function showNav(nav, burger) {
-  debounce = true;
-
-  gsap.set(nav, {
-    display: 'block',
-    opacity: 0
-  })
-
-  nav.blur();
-
-  gsap
-    .to(nav,{
-      opacity: 1,
-      duration: 1
-    })
-
-  setTimeout(() => {
-    debounce = false;
-  }, 1200);
 }
-
-export function hideNav(nav, burger) {
-  debounce = true;
-
-  gsap.to(nav,{
-    opacity: 0,
-    duration: 1
-  })
-
-  setTimeout(() => {
-    gsap.set(nav, {
-      display: 'none',
-    });
-    debounce = false;
-  }, 1200);
-}
-
-if(nav) {
-  const burger = document.querySelector('.burger');
-
-  const onClickHandler = (evt) => {
-    evt.preventDefault();
-
-    burger.classList.contains('opened') ?
-    burger.classList.remove('opened') : burger.classList.add('opened');
-    console.log(debounce)
-    if(burger.classList.contains('opened') && !debounce) {
-
-      showNav(nav, burger);
-
-    } else if(!burger.classList.contains('opened') && !debounce){
-      hideNav(nav, burger);
-    }
-
-  }
-
-  burger.addEventListener('click', onClickHandler);
-}*/
 
 /***/ }),
 

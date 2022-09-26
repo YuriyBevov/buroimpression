@@ -1,4 +1,5 @@
 import { bodyLocker } from "../utils/functions";
+import { gsap } from 'gsap';
 
 const images = document.querySelectorAll('.zoomable');
 
@@ -14,19 +15,33 @@ if(images) {
       this.#container = document.querySelector('.zoom-modal');
       this.#img = this.#container.querySelector('img');
       this.#closer = this.#container.querySelector('button');
-      this.#init();
+      this.#openModal();
     }
 
-    #init() {
+    #openModal() {
       bodyLocker(true);
-      this.#container.classList.add('active');
+      gsap.set(this.#container, {opacity: 0, display: 'block'});
+
+      gsap.to(this.#container, {
+        opacity: 1,
+        duration: 0.8,
+        ease: 'ease-in'
+      });
+
       this.#img.setAttribute('src', this.#target.getAttribute('src'));
 
       this.#addEventListeners();
     }
 
     #closeModal() {
-      this.#container.classList.remove('active');
+      gsap.to(this.#container, {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'ease-out',
+        onComplete: () => {
+          gsap.set(this.#container, {display: 'none'});
+        }
+      });
       this.#removeListeners();
       bodyLocker(false);
     }

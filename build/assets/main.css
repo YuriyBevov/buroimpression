@@ -4144,13 +4144,11 @@ fieldset {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 101;
+  z-index: 201;
   display: none;
 }
 .modal-overlay.active {
   display: block;
-  -webkit-animation: fadeIn 0.6s ease-in forwards;
-  animation: fadeIn 0.6s ease-in forwards;
 }
 @-webkit-keyframes fadeIn {
   100% {

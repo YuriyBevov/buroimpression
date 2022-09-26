@@ -19,8 +19,6 @@ export class NavMenu {
   }
 
   #openNav = () => {
-    console.log('DEBOUNCE:', this.#debounce);
-
     if(!this.#debounce) {
       this.#debounce = true;
       this.#isNavOpened = true;
@@ -37,8 +35,8 @@ export class NavMenu {
           opacity: 1,
           duration: 0.7
         })
-        .fromTo('.main-nav__list', {x: '100vw'}, {
-          x: 0,
+        .fromTo('.main-nav__list', {opacity: 0}, {
+          opacity: 1,
           duration: 0.7,
           ease: 'power2'
         }, "-=0.5")
@@ -56,8 +54,6 @@ export class NavMenu {
   }
 
   #closeNav = () => {
-    console.log('DEBOUNCE:', this.#debounce);
-
     if(!this.#debounce) {
       this.#debounce = true;
 
