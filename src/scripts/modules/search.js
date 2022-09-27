@@ -1,5 +1,3 @@
-import { gsap } from 'gsap';
-
 const input = document.querySelector('#search-field');
 
 if(input) {

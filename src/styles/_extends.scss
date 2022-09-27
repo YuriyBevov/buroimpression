@@ -66,17 +66,17 @@
 /*form elements*/
 
 .fieldset-default {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 /*text*/
 
 .text-nowrap {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .text-overflow {
@@ -123,13 +123,6 @@
 
 /*resets*/
 
-.btn-reset {
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-}
-
 .input-reset {
   -webkit-appearance: none;
   appearance: none;
@@ -146,7 +139,6 @@
 }
 
 /*containers*/
-
 .container {
   margin: 0 auto;
   padding: 0 var(--container-offset);
@@ -164,9 +156,6 @@
 }
 
 /*elements*/
-.is-hidden {
-  display: none !important; /* stylelint-disable-line declaration-no-important */
-}
 
 .visually-hidden {
   position: absolute;
@@ -235,12 +224,4 @@
 
 .section-padding-60-80 {
   padding: 60px 0 80px;
-}
-
-.outline {
-  outline: 1px solid red;
-}
-
-.page-note-banner {
-
 }

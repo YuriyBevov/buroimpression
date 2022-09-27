@@ -55,6 +55,5 @@ if(section) {
         stagger: 0.25
       });
     }
-
   });
 }

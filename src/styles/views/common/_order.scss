@@ -1,25 +1,10 @@
 .order {
   @extend .section-padding-80;
 
+  background-image: url("../assets/img/wood-bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
-  .webp & {
-    background-image: url("../assets/img/wood-bg@1x.webp");
-
-    @media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
-      background-image: url("../assets/img/wood-bg@1x.webp");
-    }
-  }
-
-  .no-webp & {
-    background-image: url("../assets/img/wood-bg@1x.png");
-
-    @media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
-      background-image: url("../assets/img/wood-bg@2x.png");
-    }
-  }
 
   @include m-b-laptop-down {
     .main-btn {

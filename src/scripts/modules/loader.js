@@ -4,25 +4,23 @@ const logo = document.querySelector('.main-logo');
 const logoTopPos = logo.getBoundingClientRect().top;
 const logoLeftPos = logo.getBoundingClientRect().left;
 
-
 window.addEventListener('load', () => {
-  gsap.to('.loader svg', {
-    top: `${logoTopPos}px`,
-    left: `${logoLeftPos}px`,
-    opacity: 0,
-    duration: .5,
-    ease: 'ease-in'
-  });
+  let tl = gsap.timeline();
 
-  gsap.to('.loader', {
-    opacity: 0,
-    duration: .5,
-    ease: 'linear'
-  });
-
-  gsap.fromTo('body', {opacity: 0}, {opacity: 1, duration: 0.4, ease: 'linear'})
-
-  setTimeout(() => {
-    document.querySelector('.loader').classList.add('hidden');
-  }, 500);
+  tl
+    .to('.loader svg', {
+      top: `${logoTopPos}px`,
+      left: `${logoLeftPos}px`,
+      opacity: 0,
+      duration: .6,
+      ease: 'ease-in'
+    })
+    .to('.loader', {
+      opacity: 0,
+      duration: .6,
+      ease: 'linear',
+    })
+    .to('.loader', {
+      display: 'none'
+    });
 })
