@@ -169,6 +169,11 @@ const js = () => {
     ))
     .pipe(webpackStream({
         mode: isProd ? 'production' : 'development',
+        performance: {
+          hints: false,
+          maxEntrypointSize: 512000,
+          maxAssetSize: 512000
+        },
         output: {
             filename: './bundle.js',
         },
