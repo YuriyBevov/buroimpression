@@ -12,8 +12,6 @@
   svg {
     position: absolute;
     top: 50%;
-    //left: 50%;
-    //transform: translate(-50%, -50%);
     animation: loader 4s infinite;
   }
 
@@ -37,9 +35,5 @@
     100% {
       transform: rotate(360deg);
     }
-  }
-
-  &.hidden {
-    display: none;
   }
 }

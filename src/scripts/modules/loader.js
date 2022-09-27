@@ -1,10 +1,12 @@
 import {gsap} from 'gsap';
+import { bodyLocker } from '../utils/functions';
 
 const logo = document.querySelector('.main-logo');
 const logoTopPos = logo.getBoundingClientRect().top;
 const logoLeftPos = logo.getBoundingClientRect().left;
-
+bodyLocker(true);
 window.addEventListener('load', () => {
+  bodyLocker(false);
   let tl = gsap.timeline();
 
   tl
