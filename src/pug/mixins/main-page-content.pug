@@ -34,5 +34,6 @@ mixin main-page-content(data)
       section(class= item.cls ? item.cls : null).accordeon-section
         +main-accordeon(item.accordeon, item.accordeonClass)
 
-        a(href= item.linkUrl)= item.linkText
+        if item.linkUrl
+          a(href= item.linkUrl)= item.linkText
 

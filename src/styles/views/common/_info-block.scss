@@ -165,7 +165,6 @@
     text-transform: uppercase;
     text-decoration: underline;
     margin: 0 auto;
-    margin-bottom: clamp(40px, 5vw, 80px);
     color: var(--accent);
 
     @extend .hover-opacity-transition;

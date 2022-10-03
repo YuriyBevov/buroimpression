@@ -1,5 +1,17 @@
 .info-section {
-  margin-bottom: clamp(30px, 5vw, 80px);
+  margin-bottom: 80px;
+
+  @include m-b-desktop-down {
+    margin-bottom: 60px;
+  }
+
+  @include m-b-laptop-down {
+    margin-bottom: 40px;
+  }
+
+  @include m-b-mobile-lg-down {
+    margin-bottom: 30px;
+  }
 
   a {
     @extend .hover-opacity-transition;
