@@ -12,3 +12,4 @@ import "./modules/order-form";
 import "./modules/accordeons-init";
 import "./modules/tab-init";
 import "./modules/search";
+import "./modules/get-year";
