@@ -1,0 +1,13 @@
+extends layouts/main-layout.pug
+
+block variables
+  -
+    const title = "Страница не найдена"
+    const desc = "Описание сайта"
+    const keywords = ""
+
+block content
+  include ./views/404-page/404
+
+block modals
+  //include ./modals/...

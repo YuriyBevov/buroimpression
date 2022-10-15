@@ -13,3 +13,4 @@ import "./modules/accordeons-init";
 import "./modules/tab-init";
 import "./modules/search";
 import "./modules/get-year";
+import "./modules/404";

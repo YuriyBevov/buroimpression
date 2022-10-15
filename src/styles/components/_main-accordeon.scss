@@ -72,13 +72,13 @@
     font-size: 16px;
     color: var(--secondary);
 
-    div {
-      margin-bottom: 15px;
-    }
-
     a {
       text-decoration: underline;
       color: var(--accent);
+    }
+
+    p,a {
+      margin-bottom: 15px;
     }
   }
 
