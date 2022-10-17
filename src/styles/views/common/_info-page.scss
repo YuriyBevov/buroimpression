@@ -1,5 +1,6 @@
 .info-page {
   @extend .section-padding-80;
+  overflow: hidden;
 
   p {
     margin-bottom: 10px;
