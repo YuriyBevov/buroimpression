@@ -1,5 +1,24 @@
 .info-block {
-  &__section {
+  &__header {
+    display: grid;
+    grid-template-columns: auto 430px;
+    grid-template-rows: auto;
+    grid-column-gap: 30px;
+
+    margin-bottom: 60px;
+
+    & > .note-banner,
+    & > .info-banner {
+      margin-bottom: 0;
+    }
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: 1fr;
+      grid-row-gap: 30px;
+    }
+  }
+
+  &__content {
     margin-bottom: 40px;
 
     .main-btn {
@@ -45,6 +64,11 @@
     }
   }
 
+  .note-banner h3,
+  .info-banner h3 {
+    margin-top: 0;
+  }
+
   p {
     line-height: 1.5;
     color: var(--secondary);
@@ -75,13 +99,21 @@
     color: var(--secondary);
   }
 
-  &__section-list {
-    padding-left: 20px;
+  ul {
     margin-bottom: 20px;
 
     li {
-      position: relative;
       margin-bottom: 15px;
+    }
+  }
+
+  &__content-list {
+    padding-left: 20px;
+    //margin-bottom: 20px;
+
+    li {
+      position: relative;
+      //margin-bottom: 15px;
 
       &::before {
         position: absolute;

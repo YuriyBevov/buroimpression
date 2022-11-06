@@ -1,3 +1,3 @@
 import customSelect from 'custom-select';
 
-customSelect('.custom-select');
+export let cstSel = customSelect('.custom-select');

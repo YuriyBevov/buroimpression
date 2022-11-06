@@ -3,12 +3,11 @@
     @extend .inner-offset;
     background-color: var(--page-note-banner-bg);
 
-    &__title {
+    h3 {
       font-size: 22px;
-      line-height: 1.2;
+      line-height: 1.2 !important;
       font-weight: 700;
-
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
 
       @include m-b-mobile-lg-down {
         font-size: 20px;
@@ -16,7 +15,8 @@
     }
 
     p {
-      margin-bottom: 15px;
+      line-height: 1.2 !important;
+      margin-bottom: 15px !important;
       color: var(--secondary);
 
       strong {
@@ -25,6 +25,6 @@
     }
 
     p:last-child {
-      margin-bottom: 0;
+      margin-bottom: 0 !important;
     }
   }

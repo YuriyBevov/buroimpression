@@ -12,7 +12,10 @@ html(lang="ru")
   +head(title, desc, keywords)
 
   body.loading
+    include ../components/page-overlay
     include ../components/loader
+    include ../components/modal-overlay
+
     include ../views/common/header
 
     main
@@ -20,4 +23,6 @@ html(lang="ru")
 
     include ../views/common/footer
     include ../modals/zoom-modal
+    include ../modals/thanks-modal
+    include ../modals/error-modal
     block modals

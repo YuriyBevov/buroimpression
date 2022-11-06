@@ -1,3 +1,6 @@
+import { FormType } from "./const";
+import { cstSel } from "../modules/custom-select";
+
 const RenderPosition = {
   BEFOREBEGIN: 'beforebegin',
   AFTERBEGIN: 'afterbegin',
@@ -31,5 +34,14 @@ const render = (container, template, place = 'beforeend') => {
   }
 };
 
+const refresh = (container) => {
 
-export {RenderPosition, createElement, render};
+  const current = container.querySelector('[data-field]');
+  if(current && current.dataset.field !== FormType.DEFAULT) {
+    current.remove();
+    cstSel[0].value = 'callback';
+  }
+}
+
+
+export {RenderPosition, createElement, render, refresh };

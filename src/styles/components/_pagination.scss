@@ -1,0 +1,47 @@
+.pagination {
+  @extend .flex-centered-content;
+
+  &__btn {
+    @extend .flex-centered-content;
+    width: 30px;
+    height: 30px;
+
+    margin: 0 4px;
+
+    color: var(--accent);
+
+    svg {
+      fill: var(--accent);
+    }
+
+    &.active {
+      opacity: .8;
+      color: var(--dark);
+      text-decoration: underline;
+    }
+
+    &--next {
+      transform: rotate(90deg);
+    }
+
+    &--prev {
+      transform: rotate(-90deg);
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: .7;
+    }
+
+    @extend .hover-opacity-transition;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+
+    span {
+      @extend .pagination__btn;
+    }
+  }
+}

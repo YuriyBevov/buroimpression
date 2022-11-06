@@ -1,0 +1,12 @@
+.info-links {
+  @extend .flex-column;
+
+  a {
+    line-height: 1.3;
+    text-decoration-line: underline;
+    margin-bottom: 20px;
+    color: var(--accent);
+
+    @extend .hover-opacity-transition;
+  }
+}

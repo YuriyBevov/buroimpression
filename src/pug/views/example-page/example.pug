@@ -26,10 +26,10 @@
     },
    ]
 
-section.example
+section.main-content
   .container
     h2.lw-section-title Примеры наших работ
 
-    .example__list
+    .info-links
       each example in examples
-        a(href= example.link target="_blank")!= example.title
+        a(href="example-detail.html" target="_blank")!= example.title

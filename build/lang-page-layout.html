@@ -15,6 +15,7 @@
     <script defer="defer" src="./assets/bundle.js"></script>
   </head>
   <body class="loading">
+    <div class="page-overlay"></div>
     <div class="loader"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.83691 8.65922L9.51621 14.8045L12.4083 13.2216L7.83691 8.65922Z" fill="#9C1006"/>
 <path d="M35.7316 34.8231L34.0523 28.6778L31.1602 30.2607L35.7316 34.8231Z" fill="#9C1006"/>
@@ -34,6 +35,7 @@
 <path d="M16.1205 33.4818C16.1155 33.4717 16.11 33.4617 16.1043 33.4519L14.4352 30.6201L20.6779 24.3898V41.59L16.4879 34.215L16.3071 33.8542L15.8601 34.0782L16.3071 33.8542L16.1205 33.4818Z" stroke="#9C1006" stroke-linejoin="round"/>
 </svg>
     </div>
+    <div class="modal-overlay"></div>
     <header class="header">
       <div class="container header__container"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
         <nav class="main-nav header__nav">
@@ -83,11 +85,11 @@
           </div>
         </div>
       </section>
-      <section class="info-page">
+      <section class="main-content">
         <div class="container">
           <h2 class="lw-section-title">Абхазский язык</h2>
           <div class="info-block">
-            <div class="info-block__section">
+            <div class="info-block__content">
               <p><strong>Цены за письменный перевод:</strong></p><div class="table-wrapper">
 <table>
 <tbody>
@@ -127,7 +129,7 @@
               <p><strong>Перевод с абхазского языка на русский язык</strong> с каждым днем становится все более востребованным. В настоящее время это характерно для всех видов перевода: технического, юридического, медицинского и художественного.</p>
               <p>Наше бюро переводов имеет большой опыт в осуществлении переводов, как с абхазского языка на русский язык, так и с русского языка на абхазский язык.</p>
               <p><strong>Мы осуществляем письменные переводы следующих видов:</strong></p>
-              <ul class="info-block__section-list">
+              <ul class="info-block__content-list">
                 <li>
                   <p>технический перевод</p>
                 </li>
@@ -145,7 +147,7 @@
               <h3>Технический перевод с абхазского языка</h3>
               <p>Спрос на технический перевод с абхазского языка на русский язык существует уже давно. Сотрудничество между этими странами только укрепляется в последние несколько лет, что неизбежно влияет на стабильный рост спроса.</p>
               <p><strong>Мы осуществляем технические переводы с абхазского языка на русский язык и с русского языка на абхазский язык различной технической литературы:</strong></p>
-              <ul class="info-block__section-list">
+              <ul class="info-block__content-list">
                 <li>
                   <p>перевод технических описаний и каталогов оборудования</p>
                 </li>
@@ -165,7 +167,7 @@
               <p>Перевод с абхазского языка юридической тематики становится все более востребованным и распространенным в России. Давнее и все расширяющееся сотрудничество между Россией и Абхазией во многих сферах провоцирует стабильное увеличение спроса на юридический перевод с/на абхазский язык.</p>
               <p>Также юридический перевод в рамках этой языковой пары часто необходим для перевода документов личного характера.</p>
               <p><strong>Наиболее часто у нас заказывают:</strong></p>
-              <ul class="info-block__section-list">
+              <ul class="info-block__content-list">
                 <li>
                   <p>перевод доверенности с абхазского языка на русский язык</p>
                 </li>
@@ -196,7 +198,7 @@
               <h3>Медицинский перевод с абхазского языка</h3>
               <p>Медицинский перевод с/на абхазский язык пользуется спросом в связи с давним сотрудничеством Абхазии с Россией, в том числе и в сфере медицины.</p>
               <p><strong>Мы осуществляем медицинский перевод с абхазского языка на русский язык и с русского языка на абхазский язык следующих видов документов:</strong></p>
-              <ul class="info-block__section-list">
+              <ul class="info-block__content-list">
                 <li>
                   <p>медицинские заключения, эпикризы, медицинские справки, выписки из истории болезни, протоколы исследований и т. д.</p>
                 </li>
@@ -215,7 +217,7 @@
               <h3>Художественый перевод с абхазского языка</h3>
               <p>Художественная литература Абхазии, которая берёт свое начало в Абхазском национальном фольклоре, разнообразна и является гордостью своей страны. Помимо перевода литературных текстов, к художественному переводу можно отнести перевод текстов журнальных статей, рекламных материалов, писем и туристических брошюр, что невероятно актуально, учитывая то, что туризм очень важен для этой страны.</p>
               <p><strong>Наше бюро имеет большой опыт в осуществлении художественного перевода с абхазского языка на русский язык и перевода с русского языка на абхазский язык следующих видов художественных текстов:</strong></p>
-              <ul class="info-block__section-list">
+              <ul class="info-block__content-list">
                 <li>
                   <p>художественные книги, рассказы и журнальные статьи</p>
                 </li>
@@ -381,6 +383,32 @@
           <use xlink:href="./assets/sprite.svg#icon-close"></use>
         </svg>
       </button><img src="" alt="zoomed" width="540" height="740">
+    </div>
+    <div class="modal state-modal thanks-modal" id="thanks-modal">
+      <button class="modal__close" type="button">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <svg width="100" height="100">
+          <use xlink:href="./assets/sprite.svg#icon-success"></use>
+        </svg>
+        <p>Форма успешно отправлена !</p>
+      </div>
+    </div>
+    <div class="modal state-modal error-modal" id="error-modal">
+      <button class="modal__close" type="button">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <svg width="100" height="100">
+          <use xlink:href="./assets/sprite.svg#icon-error"></use>
+        </svg>
+        <p>Что-то пошло не&nbsp;так... <br/> Попробуйте еще раз.</p>
+      </div>
     </div>
   </body>
 </html>

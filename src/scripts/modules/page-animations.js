@@ -6,8 +6,8 @@ const section = document.querySelector('.hero');
 
 if(section) {
   const service = document.querySelector('.service');
-  const stepList = document.querySelector('.order-step-list');
-  const apostille = document.querySelector('.apostille-info');
+  const stepList = document.querySelector('.ordinal-list ul');
+  const infoBanner = document.querySelector('.info-banner');
 
   window.addEventListener('load', () => {
 
@@ -25,15 +25,15 @@ if(section) {
       });
     }
 
-    if(apostille) {
-      const apostilleTl = gsap.timeline({
+    if(infoBanner) {
+      const infoBannerTL = gsap.timeline({
         scrollTrigger: {
-          trigger: ".apostille-info__banner",
+          trigger: infoBanner,
           start: "top bottom",
-          onLeaveBack: () => apostilleTl.reverse() }
+          onLeaveBack: () => infoBannerTL.reverse() }
       });
 
-      apostilleTl.fromTo('.apostille-info__banner', {opacity: 0, scale: 0}, {
+      infoBannerTL.fromTo(infoBanner, {opacity: 0, scale: 0}, {
         opacity: 1,
         duration: 1,
         scale: 1
@@ -43,12 +43,12 @@ if(section) {
     if(stepList) {
       const stepListTl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".order-step-list",
+          trigger: ".ordinal-list ul",
           start: "top bottom",
           onLeaveBack: () => stepListTl.reverse() }
       });
 
-      stepListTl.fromTo('.order-step-list li', {opacity: 0, x: 150}, {
+      stepListTl.fromTo('.ordinal-list ul > li', {opacity: 0, x: 150}, {
         opacity: 1,
         duration: 0.6,
         x: 0,

@@ -1,0 +1,15 @@
+.pagination
+  a(href="#" aria-label="Предыдущая страница").pagination__btn.pagination__btn--prev
+    svg(width="24" height="24")
+      use(xlink:href="./assets/sprite.svg#icon-arrow")
+
+  .pagination__list
+
+    a(href="#").active.pagination__btn.pagination__btn--disabled 1
+    <span>...</span>
+    a(href="#").pagination__btn 3
+
+  a(href="#" aria-label="Следующая страница").pagination__btn.pagination__btn--next
+    svg(width="24" height="24")
+      use(xlink:href="./assets/sprite.svg#icon-arrow")
+

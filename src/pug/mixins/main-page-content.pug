@@ -6,8 +6,37 @@ include ./main-btn
 mixin main-page-content(data)
   h2.lw-section-title!= data.title
 
+  .menu-list
+    <ul>
+      <li>
+        svg(width="50" height="50")
+          use(xlink:href="./assets/sprite.svg#icon-stamp")
+        <span>Апостиль на нотариальные документы</span>
+        <a href="/uslugi/apostil-na-notarialnye-dokumenty.html">Подробнее</a>
+      </li>
+      <li>
+        svg(width="50" height="50")
+          use(xlink:href="./assets/sprite.svg#icon-family")
+          <span>Апостиль на документы ЗАГС</span>
+          <a href="/uslugi/apostil-na-dokumenty-zags.html">Подробнее</a>
+        </li>
+      <li>
+        svg(width="50" height="50")
+          use(xlink:href="./assets/sprite.svg#icon-list")
+        <span>Апостиль ГИАЦ МВД(справка о несудимости)</span>
+        <a href="/uslugi/apostil-gaits-mvd-spravka-o-nesudimosti.html">Подробнее</a>
+      </li>
+      <li>
+        svg(width="50" height="50")
+          use(xlink:href="./assets/sprite.svg#icon-education")
+        <span>Апостиль на образовательные документы</span>
+        <a href="/uslugi/apostil-na-obrazovatelnye-dokumenty.html">Подробнее</a>
+      </li>
+    </ul>
+    <a class="main-btn anchor-link" href="#order" data-scroll-to="order">Рассчитать стоимость</a>
+
   each item in data.content
-    if item.type === 'search-section'
+    if item.type === 'search'
       div(class= item.cls)
         +search(item.data)
 
@@ -15,14 +44,13 @@ mixin main-page-content(data)
           p.search-section__note!= item.note
 
         +main-btn({
-          cls: 'search-section__btn',
           type: 'anchor',
           anchor: 'order',
           text: 'Рассчитать стоимость'
         })
 
-    if item.type === 'info-section'
-      section(class= item.cls)
+    if item.type === 'ordinal-list'
+      div(class= item.cls)
         h3!= item.title
         != item.content
 
@@ -31,7 +59,7 @@ mixin main-page-content(data)
         +tabs(item.tabs)
 
     if item.type === 'accordeon-section'
-      section(class= item.cls ? item.cls : null).accordeon-section
+      div(class= item.cls ? item.cls : null).accordeon-container
         +main-accordeon(item.accordeon, item.accordeonClass)
 
         if item.linkUrl

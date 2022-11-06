@@ -9,8 +9,8 @@ section.main-content
 
         content: [
           {
-            type: 'search-section',
-            cls: 'search-section search-section--countries',
+            type: 'search',
+            cls: 'search',
             data: {
               placeholder: 'Введите название страны или выберите из списка',
               countries: Countries,
@@ -18,12 +18,12 @@ section.main-content
           },
 
           {
-            type: 'info-section',
-            cls: 'info-section',
+            type: 'ordinal-list',
+            cls: 'ordinal-list',
             title: 'Порядок размещения заказа по легализации документа',
 
             content: `
-              <ul class="order-step-list">
+              <ul>
                 <li>
                   <span>1.</span>
                   <p>Выслать нам скан документа на электронную почту <a href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></p>
@@ -49,17 +49,8 @@ section.main-content
           },
 
           {
-            type: 'tab-section',
-            cls: 'page-main-content-section',
-            tabs: Tabs,
-            tabsClass: '',
-          },
-
-          {
             type: 'accordeon-section',
-            cls: 'faq',
             accordeon: FAQ,
-            accordeonClass: 'main',
             linkText: 'Примеры наших работ по консульской легализации',
             linkUrl: 'example.html'
           },

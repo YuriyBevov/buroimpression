@@ -31,25 +31,31 @@ section.review
       .review__content-list
         each review in reviews
           +review-card(review)
+
+        include ../../components/pagination
+
+
       .review__content-side
         h3.lw-section-title Оставить отзыв
 
         p Вы можете оставить свой отзыв в данной форме.
 
-        form(action="#")
+        form(action="#" id="review-form")
           +main-input({
             type: 'text',
             placeholder: 'Ваше имя',
+            cls: 'required-control',
             id: 'review_user_name',
           })
 
           +main-input({
             type: 'text',
             placeholder: 'Email',
+            cls: 'required-control',
             id: 'review_user_mail',
           })
 
-          textarea(name="review_user_text" id="review_user_text" placeholder="Ваш отзыв")
+          textarea(name="review_user_text" id="review_user_text" placeholder="Ваш отзыв" class="required-control")
 
           +main-btn({
             type: 'submit',

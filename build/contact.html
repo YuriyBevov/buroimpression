@@ -15,6 +15,7 @@
     <script defer="defer" src="./assets/bundle.js"></script>
   </head>
   <body class="loading">
+    <div class="page-overlay"></div>
     <div class="loader"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.83691 8.65922L9.51621 14.8045L12.4083 13.2216L7.83691 8.65922Z" fill="#9C1006"/>
 <path d="M35.7316 34.8231L34.0523 28.6778L31.1602 30.2607L35.7316 34.8231Z" fill="#9C1006"/>
@@ -34,6 +35,7 @@
 <path d="M16.1205 33.4818C16.1155 33.4717 16.11 33.4617 16.1043 33.4519L14.4352 30.6201L20.6779 24.3898V41.59L16.4879 34.215L16.3071 33.8542L15.8601 34.0782L16.3071 33.8542L16.1205 33.4818Z" stroke="#9C1006" stroke-linejoin="round"/>
 </svg>
     </div>
+    <div class="modal-overlay"></div>
     <header class="header">
       <div class="container header__container"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
         <nav class="main-nav header__nav">
@@ -288,6 +290,32 @@
           <use xlink:href="./assets/sprite.svg#icon-close"></use>
         </svg>
       </button><img src="" alt="zoomed" width="540" height="740">
+    </div>
+    <div class="modal state-modal thanks-modal" id="thanks-modal">
+      <button class="modal__close" type="button">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <svg width="100" height="100">
+          <use xlink:href="./assets/sprite.svg#icon-success"></use>
+        </svg>
+        <p>Форма успешно отправлена !</p>
+      </div>
+    </div>
+    <div class="modal state-modal error-modal" id="error-modal">
+      <button class="modal__close" type="button">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <svg width="100" height="100">
+          <use xlink:href="./assets/sprite.svg#icon-error"></use>
+        </svg>
+        <p>Что-то пошло не&nbsp;так... <br/> Попробуйте еще раз.</p>
+      </div>
     </div>
     <!--include ./modals/...-->
   </body>

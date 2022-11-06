@@ -58,7 +58,6 @@ function focusTrap(el, initialFocusedEl = null) {
 
       if(evt.key === 'Escape') {
           document.removeEventListener('keydown', onBtnClickHandler);
-          console.log('ESC')
       }
 
       if (!isTabPressed) {

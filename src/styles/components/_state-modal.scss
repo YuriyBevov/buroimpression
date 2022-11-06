@@ -1,0 +1,58 @@
+.state-modal {
+  background-color: var(--main-bg-color);
+  border-radius: 12px;
+
+  &.is-active {
+    animation: fadeIn 1s linear forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0.4;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .modal__close {
+    top: 15px;
+    right: 15px;
+
+    svg {
+      fill: #bbbbbb;
+
+      @include m-b-tablet-down {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .modal__content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include m-b-tablet-down {
+      padding: 15px;
+    }
+
+    svg {
+      fill: var(--info);
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 20px;
+      text-align: center;
+
+      @include m-b-tablet-down {
+        font-size: 18px;
+      }
+    }
+  }
+}

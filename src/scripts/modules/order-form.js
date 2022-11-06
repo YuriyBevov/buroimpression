@@ -1,3 +1,4 @@
+import { formValidation } from "./form/formValidation";
 import { FormType } from "../utils/const";
 import { render } from "../utils/render";
 import { OrderFormView } from "../utils/order-form-view";
@@ -24,7 +25,6 @@ if(form) {
           !control.checked ?
             field.setAttribute('disabled', true):
             field.removeAttribute('disabled');
-
         });
       });
     }
@@ -32,10 +32,6 @@ if(form) {
 
   const onClickHandler = (evt) => {
     _currentType = evt.target.dataset.value;
-
-    if(_currentType === _prevType) {
-      return;
-    };
 
     _prevType = _currentType;
     _prevView = form.querySelector('[data-field]');
@@ -45,6 +41,7 @@ if(form) {
     };
 
     if(_currentType !== FormType.DEFAULT) {
+
       _currentView = OrderFormView(_currentType);
 
       render(form, _currentView);
@@ -59,6 +56,10 @@ if(form) {
 
   submitBtn.addEventListener('click', (evt) => {
     evt.preventDefault();
-    console.log('SUBMIT ORDER FORM');
+
+    form.querySelectorAll('input[type="checkbox"]').forEach(control => {
+      if(control.value === 'on') control.value = 'Да';
+    })
+    formValidation(form);
   })
 };

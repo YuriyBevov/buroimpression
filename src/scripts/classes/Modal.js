@@ -1,45 +1,50 @@
+import { gsap } from 'gsap';
+import { modalOverlay } from '../utils/nodesHelper';
+
 export class Modal {
   constructor( modal, options = {} ) {
-      this.isBodyLocked = options.isBodyLocked ? true : false,
-      this.modal = modal;
-      this.id = this.modal.getAttribute('id');
-      this.openers = document.querySelectorAll('[data-modal-anchor="' + this.id + '"]');
-      this.isInited = false;
-      this.overlay = this.modal.parentNode;
-      this.close = this.modal.querySelector('.modal__close');
-      this.focusableElements = [
-        'a[href]',
-        'input',
-        'select',
-        'textarea',
-        'button',
-        'iframe',
-        '[contenteditable]',
-        '[tabindex]:not([tabindex^="-"])'
-      ];
-      this.init();
+    this.isBodyLocked = options.isBodyLocked ? true : false,
+    this.modal = modal;
+    this.id = this.modal.getAttribute('id');
+    this.openers = document.querySelectorAll('[data-modal-anchor="' + this.id + '"]');
+    this.isInited = false;
+    this.overlay = document.querySelector('.modal-overlay');
+    this.close = this.modal.querySelector('.modal__close');
+    this.focusableElements = [
+      'a[href]',
+      'input',
+      'select',
+      'textarea',
+      'button',
+      'iframe',
+      '[contenteditable]',
+      '[tabindex]:not([tabindex^="-"])'
+    ];
+    this.init();
+    this.tl = gsap.timeline();
   }
 
   bodyLocker = (bool) => {
-      let body = document.querySelector('body');
-      let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+    let body = document.querySelector('body');
+    let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
 
-      if(bool) {
-          body.style.overflow = 'hidden';
-          body.style.paddingRight = paddingOffset;
-      } else {
-          body.style.overflow = 'auto';
-          body.style.paddingRight = '0px';
-      }
+    if(bool) {
+      body.style.overflow = 'hidden';
+      body.style.paddingRight = paddingOffset;
+    } else {
+      body.style.overflow = 'auto';
+      body.style.paddingRight = '0px';
+    }
   }
 
   focusTrap = () => {
-      const firstFocusableElement = this.modal.querySelectorAll(this.focusableElements)[0];
-      const focusableContent = this.modal.querySelectorAll(this.focusableElements);
-      const lastFocusableElement = focusableContent[focusableContent.length - 1];
+    const firstFocusableElement = this.modal.querySelectorAll(this.focusableElements)[0];
+    const focusableContent = this.modal.querySelectorAll(this.focusableElements);
+    const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
-      let onBtnClickHandler = (evt) => {
-          let isTabPressed = evt.key === 'Tab' || evt.key === 9;
+    if(focusableContent.length) {
+      const onBtnClickHandler = (evt) => {
+          const isTabPressed = evt.key === 'Tab' || evt.key === 9;
 
           if(evt.key === 'Escape') {
               document.removeEventListener('keydown', onBtnClickHandler);
@@ -63,57 +68,101 @@ export class Modal {
       }
 
       document.addEventListener('keydown', onBtnClickHandler);
+
       firstFocusableElement.focus();
+    }
   }
 
   addListeners = () => {
+    if(this.openers) {
       this.openers.forEach(opener => {
           opener.removeEventListener('click', this.openModal);
-      })
+      });
+    }
 
-      document.addEventListener('click', this.closeByOverlayClick);
-      document.addEventListener('keydown', this.closeByEscBtn);
+    document.addEventListener('click', this.closeByOverlayClick);
+    document.addEventListener('keydown', this.closeByEscBtn);
 
+    if(this.close) {
       this.close.addEventListener('click', this.closeByBtnClick);
+    }
   }
 
   refresh = () => {
-      document.removeEventListener('click', this.closeByOverlayClick);
-      document.removeEventListener('keydown', this.closeByEscBtn);
+    document.removeEventListener('click', this.closeByOverlayClick);
+    document.removeEventListener('keydown', this.closeByEscBtn);
 
+    if(this.close) {
       this.close.removeEventListener('click', this.closeByBtnClick);
-      this.overlay.classList.remove('is-opened');
-      this.modal.classList.remove('is-active');
-      this.bodyLocker(false);
+    }
 
+    gsap.to(modalOverlay, {
+      opacity: 0,
+      duration: 1,
+      ease: 'ease-in',
+      onComplete: () => {
+        modalOverlay.style.display = 'none';
+      }
+    })
+
+    this.tl.reverse();
+
+    this.bodyLocker(false);
+
+    if(this.openers) {
       this.openers.forEach(opener => {
           opener.addEventListener('click', this.openModal);
-      })
-}
+      });
+    }
+
+    //если в модалке есть форма, при закрытии обнуляю поля
+    this.modal.querySelectorAll('form').forEach(f=>f.reset());
+  }
 
   closeByOverlayClick = (evt) => {
-      if(evt.target === this.overlay) {
-          this.refresh();
-      }
+    if(evt.target === modalOverlay) {
+      this.refresh();
+    }
   }
 
   closeByEscBtn = (evt) => {
-      if (evt.key === "Escape") {
-          this.refresh();
-      }
+    if (evt.key === "Escape") {
+        this.refresh();
+    }
   }
 
   closeByBtnClick = () => {
-      this.refresh();
+    this.refresh();
   }
 
   openModal = (evt) => {
-      evt.preventDefault();
-      this.overlay.classList.add('is-opened');
-      this.modal.classList.add('is-active');
-      this.addListeners();
-      this.focusTrap();
-      this.bodyLocker(true);
+    evt.preventDefault();
+
+    tl
+      .to(this.modal, {
+        display: 'flex',
+        opacity: 1,
+        duration: 1,
+        ease: 'ease-in'
+      })
+
+    this.addListeners();
+    this.focusTrap();
+    this.bodyLocker(true);
+  }
+
+  show = () => {
+    this.tl
+      .to(this.modal, {
+        display: 'flex',
+        opacity: 1,
+        duration: 1,
+        ease: 'ease-in'
+      })
+
+    this.addListeners();
+    this.focusTrap();
+    this.bodyLocker(true);
   }
 
   init() {

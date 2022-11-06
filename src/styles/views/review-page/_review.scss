@@ -21,13 +21,19 @@
       grid-row-gap: 40px;
     }
   }
+  &__content-list {
+    @extend .flex-column;
+
+    .pagination {
+      margin-top: auto;
+    }
+  }
 
   &__content-side {
     @extend .inner-offset;
     position: sticky;
     top: 100px;
     height: fit-content;
-    margin-bottom: 40px;
 
     background-color: var(--white);
     box-shadow: 0px 4px 30px rgba(72, 38, 7, 0.12);

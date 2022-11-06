@@ -6,6 +6,8 @@ let _count = null;
 let _container = null;
 let _type = null;
 
+const maxCountrolLength = 3;
+
 function createAddFileNode(_container, _count) {
   render(_container, OrderFormAddFileView(_type, _count));
   addEventListeners(_container);
@@ -26,7 +28,7 @@ const onClickRemoveHandler = (evt) => {
     createAddFileNode(_container, _count);
   }
 
-  if(activeControls.length === 4) {
+  if(activeControls.length === maxCountrolLength - 1) {
     createAddFileNode(_container, _count);
   }
 }
@@ -45,7 +47,7 @@ const onChangeHandler = (evt) => {
   let closer = opener.nextElementSibling
   closer.addEventListener('click', onClickRemoveHandler);
 
-  if(controls.length >= 5) {
+  if(controls.length >= maxCountrolLength) {
     return;
   }
 

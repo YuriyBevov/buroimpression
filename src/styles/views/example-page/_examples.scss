@@ -1,0 +1,63 @@
+
+.examples {
+  ul {
+    @extend .flex-wrap;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+
+    @include m-b-down(1361px) {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    @include m-b-down(535px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  li {
+    @extend .flex-column;
+    padding: 25px;
+
+    background-color: var(--white);
+
+    @include m-b-mobile-lg-down {
+      margin-right: 0;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 15px;
+      padding-right: 20px;
+    }
+  }
+
+  &__content {
+    @extend .flex-wrap;
+    margin-top: auto;
+
+    &-item {
+      @extend .flex-column;
+      width: 50%;
+
+      img {
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+      }
+      small {
+        margin-top: 10px;
+      }
+    }
+  }
+}
