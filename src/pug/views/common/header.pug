@@ -19,6 +19,8 @@ header.header
           li.main-nav__list-item
             a(href= item.url class= item.cls ? item.cls : null)= item.title
 
+    include ../../components/lang-switcher
+
     .header__contact
       a(href="tel:+74959285366").header__contact-phone +7 495 928-53-66
       a(href="mailto:info@buroimpression.ru").header__contact-mail info@buroimpression.ru

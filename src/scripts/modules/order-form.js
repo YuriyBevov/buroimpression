@@ -10,6 +10,7 @@ if(form) {
   const options = form.querySelectorAll('.custom-select-option');
   const submitBtn = document.querySelector('.order-form__btn');
 
+  const lang = form.dataset.lang;
   let _prevType = null;
   let _currentType = null;
   let _prevView = null;
@@ -42,11 +43,11 @@ if(form) {
 
     if(_currentType !== FormType.DEFAULT) {
 
-      _currentView = OrderFormView(_currentType);
+      _currentView = OrderFormView(_currentType, lang);
 
       render(form, _currentView);
       initAddictFields(form);
-      initFileAdd(form, _currentType);
+      initFileAdd(form, _currentType, lang);
     };
   };
 

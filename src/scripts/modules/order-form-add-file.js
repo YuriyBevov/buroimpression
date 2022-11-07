@@ -2,6 +2,7 @@ import { limitStr } from "../utils/functions";
 import { render } from "../utils/render";
 import { OrderFormAddFileView } from "../utils/order-form-view";
 
+let _lang = "ru";
 let _count = null;
 let _container = null;
 let _type = null;
@@ -9,7 +10,7 @@ let _type = null;
 const maxCountrolLength = 3;
 
 function createAddFileNode(_container, _count) {
-  render(_container, OrderFormAddFileView(_type, _count));
+  render(_container, OrderFormAddFileView(_type, _count, _lang));
   addEventListeners(_container);
 }
 
@@ -55,9 +56,10 @@ const onChangeHandler = (evt) => {
   createAddFileNode(_container, _count);
 }
 
-export default function initFileAdd(form, _type) {
+export default function initFileAdd(form, type, lang) {
   _count = 1;
-  _type = _type;
+  _type = type;
+  _lang = lang;
   _container = form.querySelector('[data-field] > .order-form__field--file');
 
   addEventListeners(_container);

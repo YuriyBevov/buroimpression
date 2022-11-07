@@ -17,13 +17,12 @@
 
     @include m-b-mobile-lg-down {
       margin-right: auto;
+      width: 146px;
     }
   }
 
   &__contact {
     @extend .flex-column;
-
-    margin-left: auto;
 
     &-phone,
     &-mail {
@@ -39,7 +38,7 @@
     }
 
     &-mail {
-      font-style: 14px;
+      font-size: 14px;
       line-height: 20px;
     }
 
