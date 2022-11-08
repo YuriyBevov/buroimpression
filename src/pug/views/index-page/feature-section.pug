@@ -19,24 +19,3 @@ section.feature
             svg(width="50" height="50")
               use(xlink:href=`./assets/sprite.svg#icon-${item.icon}`)
           p!= item.title
-
-//-
-  const featureList = [
-    { icon: '&#xe929;', title: 'Гарантия качества и&nbsp;соблюдения сроков' },
-    { icon: '&#xe903;', title: 'Умеренные цены и&nbsp;удобная&nbsp;форма оплаты' },
-    { icon: '&#xe920;', title: 'Конфиденциальность <br/>информации' },
-    { icon: '&#xe92e;', title: 'Переводим <br/>на&nbsp;все языки мира' },
-    { icon: '&#xe913;', title: 'Бесплатный тестовый перевод и&nbsp;базовая вёрстка' },
-    { icon: '&#xe926;', title: 'Доставка документов в&nbsp;любую точку мира' },
-  ]
-
-  section.feature
-    .container
-      h2.lw-section-title Почему выбирают нас
-
-      ul.feature__list
-        each item in featureList
-          li.feature__list-item
-            .feature__list-item-icon
-              span.lw-icon!= item.icon
-            p!= item.title

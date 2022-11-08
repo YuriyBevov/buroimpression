@@ -1,0 +1,94 @@
+/**
+ * Icon list.
+ *
+ * HTML:
+ * <span class="icon-vk"></span>
+ *
+ * CSS:
+ * .icon-vk:before {
+ *   content: "\e960";
+ *   color: #fff;
+ * }
+ *
+ * HTML Entity:
+ * &#xe960;
+ *
+ * Icon codes and names:
+ *
+ * accordeon-arrow: &#xe931;
+ * arrow: &#xe932;
+ * arrow-down: &#xe933;
+ * billfold: &#xe934;
+ * chat: &#xe935;
+ * client-abb: &#xe936;
+ * client-danfoss: &#xe937;
+ * client-enhel: &#xe938;
+ * client-kia: &#xe939;
+ * client-opkk: &#xe93a;
+ * client-parmalat: &#xe93c;
+ * client-privod: &#xe93d;
+ * client-psg: &#xe93e;
+ * client-ria: &#xe93f;
+ * client-rt: &#xe940;
+ * client-samsung: &#xe941;
+ * client-tkc: &#xe942;
+ * close: &#xe943;
+ * code: &#xe944;
+ * doc: &#xe945;
+ * docs: &#xe946;
+ * education: &#xe947;
+ * envelope: &#xe948;
+ * error: &#xe949;
+ * eye: &#xe94a;
+ * family: &#xe94b;
+ * fb: &#xe94c;
+ * file: &#xe94d;
+ * law: &#xe94e;
+ * list: &#xe94f;
+ * locker: &#xe950;
+ * logo: &#xe951;
+ * med: &#xe952;
+ * notebook: &#xe953;
+ * passport: &#xe954;
+ * pin: &#xe955;
+ * post: &#xe956;
+ * profile: &#xe957;
+ * search: &#xe958;
+ * shield: &#xe959;
+ * slide-button-arrow: &#xe95a;
+ * stamp: &#xe95b;
+ * success: &#xe95c;
+ * tech: &#xe95d;
+ * translate: &#xe95e;
+ * twitter: &#xe95f;
+ * vk: &#xe960;
+ */
+
+.lw-icon {
+  font-family: "icomoon" !important;
+  font-size: 50px;
+  line-height: 1;
+  color: var(--white);
+
+  &--sm {
+    font-size: 16px;
+  }
+
+  &--md {
+    font-size: 24px;
+  }
+
+  &--features {
+    @include m-b-tablet-down {
+      font-size: 35px;
+    }
+  }
+
+  &--info {
+    color: var(--info);
+  }
+
+  &--accent {
+    color: var(--accent);
+  }
+}
