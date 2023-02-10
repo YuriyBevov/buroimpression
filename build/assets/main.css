@@ -1967,7 +1967,7 @@ form *.js-invalid-control::placeholder {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin: 0 30px;
+  margin: 0 20px;
 }
 @media (max-width: 1440px) {
   .main-nav {
@@ -3503,6 +3503,8 @@ table td.table-letter {
   width: 50px;
   height: 50px;
   margin-bottom: 10px;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 .menu-list li span {
   font-weight: 700;
@@ -3598,6 +3600,9 @@ table td.table-letter {
     margin-right: auto;
     width: 146px;
   }
+}
+.header__contact {
+  z-index: 1;
 }
 .header__contact-phone, .header__contact-mail {
   font-weight: 600;
@@ -3735,8 +3740,11 @@ table td.table-letter {
 }
 @media (max-width: 634px) {
   .hero__content p {
-    max-width: 265px;
+    max-width: 275px;
   }
+}
+.hero__content a.main-btn {
+  margin-bottom: 0;
 }
 
 .feature__list {
@@ -3772,8 +3780,10 @@ table td.table-letter {
   border-radius: 50%;
   background-color: var(--feature-icon-bg);
 }
-.feature__list-item-icon svg {
-  fill: var(--feature-icon-fill);
+.feature__list-item-icon img {
+  width: initial;
+  max-width: initial;
+  height: 50px;
 }
 @media (max-width: 768px) {
   .feature__list-item-icon {
@@ -3781,8 +3791,7 @@ table td.table-letter {
     height: 70px;
     margin-right: 15px;
   }
-  .feature__list-item-icon svg {
-    width: 35px;
+  .feature__list-item-icon img {
     height: 35px;
   }
 }
@@ -4334,6 +4343,10 @@ table td.table-letter {
 }
 .client__list-item svg {
   fill: var(--white);
+}
+.client__list-item img {
+  width: initial;
+  height: initial;
 }
 @media (max-width: 634px) {
   .client__list-item {

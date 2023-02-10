@@ -61,6 +61,11 @@
         fill: var(--white);
       }
 
+      img {
+        width: initial;
+        height: initial;
+      }
+
       @include m-b-mobile-lg-down {
         margin: 0;
         margin-right: 20px;

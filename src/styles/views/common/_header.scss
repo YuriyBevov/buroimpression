@@ -23,7 +23,7 @@
 
   &__contact {
     @extend .flex-column;
-
+    z-index: 1;
     &-phone,
     &-mail {
       font-weight: 600;

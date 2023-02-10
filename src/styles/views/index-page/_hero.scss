@@ -102,8 +102,12 @@
       margin-bottom: 30px;
 
       @include m-b-mobile-lg-down {
-        max-width: 265px;
+        max-width: 275px;
       }
+    }
+
+    a.main-btn {
+      margin-bottom: 0;
     }
   }
 }

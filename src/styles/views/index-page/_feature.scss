@@ -31,8 +31,10 @@
       border-radius: 50%;
       background-color: var(--feature-icon-bg);
 
-      svg {
-        fill: var(--feature-icon-fill);
+      img {
+        width: initial;
+        max-width: initial;
+        height: 50px;
       }
 
       @include m-b-tablet-down {
@@ -40,8 +42,7 @@
         height: 70px;
         margin-right: 15px;
 
-        svg {
-          width: 35px;
+        img {
           height: 35px;
         }
       }

@@ -41,6 +41,7 @@ section.review
         p Вы можете оставить свой отзыв в данной форме.
 
         form(action="#" id="review-form")
+          <input type="text" id="g-recaptcha-response" name="g-recaptcha-response">
           +main-input({
             type: 'text',
             placeholder: 'Ваше имя',
