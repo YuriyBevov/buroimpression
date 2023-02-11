@@ -3,7 +3,8 @@
     @extend .inner-offset;
     background-color: var(--page-note-banner-bg);
 
-    h3 {
+    &-title {
+      display: inline-block;
       font-size: 22px;
       line-height: 1.2 !important;
       font-weight: 700;

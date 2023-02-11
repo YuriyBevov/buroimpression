@@ -3,7 +3,7 @@ mixin main-accordeon(data, cls)
     each item in data
       .accordeon-item(class= cls ? `${cls}-accordeon__item` : null ).collapsed
         .accordeon-item-header(class= cls ? `${cls}-accordeon__item-header` : null )
-          h3!= item.title
+          span.accordeon-item-header-title!= item.title
 
           svg(width="24" height="24")
             use(xlink:href="./assets/sprite.svg#icon-accordeon-arrow")

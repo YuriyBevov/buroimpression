@@ -53,7 +53,8 @@
         padding-left: 30px;
         margin-bottom: 30px;
 
-        h3 {
+        &-title {
+          display: inline-block;
           font-size: 22px;
           font-weight: 700;
           line-height: 1.2;

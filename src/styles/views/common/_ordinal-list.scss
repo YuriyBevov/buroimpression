@@ -17,7 +17,8 @@
     @extend .hover-opacity-transition;
   }
 
-  h3 {
+  &-title {
+    display: inline-block;
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;

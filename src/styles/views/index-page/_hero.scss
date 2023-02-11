@@ -33,7 +33,7 @@
     .social {
       position: absolute;
       top: 50%;
-      left: 0;
+      left: 50px;
       transform: translateY(-50%);
 
       &__list-item {
@@ -67,10 +67,11 @@
   &__content {
     margin: auto 0;
 
-    h1 {
+    &-title {
       font-weight: 700;
       font-size: 52px;
       line-height: 62px;
+      display: inline-block;
 
       color: var(--accent);
       margin-bottom: 30px;

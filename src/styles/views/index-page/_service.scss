@@ -44,7 +44,8 @@
       fill: var(--service-list-item-icon-fill);
     }
 
-    h3 {
+    &-title {
+      display: inline-block;
       font-weight: 700;
       font-size: 22px;
       line-height: 26px;

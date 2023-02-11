@@ -129,7 +129,7 @@
     margin-bottom: 20px;
   }
 
-  span {
+  span:not(.lw-section-title) {
     font-size: 14px;
     color: var(--secondary);
   }

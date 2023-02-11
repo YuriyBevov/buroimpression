@@ -1,7 +1,11 @@
 .menu-list {
-  h3 {
+  &-title {
+    display: inline-block;
     margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 18px;
   }
+
   ul {
     display: grid;
     grid-template-columns: repeat(5,1fr);

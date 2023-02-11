@@ -102,7 +102,7 @@ section.service
           svg(width= item.icon.width height= item.icon.height)
             use(xlink:href=`./assets/sprite.svg#icon-${item.icon.name}`)
 
-          h3!= item.title
+          span.service__list-item-title!= item.title
 
           p!= item.desc
 

@@ -20,7 +20,8 @@
   background-color: var(--main-bg-color)!important;
   box-shadow: 0px 76px 30px rgba(38, 38, 52, 0.01), 0px 43px 26px rgba(38, 38, 52, 0.03), 0px 19px 19px rgba(38, 38, 52, 0.04), 0px 5px 10px rgba(38, 38, 52, 0.05), 0px 0px 0px rgba(38, 38, 52, 0.05)!important;
 
-  & > h3 {
+  &-title {
+    display: inline-block;
     font-weight: 700!important;
     font-size: 22px!important;
     line-height: 1.2!important;
