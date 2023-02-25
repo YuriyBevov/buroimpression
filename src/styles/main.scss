@@ -70,3 +70,15 @@
 /* modals */
 @import "./modal/common";
 
+/*if($arItem["DETAIL_PICTURE"]){
+  $arFileTmp = CFile::ResizeImageGet(
+      $arItem["DETAIL_PICTURE"],
+      array("width" => 1912, "height" => 450),
+      BX_RESIZE_IMAGE_PROPORTIONAL,
+      true,
+      false,
+80
+  );
+$background = $arFileTmp['src'];
+}*/
+
