@@ -1403,7 +1403,7 @@ section {
 }
 
 /* flex*/
-.flex-wrap, .footer__social .social__list, .footer__container, .info-block__content-list--iconed, .info-block__content-list--flex, .examples__content, .examples ul, .feature__list-item, .header__container, .contact-card__field-row, .tab-content-field ul.default-list, .accordeon-item-header, .search__list, .main-input[type=file] + label, .main-nav__list, .main-nav {
+.flex-wrap, .footer__social .social__list, .footer__container, .info-block__content-list--iconed, .info-block__content-list--flex, .examples__content, .examples ul, .feature__list-item, .header__container, .breadcrumbs__list, .contact-card__field-row, .tab-content-field ul.default-list, .accordeon-item-header, .search__list, .main-input[type=file] + label, .main-nav__list, .main-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1423,7 +1423,7 @@ section {
   justify-content: center;
 }
 
-.flex-wrap, .footer__social .social__list, .footer__container, .info-block__content-list--iconed, .info-block__content-list--flex, .examples__content, .examples ul, .feature__list-item, .header__container, .contact-card__field-row, .tab-content-field ul.default-list, .accordeon-item-header, .search__list, .main-input[type=file] + label, .main-nav__list, .main-nav {
+.flex-wrap, .footer__social .social__list, .footer__container, .info-block__content-list--iconed, .info-block__content-list--flex, .examples__content, .examples ul, .feature__list-item, .header__container, .breadcrumbs__list, .contact-card__field-row, .tab-content-field ul.default-list, .accordeon-item-header, .search__list, .main-input[type=file] + label, .main-nav__list, .main-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1544,30 +1544,20 @@ section {
 }
 
 /*transitions*/
-.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .sitemap__list a, .info-links a, .info-block a:not(.main-btn), .ordinal-list a, .vacancy p a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .menu-list li a, .pagination__btn, .pagination__list span, .contact-card a, .info-banner > a, .tab-content-field a, .tab-switchers a, .accordeon-item a, .accordeon-item.collapsed .accordeon-item-header, .accordeon-container > a, .search__note, .main-btn {
+.hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .sitemap__list a, .info-links a, .info-block a:not(.main-btn), .ordinal-list a, .vacancy p a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero__wrapper .social__list-item, .header__contact-phone, .header__contact-mail, .breadcrumbs__list-item a, .menu-list li a, .pagination__btn, .pagination__list span, .contact-card a, .info-banner > a, .tab-content-field a, .tab-switchers a, .accordeon-item a, .accordeon-item.collapsed .accordeon-item-header, .accordeon-container > a, .search__note, .main-btn {
   -webkit-transition: opacity var(--main-transition);
   -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
 @media (min-width: 960px) {
-  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .sitemap__list a:hover, .info-links a:hover, .info-block a:hover:not(.main-btn), .ordinal-list a:hover, .vacancy p a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .menu-list li a:hover, .pagination__btn:hover, .pagination__list span:hover, .contact-card a:hover, .info-banner > a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .accordeon-item a:hover, .accordeon-item.collapsed .accordeon-item-header:hover, .accordeon-container > a:hover, .search__note:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .sitemap__list a:focus, .info-links a:focus, .info-block a:focus:not(.main-btn), .ordinal-list a:focus, .vacancy p a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .menu-list li a:focus, .pagination__btn:focus, .pagination__list span:focus, .contact-card a:focus, .info-banner > a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .accordeon-item a:focus, .accordeon-item.collapsed .accordeon-item-header:focus, .accordeon-container > a:focus, .search__note:focus, .main-btn:focus {
+  .hover-opacity-transition:hover, .footer__social .social__list-item:hover, .footer__nav-list-item a:hover, .sitemap__list a:hover, .info-links a:hover, .info-block a:hover:not(.main-btn), .ordinal-list a:hover, .vacancy p a:hover, .service__list-item-info li a:hover, .service__list-item > a:hover, .service__list-item p a:hover, .hero__wrapper .social__list-item:hover, .header__contact-phone:hover, .header__contact-mail:hover, .breadcrumbs__list-item a:hover, .menu-list li a:hover, .pagination__btn:hover, .pagination__list span:hover, .contact-card a:hover, .info-banner > a:hover, .tab-content-field a:hover, .tab-switchers a:hover, .accordeon-item a:hover, .accordeon-item.collapsed .accordeon-item-header:hover, .accordeon-container > a:hover, .search__note:hover, .main-btn:hover, .hover-opacity-transition:focus, .footer__social .social__list-item:focus, .footer__nav-list-item a:focus, .sitemap__list a:focus, .info-links a:focus, .info-block a:focus:not(.main-btn), .ordinal-list a:focus, .vacancy p a:focus, .service__list-item-info li a:focus, .service__list-item > a:focus, .service__list-item p a:focus, .hero__wrapper .social__list-item:focus, .header__contact-phone:focus, .header__contact-mail:focus, .breadcrumbs__list-item a:focus, .menu-list li a:focus, .pagination__btn:focus, .pagination__list span:focus, .contact-card a:focus, .info-banner > a:focus, .tab-content-field a:focus, .tab-switchers a:focus, .accordeon-item a:focus, .accordeon-item.collapsed .accordeon-item-header:focus, .accordeon-container > a:focus, .search__note:focus, .main-btn:focus {
     opacity: 0.7;
   }
 }
 
 /*section-offset*/
 .section-padding-80, .sitemap, .info-block-section, .info-page, .order, .main-content, .vacancy, .review, .contact, .feature {
-  padding: 80px 0;
-}
-@media (max-width: 1140px) {
-  .section-padding-80, .sitemap, .info-block-section, .info-page, .order, .main-content, .vacancy, .review, .contact, .feature {
-    padding: 60px 0;
-  }
-}
-@media (max-width: 960px) {
-  .section-padding-80, .sitemap, .info-block-section, .info-page, .order, .main-content, .vacancy, .review, .contact, .feature {
-    padding: 40px 0;
-  }
+  padding: 60px 0;
 }
 @media (max-width: 768px) {
   .section-padding-80, .sitemap, .info-block-section, .info-page, .order, .main-content, .vacancy, .review, .contact, .feature {
@@ -1970,6 +1960,14 @@ form *.js-invalid-control::placeholder {
   align-items: center;
   margin: 0 20px;
 }
+@media (min-width: 1441px) {
+  .main-nav {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    opacity: 1 !important;
+  }
+}
 @media (max-width: 1440px) {
   .main-nav {
     display: none;
@@ -2054,7 +2052,7 @@ form *.js-invalid-control::placeholder {
   transform: translateX(0);
 }
 @media (min-width: 960px) {
-  .main-nav__list-item a:hover::after, .main-nav__list-item a:focus::after {
+  .main-nav__list-item a:hover::after {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -3516,6 +3514,39 @@ table td.table-letter {
   border-radius: 50%;
   content: "";
   background-color: var(--white);
+}
+
+.breadcrumbs__container {
+  position: relative;
+}
+@media (max-width: 768px) {
+  .breadcrumbs {
+    display: none;
+  }
+}
+.breadcrumbs__list {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+}
+.breadcrumbs__list-item a,
+.breadcrumbs__list-item span {
+  font-size: 14px;
+}
+.breadcrumbs__list-item a {
+  position: relative;
+  color: var(--accent);
+}
+.breadcrumbs__list-item a::after {
+  position: relative;
+  top: 0;
+  right: 0;
+  content: "/";
+  padding-right: 5px;
+}
+.breadcrumbs__list-item > span {
+  display: inline-block;
+  color: var(--dark);
 }
 
 /* views */

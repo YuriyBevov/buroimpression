@@ -3,6 +3,11 @@
   align-items: center;
   margin: 0 20px;
 
+  @include m-b-up(1441px) {
+    display: flex !important;
+    opacity: 1 !important;
+  }
+
   @include m-b-desktop-down {
     display: none;
     position: fixed;
@@ -83,8 +88,7 @@
       }
 
       @include m-b-tablet-lg-up {
-        &:hover,
-        &:focus {
+        &:hover {
           &::after {
             transform: translateX(0);
           }

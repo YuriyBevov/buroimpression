@@ -1,0 +1,44 @@
+.breadcrumbs {
+  &__container {
+    position: relative;
+  }
+
+  @include m-b-tablet-down {
+    display: none;
+  }
+
+  &__list {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+
+    @extend .flex-wrap;
+  }
+
+  &__list-item {
+    a,
+    span {
+      font-size: 14px;
+    }
+
+    a {
+      position: relative;
+      color: var(--accent);
+
+      &::after {
+        position: relative;
+        top: 0;
+        right: 0;
+        content: "/";
+        padding-right: 5px;
+      }
+
+      @extend .hover-opacity-transition;
+    }
+
+    & > span {
+      display: inline-block;
+      color: var(--dark);
+    }
+  }
+}
