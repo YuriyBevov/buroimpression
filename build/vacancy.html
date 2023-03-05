@@ -58,7 +58,15 @@
     <main>
       <section class="hero">
         <picture>
-          <source srcset="./assets/img/hero-bg@1x.webp 1x, ./assets/img/hero-bg@2x.webp 2x" type="image/webp"><img src="./assets/img/hero-bg@1x.jpg" srcset="./assets/img/hero-bg@2x.jpg 2x" alt="Фоновое изображение" width="1920" height="540">
+          <source type="image/webp" media="(max-width: 400px)" srcset="./assets/img/hero-bg-mobile@1x.webp 1x, ./assets/img/hero-bg-mobile@2x.webp 2x">
+          <source type="image/webp" media="(max-width: 535px)" srcset="./assets/img/hero-bg-mobile-md@1x.webp 1x, ./assets/img/hero-bg-mobile-md@2x.webp 2x">
+          <source type="image/webp" media="(max-width: 768px)" srcset="./assets/img/hero-bg-tablet-xs@1x.webp 1x, ./assets/img/hero-bg-tablet-xs@2x.webp 2x">
+          <source type="image/webp" media="(max-width: 960px)" srcset="./assets/img/hero-bg-tablet@1x.webp 1x, ./assets/img/hero-bg-tablet@2x.webp 2x">
+          <source type="image/webp" srcset="./assets/img/hero-bg@1x.webp 1x, ./assets/img/hero-bg@2x.webp 2x">
+          <source type="image/jpg" media="(max-width: 400px)" srcset="./assets/img/hero-bg-mobile@1x.jpg 1x, ./assets/img/hero-bg-mobile@2x.jpg 2x">
+          <source type="image/jpg" media="(max-width: 535px)" srcset="./assets/img/hero-bg-mobile-md@1x.jpg 1x, ./assets/img/hero-bg-mobile-md@2x.jpg 2x">
+          <source type="image/jpg" media="(max-width: 768px)" srcset="./assets/img/hero-bg-tablet-xs@1x.jpg 1x, ./assets/img/hero-bg-tablet-xs@2x.jpg 2x">
+          <source type="image/jpg" media="(max-width: 960px)" srcset="./assets/img/hero-bg-tablet@1x.jpg 1x, ./assets/img/hero-bg-tablet@2x.jpg 2x"><img src="./assets/img/hero-bg@1x.jpg" srcset="./assets/img/hero-bg@2x.jpg 2x" alt="Фоновое изображение" width="1920" height="540">
         </picture>
         <div class="hero__wrapper">
           <div class="container hero__container">
