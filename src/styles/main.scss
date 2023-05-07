@@ -39,6 +39,7 @@
 @import "./components/menu-list";
 @import "./components/lang-switcher";
 @import "./components/breadcrumbs";
+@import "./components/service-card";
 
 /* views */
 @import "./views/common/header";
@@ -58,6 +59,9 @@
 //@import "./views/common/accordeon-section";
 @import "./views/common/client";
 @import "./views/common/order";
+
+@import "./views/common/more-service-section";
+
 //@import "./views/common/theme-description";
 @import "./views/common/info-page";
 @import "./views/common/info-block";

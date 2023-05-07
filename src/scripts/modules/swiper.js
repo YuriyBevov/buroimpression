@@ -40,3 +40,20 @@ if(sliders) {
     });
   });
 };
+
+const serviceSlider = document.querySelector('.service-slider');
+
+if(serviceSlider) {
+  new Swiper(serviceSlider, {
+    modules: [Navigation, Pagination],
+
+    slidesPerView: 'auto',
+    spaceBetween: 25,
+    preloadImages: true,
+
+    navigation: {
+      nextEl: '.service-slider-button-next',
+      prevEl: '.service-slider-button-prev',
+    },
+  });
+}

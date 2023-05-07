@@ -1431,7 +1431,7 @@ section {
   flex-wrap: wrap;
 }
 
-.flex-column, .not-found__container, .sitemap__list, .info-links, .info-block__content-list--iconed li, .review__content-list, .examples__content-item, .examples li, .service__list-item-info li a, .service__list-item, .header__contact, .menu-list li, .info-banner, .tab-switchers, .accordeon-container, .order-form, .company-info {
+.flex-column, .not-found__container, .sitemap__list, .info-links, .info-block__content-list--iconed li, .review__content-list, .examples__content-item, .examples li, .service__list-item-info li a, .service__list-item, .header__contact, .service-card, .menu-list li, .info-banner, .tab-switchers, .accordeon-container, .order-form, .company-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1565,21 +1565,21 @@ section {
   }
 }
 
-.section-padding-60, .client, .certificate, .review {
+.section-padding-60, .more-service, .client, .certificate, .review {
   padding: 60px 0;
 }
 @media (max-width: 1140px) {
-  .section-padding-60, .client, .certificate, .review {
+  .section-padding-60, .more-service, .client, .certificate, .review {
     padding: 50px 0;
   }
 }
 @media (max-width: 960px) {
-  .section-padding-60, .client, .certificate, .review {
+  .section-padding-60, .more-service, .client, .certificate, .review {
     padding: 40px 0;
   }
 }
 @media (max-width: 768px) {
-  .section-padding-60, .client, .certificate, .review {
+  .section-padding-60, .more-service, .client, .certificate, .review {
     padding: 30px 0;
   }
 }
@@ -1590,6 +1590,13 @@ section {
 
 .section-padding-60-80 {
   padding: 60px 0 80px;
+}
+
+.section-bg {
+  background-image: url(../assets/img/wood-bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .lw-text-xxl {
@@ -3549,6 +3556,78 @@ table td.table-letter {
   color: var(--dark);
 }
 
+.service-card {
+  padding: 25px 20px;
+  height: 100%;
+  width: 100%;
+  background: var(--white);
+  -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
+}
+.service-card img {
+  margin-bottom: 20px;
+}
+.service-card a {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+.service-slider {
+  padding: 5px 0;
+}
+.service-slider-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: auto;
+}
+@media (max-width: 420px) {
+  .service-slider-controls {
+    margin-left: 0;
+  }
+}
+.service-slider-button-prev, .service-slider-button-next {
+  position: static;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 0;
+  margin-left: 15px;
+  -webkit-box-shadow: var(--main-slider-button-shadow);
+  box-shadow: var(--main-slider-button-shadow);
+  background-color: var(--main-slider-button-color);
+}
+.service-slider-button-prev svg, .service-slider-button-next svg {
+  fill: var(--accent);
+}
+@media (max-width: 420px) {
+  .service-slider-button-prev, .service-slider-button-next {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+.service-slider-button-prev {
+  right: 60px;
+  left: initial;
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+.service-slider .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
 /* views */
 .header {
   position: sticky;
@@ -4333,6 +4412,37 @@ table td.table-letter {
 @media (max-width: 1140px) {
   .order .main-btn {
     width: 100%;
+  }
+}
+
+.more-service__header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.more-service__header .lw-section-title {
+  margin-bottom: 0;
+  padding-right: 25px;
+}
+@media (max-width: 420px) {
+  .more-service__header .lw-section-title {
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 420px) {
+  .more-service__header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
 }
 
