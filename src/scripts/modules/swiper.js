@@ -41,19 +41,25 @@ if(sliders) {
   });
 };
 
-const serviceSlider = document.querySelector('.service-slider');
+const serviceSlider = document.querySelectorAll('.service-slider');
 
 if(serviceSlider) {
-  new Swiper(serviceSlider, {
-    modules: [Navigation, Pagination],
+  serviceSlider.forEach(slider => {
+    const btnNext = slider.closest('.service-slider-container').querySelector('.service-slider-button-next');
+    const btnPrev = slider.closest('.service-slider-container').querySelector('.service-slider-button-prev');
 
-    slidesPerView: 'auto',
-    spaceBetween: 25,
-    preloadImages: true,
+    console.log(btnNext, btnPrev);
+    new Swiper(slider, {
+      modules: [Navigation, Pagination],
 
-    navigation: {
-      nextEl: '.service-slider-button-next',
-      prevEl: '.service-slider-button-prev',
-    },
+      slidesPerView: 'auto',
+      spaceBetween: 25,
+      preloadImages: true,
+
+      navigation: {
+        nextEl: btnNext,
+        prevEl: btnPrev,
+      },
+    });
   });
 }

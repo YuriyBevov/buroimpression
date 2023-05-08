@@ -1431,7 +1431,7 @@ section {
   flex-wrap: wrap;
 }
 
-.flex-column, .not-found__container, .sitemap__list, .info-links, .info-block__content-list--iconed li, .review__content-list, .examples__content-item, .examples li, .contact-detail__worktime-plate-info, .service__list-item-info li a, .service__list-item, .header__contact, .service-card, .menu-list li, .info-banner, .tab-switchers, .accordeon-container, .order-form, .company-info {
+.flex-column, .not-found__container, .sitemap__list, .info-links, .info-block__content-list--iconed li, .review__content-list, .examples__content-item, .examples li, .contact-detail__worktime-plate-info, .contact__content-field, .service__list-item-info li a, .service__list-item, .header__contact, .service-card, .menu-list li, .contact-card, .info-banner, .tab-switchers, .accordeon-container, .order-form, .company-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3155,6 +3155,9 @@ form *.js-invalid-control::placeholder {
   color: var(--main-color) !important;
 }
 
+.contact-card {
+  height: 100%;
+}
 .contact-card__field {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3181,6 +3184,7 @@ form *.js-invalid-control::placeholder {
 .contact-card__field strong {
   font-weight: 700;
   margin-right: 15px;
+  min-width: 140px;
   color: var(--main-color);
 }
 .contact-card__field p {
@@ -3200,6 +3204,7 @@ form *.js-invalid-control::placeholder {
 .contact-card > a {
   font-weight: 600;
   line-height: 21px;
+  margin-top: auto;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   color: var(--accent);
@@ -3582,6 +3587,7 @@ table td.table-letter {
 
 .service-slider {
   padding: 5px 0;
+  margin-bottom: 30px;
 }
 .service-slider-controls {
   display: -webkit-box;
@@ -4012,9 +4018,7 @@ table td.table-letter {
   }
 }
 .contact__content-field {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
 }
 .contact__content-field--map {
   position: sticky;
@@ -4078,8 +4082,7 @@ table td.table-letter {
   margin-bottom: 30px;
 }
 .contact__content-field .note-banner p {
-  max-width: 440px;
-  line-height: 26px;
+  line-height: 1.2;
 }
 
 .contact-detail {

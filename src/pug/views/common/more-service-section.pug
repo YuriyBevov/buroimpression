@@ -16,29 +16,30 @@ include ../../mixins/main-slider
 
 section.more-service.section-bg
   .container
-    .more-service__header
-      span.lw-section-title Возможно, Вам будет интересно:
+    .service-slider-container
+      .more-service__header
+        span.lw-section-title Возможно, Вам будет интересно:
 
-      .service-slider-controls
-        .swiper-button-prev.service-slider-button-prev
-          svg(width="12" height="16")
-            use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
-        .swiper-button-next.service-slider-button-next
-          svg(width="12" height="16")
-            use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
+        .service-slider-controls
+          .swiper-button-prev.service-slider-button-prev
+            svg(width="12" height="16")
+              use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
+          .swiper-button-next.service-slider-button-next
+            svg(width="12" height="16")
+              use(xlink:href="./assets/sprite.svg#icon-slide-button-arrow")
 
-    .swiper.service-slider
-      .swiper-wrapper
-        .swiper-slide
-          include ../../components/service-card
-        .swiper-slide
-          include ../../components/service-card
-        .swiper-slide
-          include ../../components/service-card
-        .swiper-slide
-          include ../../components/service-card
-        .swiper-slide
-          include ../../components/service-card
+      .swiper.service-slider
+        .swiper-wrapper
+          .swiper-slide
+            include ../../components/service-card
+          .swiper-slide
+            include ../../components/service-card
+          .swiper-slide
+            include ../../components/service-card
+          .swiper-slide
+            include ../../components/service-card
+          .swiper-slide
+            include ../../components/service-card
 
 
 

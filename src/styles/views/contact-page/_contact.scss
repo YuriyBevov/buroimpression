@@ -24,7 +24,8 @@
     }
 
     &-field {
-      height: fit-content;
+      @extend .flex-column;
+      height: 100%;
 
       &--map {
         position: sticky;
@@ -91,8 +92,7 @@
         margin-bottom: 30px;
 
         p {
-          max-width: 440px;
-          line-height: 26px;
+          line-height: 1.2;
         }
       }
     }
