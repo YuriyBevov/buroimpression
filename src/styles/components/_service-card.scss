@@ -8,7 +8,10 @@
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
 
   img {
+    width: 50px;
+    height: 50px;
     margin-bottom: 20px;
+    object-fit: contain;
   }
 
   a {
@@ -63,7 +66,7 @@
   .swiper-slide {
     display: flex;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     height: auto;
   }
 }

@@ -21,4 +21,8 @@ mixin contact-card(data)
       strong e-mail:
       a(href=`mailto:${data.mail}`)= data.mail
 
-    a(href= data.navigator target="_blank") Посмотреть на карте
+    .contact-card__field.contact-card__field--map
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A167933fbb8e8f2f9c4204963d0359fbcc0e012e00f76dd041a5d8da211457aa6&amp;source=constructor" width="800" height="500" frameborder="0"></iframe>
+
+    if data.showLink
+      a(href="contact-detail.html") Подробнее

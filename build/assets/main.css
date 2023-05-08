@@ -1431,7 +1431,7 @@ section {
   flex-wrap: wrap;
 }
 
-.flex-column, .not-found__container, .sitemap__list, .info-links, .info-block__content-list--iconed li, .review__content-list, .examples__content-item, .examples li, .service__list-item-info li a, .service__list-item, .header__contact, .service-card, .menu-list li, .info-banner, .tab-switchers, .accordeon-container, .order-form, .company-info {
+.flex-column, .not-found__container, .sitemap__list, .info-links, .info-block__content-list--iconed li, .review__content-list, .examples__content-item, .examples li, .contact-detail__worktime-plate-info, .service__list-item-info li a, .service__list-item, .header__contact, .service-card, .menu-list li, .info-banner, .tab-switchers, .accordeon-container, .order-form, .company-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2172,9 +2172,7 @@ form *.js-invalid-control::placeholder {
   background-color: var(--main-slider-button-color);
 }
 .main-slider-button-prev svg, .main-slider-button-next svg {
-  fill: none;
-  stroke: var(--main-slider-button-icon-fill);
-  stroke-width: 2px;
+  fill: var(--accent);
 }
 @media (max-width: 534px) {
   .main-slider-button-prev, .main-slider-button-next {
@@ -2183,7 +2181,7 @@ form *.js-invalid-control::placeholder {
 }
 .main-slider-button-prev {
   left: initial;
-  right: 75px;
+  right: 60px;
 }
 .main-slider-button-prev svg {
   -webkit-transform: rotate(180deg);
@@ -3195,6 +3193,10 @@ form *.js-invalid-control::placeholder {
 .contact-card__field address {
   font-style: normal;
 }
+.contact-card__field--map iframe {
+  width: 100%;
+  height: 300px;
+}
 .contact-card > a {
   font-weight: 600;
   line-height: 21px;
@@ -3565,7 +3567,11 @@ table td.table-letter {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
 }
 .service-card img {
+  width: 50px;
+  height: 50px;
   margin-bottom: 20px;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 .service-card a {
   font-size: 16px;
@@ -3624,7 +3630,7 @@ table td.table-letter {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   height: auto;
 }
 
@@ -4074,6 +4080,192 @@ table td.table-letter {
 .contact__content-field .note-banner p {
   max-width: 440px;
   line-height: 26px;
+}
+
+.contact-detail {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+}
+@media (max-width: 1440px) {
+  .contact-detail {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}
+.contact-detail__worktime-plate {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 140px;
+  height: 200px;
+}
+@media (max-width: 1140px) {
+  .contact-detail__worktime-plate {
+    display: none;
+  }
+}
+.contact-detail__worktime-plate img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  z-index: 1;
+}
+.contact-detail__worktime-plate-info {
+  position: absolute;
+  top: 40px;
+  right: -10px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  -webkit-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+.contact-detail__worktime-plate-info strong,
+.contact-detail__worktime-plate-info span {
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.contact-detail__worktime-plate-info strong {
+  margin-bottom: 20px;
+}
+.contact-detail__worktime-plate-info span {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+}
+.contact-detail .contact-card__field {
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+.contact-detail .contact-card__field strong {
+  display: inline-block;
+  min-width: 140px;
+}
+.contact-detail .contact-card__field--worktime {
+  display: none;
+}
+@media (max-width: 1140px) {
+  .contact-detail .contact-card__field--worktime {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media (max-width: 960px) {
+  .contact-detail .contact-card__field {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+@media (max-width: 634px) {
+  .contact-detail .contact-card__field {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+.contact-detail__field {
+  -webkit-box-ordinal-group: 4;
+  -ms-flex-order: 3;
+  order: 3;
+}
+.contact-detail__field--img {
+  position: relative;
+}
+.contact-detail__field--img > img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+@media (max-width: 1140px) {
+  .contact-detail__field--img > img {
+    max-height: 320px;
+    -o-object-position: left;
+    object-position: left;
+  }
+}
+@media (max-width: 1140px) {
+  .contact-detail__field--img {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+}
+@media (max-width: 960px) {
+  .contact-detail__field--img {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+  }
+}
+.contact-detail__field--main h1 {
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-size: 34px;
+  color: var(--accent);
+}
+@media (max-width: 634px) {
+  .contact-detail__field--main h1 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1140px) {
+  .contact-detail__field--main {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+}
+@media (max-width: 960px) {
+  .contact-detail__field--main {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+  }
+}
+.contact-detail__field--desc {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+.contact-detail__field--desc p {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+.contact-detail__field--map {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+.contact-detail__field--map iframe {
+  width: 100%;
+  max-height: 400px;
+}
+@media (max-width: 768px) {
+  .contact-detail__field--map iframe {
+    max-height: 300px;
+  }
 }
 
 .examples ul {

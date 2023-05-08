@@ -9,10 +9,9 @@ section.contact
         img(src="./assets/img/metro-map.svg" alt="Карта метро" width="291" height="461")
 
       .contact__content-field
-        .contact__content-field-header
-          svg(width="20" height="28").map-pin.map-pin--yellow
-            use(xlink:href="./assets/sprite.svg#icon-pin")
-          h3 Бюро переводов на Марксистской. <br/>Офис возле м. «Марксистская»<br/><span>(Калининская линия)</span>
+        .contact__content-field-header.contact-header
+          img(src="./assets/img/icon-pin-yellow.png" alt="" width="20" height="29")
+          span.contact__content-field-header-title Бюро переводов на Марксистской. <br/>Офис возле м. «Марксистская» (Калининская линия)
 
         .note-banner
           p Переводческие услуги с нотариальным заверением, консульская легализация и апостилирование документов, получение справки об отсутствии судимости.
@@ -29,14 +28,14 @@ section.contact
             text: '+7(985) 960-02-53'
           }],
           mail: 'info@buroimpression.ru',
+          showLink: true,
           navigator: 'https://yandex.ru/maps/?ll=37.656980%2C55.739829&mode=poi&poi%5Bpoint%5D=37.656832%2C55.739866&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1920176282&pt=37.656820%2C55.739752&z=21'
         })
 
       .contact__content-field
         .contact__content-field-header
-          svg(width="20" height="28").map-pin.map-pin--violet
-            use(xlink:href="./assets/sprite.svg#icon-pin")
-          span.contact__content-field-header-title Бюро переводов на Китай-городе. <br/>Офис возле м. «Китай-город»<br/><span>(Таганско-Краснопресненская линия)</span>
+          img(src="./assets/img/icon-pin-purple.png" alt="" width="20" height="29")
+          span.contact__content-field-header-title Бюро переводов на Китай-городе. <br/>Офис возле м. «Китай-город» (Таганско-Краснопресненская линия)
 
         .note-banner
           p Срочные переводческие услуги с нотариальным заверением, консульская легализация и апостилирование документов.
@@ -53,5 +52,6 @@ section.contact
             text: '+7 (919) 727-43-34'
           }],
           mail: 'zakaz@cldoc.ru',
+          showLink: true,
           navigator: 'https://yandex.ru/maps/?ll=37.638330%2C55.756947&mode=poi&poi%5Bpoint%5D=37.638292%2C55.756951&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D63842497505&pt=37.656820%2C55.739752&z=21'
         })

@@ -40,9 +40,7 @@
     background-color: var(--main-slider-button-color);
 
     svg {
-      fill: none;
-      stroke: var(--main-slider-button-icon-fill);
-      stroke-width: 2px;
+      fill: var(--accent);
     }
 
     @include m-b-down(534px) {
@@ -52,7 +50,7 @@
 
   &-button-prev {
     left: initial;
-    right: 75px;
+    right: 60px;
 
     svg {
       transform: rotate(180deg);
