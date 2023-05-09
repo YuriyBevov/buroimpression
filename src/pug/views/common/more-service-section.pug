@@ -1,5 +1,5 @@
 include ../../mixins/main-slider
-
+include ../../mixins/lw-info-card/short
 -
   const reviewData = {
     cls: 'main-slider--review',
@@ -14,7 +14,7 @@ include ../../mixins/main-slider
     ]
   }
 
-section.more-service.section-bg
+section.more-service.lw-alt-bg
   .container
     .service-slider-container
       .more-service__header
@@ -31,15 +31,9 @@ section.more-service.section-bg
       .swiper.service-slider
         .swiper-wrapper
           .swiper-slide
-            include ../../components/service-card
-          .swiper-slide
-            include ../../components/service-card
-          .swiper-slide
-            include ../../components/service-card
-          .swiper-slide
-            include ../../components/service-card
-          .swiper-slide
-            include ../../components/service-card
+            +lw-info-card-short({
+              title: 'Нострицикация'
+            })
 
 
 

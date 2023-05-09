@@ -1,6 +1,6 @@
 .footer {
+  @extend .lw-section;
   background-color: var(--accent);
-  padding: 60px 0 70px;
 
   @include m-b-tablet-lg-down {
     padding: 30px 0 40px;

@@ -1,6 +1,4 @@
 .review {
-  @extend .section-padding-80;
-
   &__content {
     display: grid;
     grid-template-columns: auto 430px;

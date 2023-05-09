@@ -1,11 +1,4 @@
 .service {
-  @extend .section-padding-80-60;
-
-  background-image: url("../assets/img/wood-bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
   &__btn {
     margin: 0 auto;
   }

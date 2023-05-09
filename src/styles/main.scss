@@ -39,7 +39,11 @@
 @import "./components/menu-list";
 @import "./components/lang-switcher";
 @import "./components/breadcrumbs";
-@import "./components/service-card";
+@import "./components/service-slider";
+
+/*new*/
+@import "./components/lw-info-card";
+/*new end*/
 
 /* views */
 @import "./views/common/header";
@@ -47,26 +51,21 @@
 @import "./views/index-page/feature";
 @import "./views/index-page/service";
 @import "./views/index-page/review";
-@import "./views/index-page/certificate";
 //
 @import "./views/contact-page/contact";
 @import "./views/contact-page/contact-detail";
 @import "./views/example-page/examples";
 @import "./views/review-page/review";
 @import "./views/vacancy-page/vacancy";
-@import "./views/common/main-content";
-//@import "./views/common/search-section";
+@import "./views/sale-page/sale";
 @import "./views/common/ordinal-list";
-//@import "./views/common/accordeon-section";
 @import "./views/common/client";
 @import "./views/common/order";
 
 @import "./views/common/more-service-section";
 
-//@import "./views/common/theme-description";
 @import "./views/common/info-page";
 @import "./views/common/info-block";
-@import "./views/common/info-block-section";
 @import "./views/common/info-links";
 @import "./views/sitemap-page/sitemap";
 @import "./views/404-page/not-found";

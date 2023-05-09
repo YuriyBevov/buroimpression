@@ -82,13 +82,7 @@ fieldset {
   margin-bottom: 80px;
 }
 
-.image-bg {
-  background-image: url("../assets/img/wood-bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 section {
   width: 100%;
+  @extend .lw-section;
 }

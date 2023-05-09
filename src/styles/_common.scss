@@ -1,5 +1,5 @@
 .lw {
-  &-text-xxl {
+  /*&-text-xxl {
     font-size: var(--text-xxl);
     font-weight: 400;
   }
@@ -36,7 +36,7 @@
 
   &-text-center {
     text-align: center;
-  }
+  }*/
 
   &-fw-light {
     font-weight: 300;
@@ -52,6 +52,33 @@
   }
   &-fw-bold {
     font-weight: 700;
+  }
+
+  &-inner-offset {
+    padding: 60px 0;
+
+    @include m-b-laptop-down {
+      padding: 50px 0;
+    }
+
+    @include m-b-tablet-lg-down {
+      padding: 40px 0;
+    }
+
+    @include m-b-tablet-down {
+      padding: 30px 0;
+    }
+  }
+
+  &-alt-bg {
+    background-image: url(../assets/img/wood-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &-section {
+    @extend .lw-inner-offset;
   }
 
   &-section-title {

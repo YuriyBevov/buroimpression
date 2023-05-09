@@ -1,11 +1,4 @@
 .order {
-  @extend .section-padding-80;
-
-  background-image: url("../assets/img/wood-bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
   @include m-b-laptop-down {
     .main-btn {
       width: 100%;

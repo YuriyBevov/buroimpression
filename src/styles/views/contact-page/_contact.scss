@@ -1,6 +1,4 @@
 .contact {
-  @extend .section-padding-80;
-
   &__content {
     display: grid;
     grid-template-columns: 290px 1fr 1fr;
