@@ -15,8 +15,8 @@ if(sliders) {
       spaceBetween: 40,
       preloadImages: true,
 
-      slidesOffsetAfter: 15,
-      slidesOffsetBefore: 15,
+      //slidesOffsetAfter: 15,
+      //slidesOffsetBefore: 15,
 
       navigation: {
         nextEl: btnNext ? btnNext : null,
@@ -31,12 +31,12 @@ if(sliders) {
         clickable: true
       },
 
-      breakpoints: {
+      /*breakpoints: {
         635: {
           slidesOffsetAfter: 30,
           slidesOffsetBefore: 30,
         }
-      }
+      }*/
     });
   });
 };
@@ -48,7 +48,6 @@ if(serviceSlider) {
     const btnNext = slider.closest('.service-slider-container').querySelector('.service-slider-button-next');
     const btnPrev = slider.closest('.service-slider-container').querySelector('.service-slider-button-prev');
 
-    console.log(btnNext, btnPrev);
     new Swiper(slider, {
       modules: [Navigation, Pagination],
 

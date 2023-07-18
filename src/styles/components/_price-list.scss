@@ -1,5 +1,5 @@
 .price-list {
-  .accordeon-item-header {
+  /*.accordeon-item-header {
     position: sticky;
     top: 85px;
     background-color: #fbfafa;
@@ -29,6 +29,23 @@
 
     &:last-child {
       margin-bottom: 30px;
+    }
+  }*/
+
+  &__title {
+
+  }
+
+  &-section {
+
+    &-title {
+
+    }
+  }
+
+  &-section-field {
+    &-title {
+
     }
   }
 }

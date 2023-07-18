@@ -1,0 +1,37 @@
+.price-list {
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &-section {
+    margin-bottom: 30px;
+    &-title {
+      font-size: 22px;
+      margin-bottom: 20px;
+
+      @include m-b-tablet-down {
+        font-size: 20px;
+      }
+    }
+
+    small {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &-section-field {
+    &-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+
+      @include m-b-tablet-down {
+        font-size: 16px;
+      }
+    }
+  }
+}

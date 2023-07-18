@@ -32,7 +32,6 @@
 @import "./components/contact-card";
 @import "./components/map-pin";
 @import "./components/review-card";
-@import "./components/price-list";
 @import "./components/zoom-popup";
 @import "./components/table";
 @import "./components/pagination";
@@ -57,7 +56,7 @@
 @import "./views/example-page/examples";
 @import "./views/review-page/review";
 @import "./views/vacancy-page/vacancy";
-@import "./views/sale-page/sale";
+@import "./views/offers-page/offers";
 @import "./views/common/ordinal-list";
 @import "./views/common/client";
 @import "./views/common/order";
@@ -70,6 +69,8 @@
 @import "./views/sitemap-page/sitemap";
 @import "./views/404-page/not-found";
 @import "./views/common/footer";
+
+@import "./views/price-list-page/price-list";
 
 /* modals */
 @import "./modal/common";
