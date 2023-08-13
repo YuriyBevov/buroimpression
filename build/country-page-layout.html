@@ -39,15 +39,64 @@
     <header class="header">
       <div class="container header__container"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
         <nav class="main-nav header__nav">
-          <ul class="main-nav__list">
-            <li class="main-nav__list-item"><a class="active" href="index.html">О нас</a></li>
-            <li class="main-nav__list-item"><a href="translation.html">Переводы</a></li>
-            <li class="main-nav__list-item"><a href="apostille.html">Апостиль</a></li>
-            <li class="main-nav__list-item"><a href="legalization.html">Консульская легализация</a></li>
-            <li class="main-nav__list-item"><a href="reclamation.html">Истребование документов</a></li>
-            <li class="main-nav__list-item"><a href="price.html">Цены</a></li>
-            <li class="main-nav__list-item"><a href="contact.html">Контакты</a></li>
-          </ul>
+          <div class="main-nav__wrapper">
+            <div class="main-nav__header">
+              <button class="main-nav__back-btn">Назад</button>
+              <button class="nav-closer">
+                <svg width="24" height="24">
+                  <use xlink:href="./assets/sprite.svg#icon-close"></use>
+                </svg>
+              </button>
+            </div>
+            <ul class="main-nav__list">
+              <li class="main-nav__list-item"><a class="active" href="index.html">О нас</a>
+              </li>
+              <li class="main-nav__list-item"><a href="translation.html">Переводы</a>
+              </li>
+              <li class="main-nav__list-item has-inner"><a href="apostille.html">Апостиль
+                  <svg width="12" height="10">
+                    <use xlink:href="./assets/sprite.svg#icon-menu-arrow"></use>
+                  </svg></a>
+                <ul class="main-nav__inner-list">
+                  <li class="main-nav__inner-list-item main-nav__list-item--all"><a href="#">Перейти в раздел</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Апостиль документов</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Апостиль справки о несудимости</a></li>
+                </ul>
+              </li>
+              <li class="main-nav__list-item has-inner"><a href="legalization.html">Консульская легализация
+                  <svg width="12" height="10">
+                    <use xlink:href="./assets/sprite.svg#icon-menu-arrow"></use>
+                  </svg></a>
+                <ul class="main-nav__inner-list">
+                  <li class="main-nav__inner-list-item main-nav__list-item--all"><a href="#">Перейти в раздел</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
+                </ul>
+              </li>
+              <li class="main-nav__list-item"><a href="reclamation.html">Истребование документов</a>
+              </li>
+              <li class="main-nav__list-item"><a href="price.html">Цены</a>
+              </li>
+              <li class="main-nav__list-item"><a href="contact.html">Контакты</a>
+              </li>
+            </ul>
+          </div>
         </nav><a class="lang-switcher lang-switcher--en" href="/en/"><span>en</span></a>
         <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
         <div class="header__burger">
@@ -105,7 +154,8 @@
               <p>Официальными языками Афганистана являются <strong>пушту</strong> и <strong>дари</strong>.</p>
               <p>Однако при легализации документов для Афганистана перевод можно осуществить и на английский язык. Легализация документов для Афганистана включает в себя процедуры по надлежащему оформлению документов, их переводу на необходимый язык, а так же заверению этих документов в ряде инстанций: нотариус, Министерство юстиции, Консульский департамент МИД и конечно Консульский отдел Посольства Афганистана в РФ. Подготавливая документы, следует соблюсти все требования к оформлению этого документа, чтобы не получить отказ в том или ином органе и не потерять время на переоформление документа. Для быстрого получения конечного результата – правильно оформленного легализованного документа, лучше обратиться к специалистам, которые имеют большой опыт в легализации документов.</p>
               <p>Бюро переводов «Импрешн» оказывает услугу по легализации различного рода документов для Афганистана. Чтобы получить информацию по конкретным документам, обращайтесь по телефонам, указанным в разделе <a href="contacts.html">Контакты</a>, или же приходите к нам в офис.</p>
-            </div><a href="index.html">Вернуться назад</a>
+            </div>
+            <div class="lw-image-gallery-grid"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"><img class="zoomable" src="./assets/img/legal_afgan@1x.jpg" srcset="./assets/img/legal_afgan.jpg 2x" alt="Пример легализации для Афганистана" width="600" height="850"></div><a href="index.html">Вернуться назад</a>
           </div>
         </div>
       </section>

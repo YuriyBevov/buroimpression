@@ -84,6 +84,29 @@
   &-accent {
     color: var(--accent);
   }
+
+  &-image-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 20px 0;
+
+    img {
+      border: 2px solid var(--accent);
+    }
+
+    @include m-b-laptop-down {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include m-b-tablet-down {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include m-b-mobile-lg-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 .zoomable {

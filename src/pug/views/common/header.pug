@@ -2,8 +2,76 @@
   const navList = [
     { url:'index.html', title: 'О нас', cls: 'active' },
     { url:'translation.html', title: 'Переводы' },
-    { url:'apostille.html', title: 'Апостиль' },
-    { url:'legalization.html', title: 'Консульская легализация' },
+    {
+      url:'apostille.html', title: 'Апостиль',
+      innerList: [
+        {
+          url:'#', title: 'Апостиль документов',
+        },
+        {
+          url:'#', title: 'Апостиль справки о несудимости',
+        }
+      ]
+    },
+    {
+      url:'legalization.html', title: 'Консульская легализация',
+      innerList: [
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        },
+        {
+          url:'#', title: 'Легализация для Саудовской аравии',
+        },
+        {
+          url:'#', title: 'Легализация для колумбии',
+        }
+      ]
+    },
     { url:'reclamation.html', title: 'Истребование документов' },
     { url:'price.html', title: 'Цены' },
     { url:'contact.html', title: 'Контакты' },
@@ -12,12 +80,29 @@
 header.header
   .container.header__container
     a(href="index.html" aria-label="На главную").main-logo
-        img(src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50")
+      img(src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50")
     nav.main-nav.header__nav
-      ul.main-nav__list
-        each item in navList
-          li.main-nav__list-item
-            a(href= item.url class= item.cls ? item.cls : null)= item.title
+      .main-nav__wrapper
+        .main-nav__header
+          button.main-nav__back-btn Назад
+          button.nav-closer
+            svg(width="24" height="24")
+              use(xlink:href="./assets/sprite.svg#icon-close")
+        ul.main-nav__list
+          each item in navList
+            li.main-nav__list-item(class = item.innerList ? 'has-inner' : null)
+              a(href= item.url class= item.cls ? item.cls : null)= item.title
+                if item.innerList
+                  svg(width="12" height="10")
+                    use(xlink:href="./assets/sprite.svg#icon-menu-arrow")
+              if item.innerList
+                ul.main-nav__inner-list
+                  li.main-nav__inner-list-item.main-nav__list-item--all
+                    a(href="#") Перейти в раздел
+                  each inner in item.innerList
+                    li.main-nav__inner-list-item
+                      a(href= inner.url class= inner.cls ? inner.cls : null)= inner.title
+
 
     include ../../components/lang-switcher
 

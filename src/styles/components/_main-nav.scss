@@ -1,0 +1,233 @@
+.nav-closer {
+  @extend .button-default;
+  font-size: 18px;
+  font-weight: 600;
+  svg {
+    fill: var(--accent);
+  }
+
+  @include m-b-desktop-up {
+    display: none;
+  }
+}
+
+.main-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0,0,0,.5);
+
+  z-index: 9;
+
+  &.active {
+    display: flex;
+    opacity: 0;
+    animation: fadeIn 0.3s 0.05s ease-in forwards;
+  }
+
+  @include m-b-desktop-up {
+    position: static;
+    display: flex;
+    flex-grow: 1;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+  }
+
+  &__back-btn {
+    @extend .button-default;
+    text-decoration: underline;
+    color: var(--accent);
+    opacity: 0;
+    display: none;
+
+    &.active {
+      display: flex;
+      animation: fadeIn 0.3s 0.01s ease-in forwards;
+    }
+
+    @include m-b-desktop-up {
+      display: none;
+    }
+  }
+
+  &__list {
+    @include m-b-desktop-up {
+      display: flex;
+      justify-content: space-around;
+
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    @include m-b-desktop-down {
+      background-color: var(--white);
+      width: 100%;
+      max-width: 450px;
+      height: 100%;
+      padding: 100px 20px;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+
+    &-item {
+      a {
+        display: flex;
+        align-items: center;
+        svg {
+          margin-left: 4px;
+
+          @include m-b-desktop-down {
+            transform: rotate(-90deg);
+            margin-left: 10px;
+            width: 14px;
+            height: 12px;
+          }
+        }
+
+        padding: 15px 0;
+        font-weight: 600;
+        color: var(--main-nav-link-color);
+        @extend .hover-opacity-transition;
+
+        @include m-b-desktop-up {
+          padding: 15px 10px;
+        }
+      }
+
+      &--all {
+        position: sticky;
+        top: 0;
+        background-color: var(--white);
+        margin-bottom: 20px;
+        z-index: 5;
+        padding-top: 20px;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      &.has-inner {
+        @include m-b-desktop-up {
+          position: relative;
+        }
+      }
+    }
+
+    @include m-b-desktop-down {
+      &-item.has-inner.active {
+        .main-nav__inner-list {
+          animation: showNav .4s 0.05s ease-in forwards;
+        }
+      }
+    }
+
+    @include m-b-desktop-up {
+      &-item.has-inner:hover,
+      &-item.has-inner:focus {
+        .main-nav__inner-list {
+          display: block;
+          opacity: 0;
+          animation: fadeIn .4s 0.05s ease-in forwards;
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    @include m-b-desktop-up {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    @include m-b-desktop-down {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      max-width: 450px;
+      height: 100%;
+      background-color: var(--white);
+      z-index: 11;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 85px;
+    padding: 20px;
+    border-bottom: 1px solid var(--accent);
+
+    .nav-closer {
+      margin-left: auto;
+    }
+
+    @include m-b-desktop-up {
+      display: none;
+    }
+  }
+
+  &__inner-list {
+    position: absolute;
+    background-color: var(--white);
+    overflow: hidden;
+    overflow-y: auto;
+
+    &-item a {
+      padding: 10px 15px;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    &-item:not(:last-child):not(:first-child) {
+      border-bottom: 1px solid var(--light);
+    }
+
+    @include m-b-desktop-down {
+      top: 85px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - 85px);
+      padding: 40px 20px;
+      padding-top: 0;
+
+      transform: translateX(-100%);
+    }
+
+    @include m-b-desktop-up {
+      display: none;
+      top: 100%;
+      left: -60px;
+      width: 320px;
+      height: fit-content;
+      max-height: 400px;
+      padding: 10px;
+      padding-top: 0;
+      box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.50);
+    }
+  }
+}
+
+@keyframes showNav {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

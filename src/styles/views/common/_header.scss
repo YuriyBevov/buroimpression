@@ -50,7 +50,6 @@
   &__burger {
     display: none;
     margin-left: 15px;
-    z-index: 101;
     @include m-b-desktop-down {
       display: flex;
     }

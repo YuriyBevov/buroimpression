@@ -5,14 +5,16 @@ import {gsap} from 'gsap';
 export class NavMenu {
   #container = null;
   #opener = null;
+  #closer = null;
   #openNavTl = gsap.timeline({ onComplete: () => { this.#debounce = false; } });
   #closeNavTl = gsap.timeline({ onComplete: () => { this.#debounce = false; this.#isNavOpened = false; } });
   #isNavOpened = false;
   #debounce = false;
 
-  constructor( container, opener ) {
+  constructor( container, opener, closer ) {
     this.#container = container;
     this.#opener = opener;
+    this.#closer = closer;
 
     this.#init();
   }
@@ -48,6 +50,10 @@ export class NavMenu {
           duration: 0.5,
           stagger: 0.2,
           ease: 'ease-in'
+        }, {
+          onComplete: () => {
+            this.#closer.addEventListener('click', this.#closeNav);
+          }
         }, "-=0.3");
     }
   }
@@ -75,6 +81,7 @@ export class NavMenu {
   #removeListeners = () => {
     document.removeEventListener('keydown', this.#onKeyPressHandler);
     document.removeEventListener('click', this.#onOverlayClickHandler);
+    this.#closer.removeEventListener('click', this.#closeNav);
   }
 
   #addListeners = () => {

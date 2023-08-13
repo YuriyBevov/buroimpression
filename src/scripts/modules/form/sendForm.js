@@ -25,6 +25,7 @@ export function sendForm(form) {
 
     refresh(form);
     new Modal(thanksModal).show();
+    dataLayer.push({'event': 'submit_form'});
   }
 
   function error() {
