@@ -49,9 +49,7 @@ const onOverlayClickHandler = (evt) => {
 }
 
 const onKeyPressHandler = (evt) => {
-  console.log(evt.key)
   if(evt.key === 'Esc' || evt.key === 'Escape') {
-    console.log('action');
     closeNav();
   }
 }
@@ -67,13 +65,19 @@ const parents = document.querySelectorAll('.main-nav__list-item.has-inner');
 const backBtn = document.querySelector('.main-nav__back-btn');
 
 if(parents) {
+
+  const onClickSetActiveParent = (evt) => {
+    parents.forEach(parent => {
+      parent.classList.contains('active') ? parent.classList.remove('active') : null;
+    });
+
+    evt.currentTarget.classList.add('active');
+    current = evt.currentTarget;
+    backBtn.classList.add('active');
+  }
+
   parents.forEach(parent => {
-    parent.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      parent.classList.add('active');
-      current = parent;
-      backBtn.classList.add('active');
-    })
+    parent.addEventListener('click', onClickSetActiveParent)
   });
 
   backBtn.addEventListener('click', () => {

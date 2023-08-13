@@ -24,6 +24,12 @@
 
   z-index: 9;
 
+  @include m-b-desktop-down {
+    span {
+      cursor: pointer;
+    }
+  }
+
   &.active {
     display: flex;
     opacity: 0;
@@ -76,7 +82,7 @@
     }
 
     &-item {
-      a {
+      span,a {
         display: flex;
         align-items: center;
         svg {
@@ -104,9 +110,8 @@
         position: sticky;
         top: 0;
         background-color: var(--white);
-        margin-bottom: 20px;
         z-index: 5;
-        padding-top: 20px;
+        padding: 20px 0;
 
         a {
           text-decoration: underline;
@@ -183,8 +188,10 @@
     background-color: var(--white);
     overflow: hidden;
     overflow-y: auto;
+    z-index: 9;
 
-    &-item a {
+    &-item a,
+    &-item span {
       padding: 10px 15px;
       font-weight: 400;
       color: var(--accent);
