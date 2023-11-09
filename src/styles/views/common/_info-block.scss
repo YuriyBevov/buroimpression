@@ -110,11 +110,9 @@
 
   &__content-list {
     padding-left: 20px;
-    //margin-bottom: 20px;
 
     li {
       position: relative;
-      //margin-bottom: 15px;
 
       &::before {
         position: absolute;
@@ -209,5 +207,9 @@
     color: var(--accent);
 
     @extend .hover-opacity-transition;
+  }
+
+  .feature__list-item p {
+    color: var(--main-color);
   }
 }
