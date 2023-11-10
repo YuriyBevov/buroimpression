@@ -1,0 +1,17 @@
+include ../mixins/main-btn
+
+section.hero
+  .hero__wrapper
+    .container
+      .hero__content
+        span.hero__content-title Апостиль на документы ЗАГС Апостиль на документы ЗАГС
+        // p.hero__content-text Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов
+
+        +main-btn({
+          type: 'anchor',
+          anchor: 'order',
+          url: '#',
+          text: 'Заказать перевод'
+        })
+
+    include ./social

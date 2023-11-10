@@ -1,14 +1,16 @@
 .header {
   position: sticky;
-  top: 0;
+  top: -82px;
   z-index: 99;
   background-color: var(--main-bg-color);
-  padding: 15px 0;
-  height: 85px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+
+  @include m-b-down(1360px) {
+    top: 0;
+  }
 
   &__container {
-    @extend .flex-wrap;
-    align-items: center;
+    @extend .flex-column;
   }
 
   .main-logo {
@@ -50,8 +52,29 @@
   &__burger {
     display: none;
     margin-left: 15px;
-    @include m-b-desktop-down {
+
+    @include m-b-down(1360px) {
       display: flex;
     }
   }
+
+  &__top {
+    @extend .flex-wrap;
+    align-items: center;
+    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+
+
+  &__bottom {
+    @extend .flex-wrap;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    border-top: 1px solid rgba(17, 17, 26, 0.1);
+
+    @include m-b-down(1360px) {
+      display: none;
+    }
+  }
 }
+

@@ -79,7 +79,11 @@ fieldset {
 }
 
 .anchor-link {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
+}
+
+.hero__content > .anchor-link {
+  margin-bottom: 0;
 }
 
 section {

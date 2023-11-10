@@ -37,38 +37,46 @@
     </div>
     <div class="modal-overlay"></div>
     <header class="header">
-      <div class="container header__container"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
-        <nav class="main-nav header__nav">
-          <div class="main-nav__wrapper">
-            <div class="main-nav__header">
-              <button class="main-nav__back-btn">Назад</button>
-              <button class="nav-closer">
+      <div class="container header__container">
+        <div class="header__top"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a><a class="lang-switcher lang-switcher--en" href="/en/"><span>en</span></a>
+          <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
+          <div class="header__burger">
+            <button class="burger" type="button" aria-label="Меню" tabindex="0"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
+          </div>
+        </div>
+        <div class="header__bottom main-menu">
+          <nav class="main-nav">
+            <div class="main-nav__header"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
+              <button class="main-nav__closer">
                 <svg width="24" height="24">
                   <use xlink:href="./assets/sprite.svg#icon-close"></use>
                 </svg>
               </button>
             </div>
             <ul class="main-nav__list">
-              <li class="main-nav__list-item"><a class="active" href="index.html">О нас</a>
-              </li>
-              <li class="main-nav__list-item"><a href="translation.html">Переводы</a>
-              </li>
-              <li class="main-nav__list-item has-inner"><a href="apostille.html">Апостиль
-                  <svg width="12" height="10">
+              <li class="main-nav__list-item has-inner"><a href="translation.html">Переводы
+                  <svg width="16" height="16">
                     <use xlink:href="./assets/sprite.svg#icon-menu-arrow"></use>
                   </svg></a>
                 <ul class="main-nav__inner-list">
-                  <li class="main-nav__inner-list-item main-nav__list-item--all"><a href="#">Перейти в раздел</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Апостиль документов</a></li>
+                  <li class="main-nav__inner-list-item"><a href="#">Апостиль справки о несудимости</a></li>
+                </ul>
+              </li>
+              <li class="main-nav__list-item has-inner"><a href="apostille.html">Апостиль
+                  <svg width="16" height="16">
+                    <use xlink:href="./assets/sprite.svg#icon-menu-arrow"></use>
+                  </svg></a>
+                <ul class="main-nav__inner-list">
                   <li class="main-nav__inner-list-item"><a href="#">Апостиль документов</a></li>
                   <li class="main-nav__inner-list-item"><a href="#">Апостиль справки о несудимости</a></li>
                 </ul>
               </li>
               <li class="main-nav__list-item has-inner"><a href="legalization.html">Консульская легализация
-                  <svg width="12" height="10">
+                  <svg width="16" height="16">
                     <use xlink:href="./assets/sprite.svg#icon-menu-arrow"></use>
                   </svg></a>
                 <ul class="main-nav__inner-list">
-                  <li class="main-nav__inner-list-item main-nav__list-item--all"><a href="#">Перейти в раздел</a></li>
                   <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
                   <li class="main-nav__inner-list-item"><a href="#">Легализация для колумбии</a></li>
                   <li class="main-nav__inner-list-item"><a href="#">Легализация для Саудовской аравии</a></li>
@@ -95,32 +103,17 @@
               </li>
               <li class="main-nav__list-item"><a href="contact.html">Контакты</a>
               </li>
-            </ul>
-          </div>
-        </nav><a class="lang-switcher lang-switcher--en" href="/en/"><span>en</span></a>
-        <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
-        <div class="header__burger">
-          <button class="burger" type="button" aria-label="Меню" tabindex="0"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>
+            </ul><a class="main-btn" href="#order" data-scroll-to="order">Заказать звонок</a>
+          </nav>
         </div>
       </div>
     </header>
     <main>
       <section class="hero">
-        <picture>
-          <source type="image/webp" media="(max-width: 400px)" srcset="./assets/img/hero-bg-mobile@1x.webp 1x, ./assets/img/hero-bg-mobile@2x.webp 2x">
-          <source type="image/webp" media="(max-width: 535px)" srcset="./assets/img/hero-bg-mobile-md@1x.webp 1x, ./assets/img/hero-bg-mobile-md@2x.webp 2x">
-          <source type="image/webp" media="(max-width: 768px)" srcset="./assets/img/hero-bg-tablet-xs@1x.webp 1x, ./assets/img/hero-bg-tablet-xs@2x.webp 2x">
-          <source type="image/webp" media="(max-width: 960px)" srcset="./assets/img/hero-bg-tablet@1x.webp 1x, ./assets/img/hero-bg-tablet@2x.webp 2x">
-          <source type="image/webp" srcset="./assets/img/hero-bg@1x.webp 1x, ./assets/img/hero-bg@2x.webp 2x">
-          <source type="image/jpg" media="(max-width: 400px)" srcset="./assets/img/hero-bg-mobile@1x.jpg 1x, ./assets/img/hero-bg-mobile@2x.jpg 2x">
-          <source type="image/jpg" media="(max-width: 535px)" srcset="./assets/img/hero-bg-mobile-md@1x.jpg 1x, ./assets/img/hero-bg-mobile-md@2x.jpg 2x">
-          <source type="image/jpg" media="(max-width: 768px)" srcset="./assets/img/hero-bg-tablet-xs@1x.jpg 1x, ./assets/img/hero-bg-tablet-xs@2x.jpg 2x">
-          <source type="image/jpg" media="(max-width: 960px)" srcset="./assets/img/hero-bg-tablet@1x.jpg 1x, ./assets/img/hero-bg-tablet@2x.jpg 2x"><img src="./assets/img/hero-bg@1x.jpg" srcset="./assets/img/hero-bg@2x.jpg 2x" alt="Фоновое изображение" width="1920" height="540">
-        </picture>
         <div class="hero__wrapper">
-          <div class="container hero__container">
-            <div class="hero__content"><span class="hero__content-title"><span>Многопрофильное </span><br/>Бюро переводов</span>
-              <p>Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов</p><a class="main-btn anchor-link" href="#order" data-scroll-to="order">Заказать перевод</a>
+          <div class="container">
+            <div class="hero__content"><span class="hero__content-title">Апостиль на документы ЗАГС Апостиль на документы ЗАГС</span>
+              <!-- p.hero__content-text Мы переводим на все языки мира и оказываем все возможные услуги в сфере языковых переводов и легализации документов--><a class="main-btn anchor-link" href="#order" data-scroll-to="order">Заказать перевод</a>
             </div>
           </div>
           <div class="social">

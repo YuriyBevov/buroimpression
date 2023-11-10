@@ -1,5 +1,8 @@
 import "./modules/webp";
-import "./modules/nav";
+// import "./modules/nav";
+
+import "./modules/nav-list.js";
+import "./modules/nav-opener.js";
 import "./modules/page-animations";
 import "./modules/anchor-link";
 import "./modules/swiper";

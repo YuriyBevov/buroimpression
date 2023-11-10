@@ -1,240 +1,109 @@
-.nav-closer {
-  @extend .button-default;
-  font-size: 18px;
-  font-weight: 600;
-  svg {
-    fill: var(--accent);
-  }
-
-  @include m-b-desktop-up {
-    display: none;
-  }
-}
-
-.main-nav {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-color: rgba(0,0,0,.5);
-
-  z-index: 9;
-
-  @include m-b-desktop-down {
-    span {
-      cursor: pointer;
-    }
-  }
-
-  &.active {
+@include m-b-up(1359px) {
+  .main-nav {
     display: flex;
-    opacity: 0;
-    animation: fadeIn 0.3s 0.05s ease-in forwards;
-  }
+    flex-wrap: wrap;
 
-  @include m-b-desktop-up {
-    position: static;
-    display: flex;
-    flex-grow: 1;
-    width: initial;
-    height: initial;
-    background-color: transparent;
-  }
+    align-items: center;
+    width: 100%;
 
-  &__back-btn {
-    @extend .button-default;
-    text-decoration: underline;
-    color: var(--accent);
-    opacity: 0;
-    display: none;
-
-    &.active {
-      display: flex;
-      animation: fadeIn 0.3s 0.01s ease-in forwards;
-    }
-
-    @include m-b-desktop-up {
+    &__header {
       display: none;
     }
-  }
 
-  &__list {
-    @include m-b-desktop-up {
+    .main-btn {
+      margin-left: auto;
+      height: fit-content;
+      padding: 12px 20px 14px;
+    }
+
+    &__list {
       display: flex;
-      justify-content: space-around;
-
-      width: 100%;
-      padding: 0 10px;
+      align-items: center;
+      margin-left: -15px;
+      margin-right: -15px;
+      padding-right: 40px;
     }
 
-    @include m-b-desktop-down {
-      background-color: var(--white);
-      width: 100%;
-      max-width: 450px;
-      height: 100%;
-      padding: 100px 20px;
-      overflow: hidden;
-      overflow-y: auto;
-    }
+    &__list-item {
+      position: relative;
 
-    &-item {
-      span,a {
+      & > a {
+        text-transform: uppercase;
+      }
+
+      a {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        svg {
-          margin-left: 4px;
+        font-weight: 600;
+        color: var(--dark);
+        padding: 30px 15px;
 
-          @include m-b-desktop-down {
+        &:hover {
+          color: var(--accent);
+        }
+
+        svg {
+          margin-left: 8px;
+          min-width: 16px;
+          transform: rotate(90deg);
+          transition: transform var(--main-transition);
+        }
+      }
+
+      &:hover,
+      &.active {
+        & > a {
+          color: var(--accent);
+
+          svg {
             transform: rotate(-90deg);
-            margin-left: 10px;
-            width: 14px;
-            height: 12px;
+            fill: var(--accent);
           }
         }
-
-        padding: 15px 0;
-        font-weight: 600;
-        color: var(--main-nav-link-color);
-        @extend .hover-opacity-transition;
-
-        @include m-b-desktop-up {
-          padding: 15px 10px;
-        }
-      }
-
-      &--all {
-        position: sticky;
-        top: 0;
-        background-color: var(--white);
-        z-index: 5;
-        padding: 20px 0;
-
-        a {
-          text-decoration: underline;
-        }
-      }
-
-      &.has-inner {
-        @include m-b-desktop-up {
-          position: relative;
-        }
       }
     }
 
-    @include m-b-desktop-down {
-      &-item.has-inner.active {
-        .main-nav__inner-list {
-          animation: showNav .4s 0.05s ease-in forwards;
-        }
-      }
-    }
-
-    @include m-b-desktop-up {
-      &-item.has-inner:hover,
-      &-item.has-inner:focus {
-        .main-nav__inner-list {
-          display: block;
-          opacity: 0;
-          animation: fadeIn .4s 0.05s ease-in forwards;
-        }
-      }
-    }
-  }
-
-  &__wrapper {
-    @include m-b-desktop-up {
-      display: flex;
-      flex-grow: 1;
-    }
-
-    @include m-b-desktop-down {
+    &__inner-list {
+      display: none;
       position: absolute;
-      top: 0;
+      top: calc(100% - 1px);
       left: 0;
-
-      width: 100%;
-      max-width: 450px;
-      height: 100%;
-      background-color: var(--white);
-      z-index: 11;
-    }
-  }
-
-  &__header {
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 85px;
-    padding: 20px;
-    border-bottom: 1px solid var(--accent);
-
-    .nav-closer {
-      margin-left: auto;
-    }
-
-    @include m-b-desktop-up {
-      display: none;
-    }
-  }
-
-  &__inner-list {
-    position: absolute;
-    background-color: var(--white);
-    overflow: hidden;
-    overflow-y: auto;
-    z-index: 9;
-
-    &-item a,
-    &-item span {
-      padding: 10px 15px;
-      font-weight: 400;
-      color: var(--accent);
-    }
-
-    &-item:not(:last-child):not(:first-child) {
-      border-bottom: 1px solid var(--light);
-    }
-
-    @include m-b-desktop-down {
-      top: 85px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      max-height: calc(100vh - 85px);
-      padding: 40px 20px;
-      padding-top: 0;
-
-      transform: translateX(-100%);
-    }
-
-    @include m-b-desktop-up {
-      display: none;
-      top: 100%;
-      left: -60px;
-      width: 320px;
-      height: fit-content;
       max-height: 400px;
-      padding: 10px;
-      padding-top: 0;
-      box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.50);
+      overflow: hidden;
+      overflow-y: auto;
+      opacity: 1;
+
+      opacity: 0;
+      border-radius: 0 0 2px 2px;
+
+      flex-direction: column;
+      min-width: 20vw;
+      width: fit-content;
+      padding: 10px 0;
+      list-style: disc;
+      padding-left: 30px;
+
+      background-color: var(--white);
+      border-top: 2px solid var(--accent);
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+
+      transition: opacity 0.4s ease-in;
     }
-  }
-}
 
-@keyframes showNav {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
+    &__inner-list-item {
+      &::marker {
+        color: var(--accent);
+      }
 
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+      a {
+        padding: 10px 0;
+      }
+    }
+
+    &__list-item:hover > .main-nav__inner-list {
+      display: flex;
+      opacity: 1;
+    }
   }
 }

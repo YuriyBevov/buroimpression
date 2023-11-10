@@ -1,0 +1,132 @@
+
+.main-menu.active {
+  @include m-b-down(1360px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.3);
+    z-index: 99;
+
+    &.active {
+      display: flex;
+    }
+
+    .main-btn {
+      display: none;
+    }
+
+    .main-nav {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 400px;
+      background-color: var(--white);
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid var(--accent);
+
+      &__header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        padding: 14px 25px 15px;
+        padding-left: 36px;
+        border-bottom: 1px solid rgba(17, 17, 26, 0.1);
+        background-color: var(--white);
+      }
+
+      &__closer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        border: none;
+        margin-left: auto;
+        background-color: transparent;
+        cursor: pointer;
+
+        svg {
+          fill: var(--accent);
+        }
+      }
+
+      &__list {
+        flex-direction: column;
+        padding: 25px;
+        overflow: hidden;
+        overflow-y: auto;
+
+        &-item {
+          margin-bottom: 10px;
+
+          a {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 10px 0;
+            padding-right: 60px;
+            color: var(--dark);
+
+            svg {
+              position: absolute;
+              top: 0;
+              right: -10px;
+              width: 40px;
+              height: 40px;
+              padding: 10px;
+
+              transition: transform var(--main-transition);
+            }
+          }
+
+          a.active {
+            color: var(--accent);
+
+            & > svg {
+              fill: var(--accent);
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+
+      &__inner-list {
+        display: none;
+        flex-direction: column;
+        list-style: disc;
+        margin-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        overflow: hidden;
+        overflow-y: auto;
+        max-height: 400px;
+
+        &-item {
+          &::marker {
+            color: var(--accent);
+          }
+        }
+
+        a {
+          text-transform: initial;
+        }
+
+        &.active {
+          display: flex;
+        }
+      }
+    }
+  }
+}
