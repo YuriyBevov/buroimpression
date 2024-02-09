@@ -1,7 +1,8 @@
 .company-description {
-  &__container {
+  &__info {
     background-color: var(--white);
     padding: 50px;
     max-width: 90vw;
+    margin: 0 auto  
   }
 }
