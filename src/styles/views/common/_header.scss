@@ -21,20 +21,23 @@
       margin-right: auto;
       width: 146px;
     }
+
+    @include m-b-down(960px) {
+      margin-right: auto;
+    }
   }
 
-  &__adress {
+  &__address {
     display: flex;
     gap: 24px;
     align-items: center;
     margin-left: auto;
-    margin-right: clamp(20px, 4vw, 90px);
+    margin-right: auto;
 
-    @media(max-width: 1340px) {
+    @media (max-width: 1340px) {
       flex-direction: column;
       gap: 5px;
       align-items: flex-start;
-      margin-right: 30px;
     }
 
     @include m-b-tablet-lg-down {
@@ -44,33 +47,37 @@
     span {
       position: relative;
       padding-left: 24px;
+
+      background-repeat: no-repeat;
     }
 
     span::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 16px;
       height: 16px;
-      top: 5px;
-      left: 0;   
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
     }
 
     span:first-child {
-      background-image: url('../assets/img/icon-location.svg');
-      background-repeat: no-repeat;
+      background-image: url("../assets/img/icon-location.svg");
     }
     span:last-child {
-      background-image: url('../assets/img/icon-location-alt.svg');
-      background-repeat: no-repeat;
+      background-image: url("../assets/img/icon-location-alt.svg");
     }
-
   }
 
   &__search-btn {
     @extend .button-default;
+    @extend .flex-centered-content;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
 
-    @media(max-width: 1340px) {
-      margin-left: auto;
+    @include m-b-down(374px) {
+      display: none;
     }
   }
 
@@ -116,7 +123,6 @@
     margin-bottom: 15px;
   }
 
-
   &__bottom {
     @extend .flex-wrap;
     align-items: center;
@@ -128,4 +134,3 @@
     }
   }
 }
-
