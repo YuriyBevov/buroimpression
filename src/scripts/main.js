@@ -1,6 +1,7 @@
 import "./modules/webp";
 // import "./modules/nav";
 
+import "./modules/search-field";
 import "./modules/nav-list.js";
 import "./modules/nav-opener.js";
 import "./modules/page-animations";

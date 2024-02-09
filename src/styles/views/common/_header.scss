@@ -69,11 +69,7 @@
     }
   }
 
-  &__search-btn {
-    @extend .button-default;
-    @extend .flex-centered-content;
-    width: 40px;
-    height: 40px;
+  .search-field-opener {
     margin: 0 10px;
 
     @include m-b-down(374px) {

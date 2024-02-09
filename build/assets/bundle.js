@@ -1396,6 +1396,38 @@ if (form) {
 
 /***/ }),
 
+/***/ "./src/scripts/modules/search-field.js":
+/*!*********************************************!*\
+  !*** ./src/scripts/modules/search-field.js ***!
+  \*********************************************/
+/***/ (() => {
+
+var searchField = document.querySelector(".search-field");
+
+if (searchField) {
+  var opener = document.querySelector(".search-field-opener");
+
+  if (opener) {
+    var closer = searchField.querySelector(".search-field-closer");
+
+    var onClickOpenSearchField = function onClickOpenSearchField() {
+      searchField.classList.add("expanded");
+      opener.removeEventListener("click", onClickOpenSearchField);
+      closer.addEventListener("click", onClickCloseSearchField);
+    };
+
+    var onClickCloseSearchField = function onClickCloseSearchField() {
+      searchField.classList.remove("expanded");
+      opener.addEventListener("click", onClickOpenSearchField);
+      closer.removeEventListener("click", onClickCloseSearchField);
+    };
+
+    opener.addEventListener("click", onClickOpenSearchField);
+  }
+}
+
+/***/ }),
+
 /***/ "./src/scripts/modules/search.js":
 /*!***************************************!*\
   !*** ./src/scripts/modules/search.js ***!
@@ -25344,25 +25376,28 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_webp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/webp */ "./src/scripts/modules/webp.js");
-/* harmony import */ var _modules_nav_list_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nav-list.js */ "./src/scripts/modules/nav-list.js");
-/* harmony import */ var _modules_nav_list_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_nav_list_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_nav_opener_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/nav-opener.js */ "./src/scripts/modules/nav-opener.js");
-/* harmony import */ var _modules_page_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/page-animations */ "./src/scripts/modules/page-animations.js");
-/* harmony import */ var _modules_anchor_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/anchor-link */ "./src/scripts/modules/anchor-link.js");
-/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
-/* harmony import */ var _modules_client_line__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/client-line */ "./src/scripts/modules/client-line.js");
-/* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
-/* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
-/* harmony import */ var _modules_review_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/review-form */ "./src/scripts/modules/review-form.js");
-/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
-/* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
-/* harmony import */ var _modules_tab_init__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/tab-init */ "./src/scripts/modules/tab-init.js");
-/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/search */ "./src/scripts/modules/search.js");
-/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_modules_search__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _modules_get_year__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/get-year */ "./src/scripts/modules/get-year.js");
-/* harmony import */ var _modules_get_year__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_modules_get_year__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _modules_404__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/404 */ "./src/scripts/modules/404.js");
+/* harmony import */ var _modules_search_field__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/search-field */ "./src/scripts/modules/search-field.js");
+/* harmony import */ var _modules_search_field__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_search_field__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_nav_list_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/nav-list.js */ "./src/scripts/modules/nav-list.js");
+/* harmony import */ var _modules_nav_list_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_nav_list_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_nav_opener_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/nav-opener.js */ "./src/scripts/modules/nav-opener.js");
+/* harmony import */ var _modules_page_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/page-animations */ "./src/scripts/modules/page-animations.js");
+/* harmony import */ var _modules_anchor_link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/anchor-link */ "./src/scripts/modules/anchor-link.js");
+/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
+/* harmony import */ var _modules_client_line__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/client-line */ "./src/scripts/modules/client-line.js");
+/* harmony import */ var _modules_img_zoom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/img-zoom */ "./src/scripts/modules/img-zoom.js");
+/* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
+/* harmony import */ var _modules_review_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/review-form */ "./src/scripts/modules/review-form.js");
+/* harmony import */ var _modules_order_form__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/order-form */ "./src/scripts/modules/order-form.js");
+/* harmony import */ var _modules_accordeons_init__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/accordeons-init */ "./src/scripts/modules/accordeons-init.js");
+/* harmony import */ var _modules_tab_init__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/tab-init */ "./src/scripts/modules/tab-init.js");
+/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/search */ "./src/scripts/modules/search.js");
+/* harmony import */ var _modules_search__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_modules_search__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _modules_get_year__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/get-year */ "./src/scripts/modules/get-year.js");
+/* harmony import */ var _modules_get_year__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_modules_get_year__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _modules_404__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/404 */ "./src/scripts/modules/404.js");
  // import "./modules/nav";
+
 
 
 

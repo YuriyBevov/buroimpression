@@ -8,8 +8,24 @@ header.header
         span г.Москва, Петроверигский пер., д.3с1
         span г.Москва, ул.Марксистская, д.10с1, э.3, оф.306
 
-      button(type="button" aria-label="Поиск по сайту").header__search-btn
+      button(type="button" aria-label="Поиск по сайту").search-field-opener
         img(src="./assets/img/icon-search.svg" alt="search" width="16" height="16")
+
+      <div class="search-field">
+        <div class="container search-field-container">
+          <div id="title-search" class="search-field-wrapper">
+            <form action="/search/index.php" class="search-field-form">
+              <input class="search-field-field" id="title-search-field-input" type="text" name="q" value="" size="40" maxlength="50" autocomplete="off">
+              <button class="search-field-submit" type="submit" aria-label="Поиск" name="s" value="Поиск">
+                img(src="./assets/img/icon-search.svg" alt="search" width="16" height="16")
+              </button>
+            </form>
+          </div>
+          <button class="search-field-closer" aria-label="Закрыть поиск">
+            <img src="./assets/sprite.svg#icon-close" alt="Закрыть" width="24" height="24">
+          </button>
+        </div>
+      </div>
 
       include ../../components/lang-switcher
 

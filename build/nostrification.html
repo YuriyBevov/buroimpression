@@ -40,7 +40,19 @@
       <div class="container header__container">
         <div class="header__top"><a class="main-logo" href="index.html" aria-label="На главную"><img src="./assets/img/logo.svg" alt="Buroimpression.ru" width="160" height="50"></a>
           <div class="header__address"><span>г.Москва, Петроверигский пер., д.3с1</span><span>г.Москва, ул.Марксистская, д.10с1, э.3, оф.306</span></div>
-          <button class="header__search-btn" type="button" aria-label="Поиск по сайту"><img src="./assets/img/icon-search.svg" alt="search" width="16" height="16"></button><a class="lang-switcher lang-switcher--en" href="/en/"><span>en</span></a>
+          <button class="search-field-opener" type="button" aria-label="Поиск по сайту"><img src="./assets/img/icon-search.svg" alt="search" width="16" height="16"></button><div class="search-field">
+<div class="container search-field-container">
+<div id="title-search" class="search-field-wrapper">
+<form action="/search/index.php" class="search-field-form">
+<input class="search-field-field" id="title-search-field-input" type="text" name="q" value="" size="40" maxlength="50" autocomplete="off">
+<button class="search-field-submit" type="submit" aria-label="Поиск" name="s" value="Поиск"><img src="./assets/img/icon-search.svg" alt="search" width="16" height="16"></button>
+</form>
+</div>
+<button class="search-field-closer" aria-label="Закрыть поиск">
+<img src="./assets/sprite.svg#icon-close" alt="Закрыть" width="24" height="24">
+</button>
+</div>
+</div><a class="lang-switcher lang-switcher--en" href="/en/"><span>en</span></a>
           <div class="header__contact"><a class="header__contact-phone" href="tel:+74959285366">+7 495 928-53-66</a><a class="header__contact-mail" href="mailto:info@buroimpression.ru">info@buroimpression.ru</a></div>
           <div class="header__burger">
             <button class="burger" type="button" aria-label="Меню" tabindex="0"><span class="burger-line burger-line--top"></span><span class="burger-line burger-line--middle"></span><span class="burger-line burger-line--bottom"></span></button>

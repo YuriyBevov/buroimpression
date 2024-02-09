@@ -27,10 +27,6 @@
     &__list-item {
       position: relative;
 
-      & > a {
-        text-transform: uppercase;
-      }
-
       a {
         display: flex;
         flex-wrap: wrap;
@@ -45,7 +41,8 @@
 
         svg {
           margin-left: 8px;
-          min-width: 16px;
+          width: 12px;
+          min-width: 12px;
           transform: rotate(90deg);
           transition: transform var(--main-transition);
         }
