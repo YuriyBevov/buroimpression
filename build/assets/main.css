@@ -3621,12 +3621,18 @@ table td.table-letter {
   background-color: var(--accent);
   border-radius: 40px;
   padding: 0 7px;
-  margin-left: 90px;
+  margin-left: clamp(20px, 4vw, 90px);
   margin-right: 20px;
+}
+@media (max-width: 1340px) {
+  .lang-switcher {
+    margin-left: 30px;
+  }
 }
 @media (max-width: 634px) {
   .lang-switcher {
     margin-right: 0;
+    margin-left: 15px;
   }
 }
 .lang-switcher span {
@@ -3918,7 +3924,25 @@ table td.table-letter {
   -ms-flex-align: center;
   align-items: center;
   margin-left: auto;
-  margin-right: 90px;
+  margin-right: clamp(20px, 4vw, 90px);
+}
+@media (max-width: 1340px) {
+  .header__adress {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 5px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-right: 30px;
+  }
+}
+@media (max-width: 960px) {
+  .header__adress {
+    display: none;
+  }
 }
 .header__adress span {
   position: relative;
@@ -3932,13 +3956,18 @@ table td.table-letter {
   top: 5px;
   left: 0;
 }
-.header__adress span:nth-child(1) {
+.header__adress span:first-child {
   background-image: url("../assets/img/icon-location.svg");
   background-repeat: no-repeat;
 }
-.header__adress span:nth-child(2) {
+.header__adress span:last-child {
   background-image: url("../assets/img/icon-location-alt.svg");
   background-repeat: no-repeat;
+}
+@media (max-width: 1340px) {
+  .header__search-btn {
+    margin-left: auto;
+  }
 }
 .header__contact {
   z-index: 1;
@@ -4265,6 +4294,42 @@ table td.table-letter {
 .seo-container {
   background-color: var(--white);
   padding: 50px;
+}
+
+.about-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (max-width: 960px) {
+  .about-container {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+.about-container__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+.about-container__grid-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+}
+.about-container__grid-item span:first-child {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--accent);
 }
 
 .contact__content {
