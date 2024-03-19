@@ -16,51 +16,52 @@ function createAddFileNode(_container, _count) {
 
 function addEventListeners(_container) {
   const control = _container.querySelector('input[type="file"]:not(.active)');
-  control.addEventListener('change', onChangeHandler);
+  control.addEventListener("change", onChangeHandler);
 }
 
 const onClickRemoveHandler = (evt) => {
   evt.currentTarget.parentNode.remove();
 
   const controls = _container.querySelectorAll('input[type="file"]');
-  const activeControls = _container.querySelectorAll('input[type="file"].active');
+  const activeControls = _container.querySelectorAll(
+    'input[type="file"].active'
+  );
 
-  if(!controls.length) {
+  if (!controls.length) {
     createAddFileNode(_container, _count);
   }
 
-  if(activeControls.length === maxCountrolLength - 1) {
+  if (activeControls.length === maxCountrolLength - 1) {
     createAddFileNode(_container, _count);
   }
-}
+};
 
 const onChangeHandler = (evt) => {
-
   const files = [...evt.target.files];
   const opener = evt.target.nextElementSibling;
   const controls = _container.querySelectorAll('input[type="file"]');
-  evt.target.classList.add('active');
+  evt.target.classList.add("active");
 
-  if(files.length) {
-    opener.querySelector('span').textContent = `${ limitStr(files[0].name, 28) }`;
+  if (files.length) {
+    opener.querySelector("span").textContent = `${limitStr(files[0].name, 28)}`;
   }
 
-  let closer = opener.nextElementSibling
-  closer.addEventListener('click', onClickRemoveHandler);
+  let closer = opener.nextElementSibling;
+  closer.addEventListener("click", onClickRemoveHandler);
 
-  if(controls.length >= maxCountrolLength) {
+  if (controls.length >= maxCountrolLength) {
     return;
   }
 
   _count++;
   createAddFileNode(_container, _count);
-}
+};
 
 export default function initFileAdd(form, type, lang) {
   _count = 1;
   _type = type;
   _lang = lang;
-  _container = form.querySelector('[data-field] > .order-form__field--file');
+  _container = form.querySelector("[data-field] > .order-form__field--file");
 
   addEventListeners(_container);
 }

@@ -1159,7 +1159,7 @@ function createAddFileNode(_container, _count) {
 function addEventListeners(_container) {
   var control = _container.querySelector('input[type="file"]:not(.active)');
 
-  control.addEventListener('change', onChangeHandler);
+  control.addEventListener("change", onChangeHandler);
 }
 
 var onClickRemoveHandler = function onClickRemoveHandler(evt) {
@@ -1185,14 +1185,14 @@ var onChangeHandler = function onChangeHandler(evt) {
 
   var controls = _container.querySelectorAll('input[type="file"]');
 
-  evt.target.classList.add('active');
+  evt.target.classList.add("active");
 
   if (files.length) {
-    opener.querySelector('span').textContent = "".concat((0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.limitStr)(files[0].name, 28));
+    opener.querySelector("span").textContent = "".concat((0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.limitStr)(files[0].name, 28));
   }
 
   var closer = opener.nextElementSibling;
-  closer.addEventListener('click', onClickRemoveHandler);
+  closer.addEventListener("click", onClickRemoveHandler);
 
   if (controls.length >= maxCountrolLength) {
     return;
@@ -1206,7 +1206,7 @@ function initFileAdd(form, type, lang) {
   _count = 1;
   _type = type;
   _lang = lang;
-  _container = form.querySelector('[data-field] > .order-form__field--file');
+  _container = form.querySelector("[data-field] > .order-form__field--file");
   addEventListeners(_container);
 }
 
