@@ -12,6 +12,7 @@ import "./modules/img-zoom";
 import "./modules/custom-select";
 import "./modules/review-form";
 import "./modules/order-form";
+import "./modules/calc";
 import "./modules/accordeons-init";
 import "./modules/tab-init";
 import "./modules/search";

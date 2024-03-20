@@ -47,24 +47,24 @@ section.lw-section.lw-alt-bg.calc-section
 
             fieldset.calc__services-group
               .main-checkbox
-                input(type="checkbox" id="calc_1")
+                input(type="checkbox" id="calc_1" data-price="3000")
                 label(for="calc_1").checkbox-label Редактура перевода
               .main-checkbox
-                input(type="checkbox" id="calc_2")
+                input(type="checkbox" id="calc_2" data-price="7000")
                 label(for="calc_2").checkbox-label Консульская легализация
               .main-checkbox
-                input(type="checkbox" id="calc_3")
+                input(type="checkbox" id="calc_3" data-price="5000")
                 label(for="calc_3").checkbox-label Нотариальное заверение
               .main-checkbox
-                input(type="checkbox" id="calc_4")
+                input(type="checkbox" id="calc_4" data-price="10000")
                 label(for="calc_4").checkbox-label Апостиль
               .main-checkbox
-                input(type="checkbox" id="calc_5")
+                input(type="checkbox" id="calc_5" data-multiplier="40")
                 label(for="calc_5").checkbox-label Срочность
 
               .calc__delivery-section
                 .main-checkbox.calc__delivery-field.calc__delivery-field--main
-                  input(type="checkbox" id="calc_6")
+                  input(type="checkbox" id="calc_6" data-price="1000")
                   label(for="calc_6").checkbox-label Доставка документации
 
                 fieldset.calc__delivery-field.calc__delivery-field--radio
@@ -85,8 +85,8 @@ section.lw-section.lw-alt-bg.calc-section
 
         .calc__footer
           .calc__footer-section.calc__footer-section--total
-            span.calc-base-text Стоимость*
-            strong.calc__total-price <span>999 999</span> руб.
+            span.calc-base-text Стоимость:
+            strong.calc__total-price(data-base-price="15000") от <span></span> руб*.
             small.calc-base-text *за 1 переводческую страницу <br> (1 переводческая страница - 1800 печатных знаков, включая пробелы)
             small.calc-base-text **Цена без учета консульского сбора
             b Сроки: от 10 дней
@@ -100,7 +100,7 @@ section.lw-section.lw-alt-bg.calc-section
             fieldset
               input(type="text" placeholder="Номер телефона").main-input
 
-            input(type="submit" value="заказать перевод").main-btn
+            input(type="submit" value="Заказать перевод").main-btn
 
             small.calc-base-text Нажимая на кнопку “Заказать перевод”, вы даёте согласие на <a href="#" class="calc-base-text"> обработку персональных данных.</a>
 

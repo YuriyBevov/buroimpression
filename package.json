@@ -47,6 +47,7 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "gsap": "file:gsap-bonus.tgz",
     "custom-select": "^1.1.15",
     "imask": "^6.4.2",
     "swiper": "^8.3.2"

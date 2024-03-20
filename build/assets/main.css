@@ -346,15 +346,15 @@ template {
 }
 
 /**
- * Swiper 8.3.2
+ * Swiper 8.4.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
- * Copyright 2014-2022 Vladimir Kharlampidi
+ * Copyright 2014-2023 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: July 26, 2022
+ * Released on: January 30, 2023
  */
 @font-face {
   font-family: swiper-icons;
@@ -393,7 +393,6 @@ template {
   display: flex;
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
-  -o-transition-property: transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
   -webkit-box-sizing: content-box;
@@ -423,7 +422,6 @@ template {
   position: relative;
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
-  -o-transition-property: transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
 }
@@ -442,7 +440,6 @@ template {
   align-items: flex-start;
   -webkit-transition-property: height, -webkit-transform;
   transition-property: height, -webkit-transform;
-  -o-transition-property: transform, height;
   transition-property: transform, height;
   transition-property: transform, height, -webkit-transform;
 }
@@ -480,25 +477,21 @@ template {
 
 .swiper-3d .swiper-slide-shadow-left {
   background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-3d .swiper-slide-shadow-right {
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-3d .swiper-slide-shadow-top {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-3d .swiper-slide-shadow-bottom {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
@@ -559,6 +552,7 @@ template {
 
 .swiper-centered > .swiper-wrapper > .swiper-slide {
   scroll-snap-align: center center;
+  scroll-snap-stop: always;
 }
 
 .swiper-virtual .swiper-slide {
@@ -660,7 +654,6 @@ template {
   position: absolute;
   text-align: center;
   -webkit-transition: 0.3s opacity;
-  -o-transition: 0.3s opacity;
   transition: 0.3s opacity;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
@@ -786,7 +779,6 @@ button.swiper-pagination-bullet {
   display: inline-block;
   -webkit-transition: 0.2s top, 0.2s -webkit-transform;
   transition: 0.2s top, 0.2s -webkit-transform;
-  -o-transition: 0.2s transform, 0.2s top;
   transition: 0.2s transform, 0.2s top;
   transition: 0.2s transform, 0.2s top, 0.2s -webkit-transform;
 }
@@ -806,7 +798,6 @@ button.swiper-pagination-bullet {
 .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
   -webkit-transition: 0.2s left, 0.2s -webkit-transform;
   transition: 0.2s left, 0.2s -webkit-transform;
-  -o-transition: 0.2s transform, 0.2s left;
   transition: 0.2s transform, 0.2s left;
   transition: 0.2s transform, 0.2s left, 0.2s -webkit-transform;
 }
@@ -814,7 +805,6 @@ button.swiper-pagination-bullet {
 .swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
   -webkit-transition: 0.2s right, 0.2s -webkit-transform;
   transition: 0.2s right, 0.2s -webkit-transform;
-  -o-transition: 0.2s transform, 0.2s right;
   transition: 0.2s transform, 0.2s right;
   transition: 0.2s transform, 0.2s right, 0.2s -webkit-transform;
 }
@@ -1000,7 +990,6 @@ button.swiper-pagination-bullet {
 
 .swiper-free-mode > .swiper-wrapper {
   -webkit-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
   margin: 0 auto;
 }
@@ -1021,14 +1010,12 @@ button.swiper-pagination-bullet {
 
 .swiper-fade.swiper-free-mode .swiper-slide {
   -webkit-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
 
 .swiper-fade .swiper-slide {
   pointer-events: none;
   -webkit-transition-property: opacity;
-  -o-transition-property: opacity;
   transition-property: opacity;
 }
 
@@ -1135,7 +1122,6 @@ button.swiper-pagination-bullet {
   overflow: hidden;
   -webkit-transition-property: opacity, height, -webkit-transform;
   transition-property: opacity, height, -webkit-transform;
-  -o-transition-property: transform, opacity, height;
   transition-property: transform, opacity, height;
   transition-property: transform, opacity, height, -webkit-transform;
 }
@@ -1450,13 +1436,11 @@ section {
 .text-nowrap, .search fieldset input {
   white-space: nowrap;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
 .text-overflow {
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1544,7 +1528,6 @@ section {
 /*transitions*/
 .hover-opacity-transition, .footer__social .social__list-item, .footer__nav-list-item a, .sitemap__list a, .info-links a, .info-block a:not(.main-btn), .ordinal-list a, .vacancy p a, .service__list-item-info li a, .service__list-item > a, .service__list-item p a, .hero .social__list-item, .header__contact-phone, .header__contact-mail, .breadcrumbs__list-item a, .menu-list li a, .pagination__btn, .pagination__list span, .contact-card a, .info-banner > a, .tab-content-field a, .tab-switchers a, .accordeon-item a, .accordeon-item.collapsed .accordeon-item-header, .accordeon-container > a, .search__note, .main-btn, .calc a.calc-base-text {
   -webkit-transition: opacity var(--main-transition);
-  -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
 @media (min-width: 961px) {
@@ -1861,7 +1844,6 @@ section {
     padding: 10px;
     -webkit-transition: -webkit-transform var(--main-transition);
     transition: -webkit-transform var(--main-transition);
-    -o-transition: transform var(--main-transition);
     transition: transform var(--main-transition);
     transition: transform var(--main-transition), -webkit-transform var(--main-transition);
   }
@@ -2385,7 +2367,6 @@ form *.js-invalid-control::placeholder {
     transform: rotate(90deg);
     -webkit-transition: -webkit-transform var(--main-transition);
     transition: -webkit-transform var(--main-transition);
-    -o-transition: transform var(--main-transition);
     transition: transform var(--main-transition);
     transition: transform var(--main-transition), -webkit-transform var(--main-transition);
   }
@@ -2425,7 +2406,6 @@ form *.js-invalid-control::placeholder {
     -webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
     -webkit-transition: opacity 0.4s ease-in;
-    -o-transition: opacity 0.4s ease-in;
     transition: opacity 0.4s ease-in;
   }
   .main-nav__inner-list-item::marker {
@@ -2896,7 +2876,6 @@ form *.js-invalid-control::placeholder {
   background-repeat: no-repeat;
   -webkit-transition: -webkit-transform var(--main-transition);
   transition: -webkit-transform var(--main-transition);
-  -o-transition: transform var(--main-transition);
   transition: transform var(--main-transition);
   transition: transform var(--main-transition), -webkit-transform var(--main-transition);
 }
@@ -2919,7 +2898,6 @@ form *.js-invalid-control::placeholder {
   height: auto;
   max-height: 0;
   -webkit-transition: opacity var(--main-transition);
-  -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
   opacity: 0;
   background-color: var(--main-control-bg);
@@ -2945,7 +2923,6 @@ form *.js-invalid-control::placeholder {
   color: var(--main-control-placeholder-color);
   background-color: var(--main-control-bg);
   -webkit-transition: color var(--main-transition), background-color var(--main-transition);
-  -o-transition: color var(--main-transition), background-color var(--main-transition);
   transition: color var(--main-transition), background-color var(--main-transition);
 }
 .custom-select-option::after {
@@ -3084,7 +3061,6 @@ form *.js-invalid-control::placeholder {
   height: fit-content;
   color: var(--secondary);
   -webkit-transition: color var(--main-transition);
-  -o-transition: color var(--main-transition);
   transition: color var(--main-transition);
   margin-right: 20px;
 }
@@ -3112,7 +3088,6 @@ form *.js-invalid-control::placeholder {
   display: -ms-flexbox;
   display: flex;
   -webkit-transition: top var(--main-transition);
-  -o-transition: top var(--main-transition);
   transition: top var(--main-transition);
   width: 100vw;
   height: 100%;
@@ -3181,7 +3156,6 @@ form *.js-invalid-control::placeholder {
   font-size: 16px;
   line-height: 1.3;
   letter-spacing: 0.05em;
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-transform: uppercase;
   margin: 0 auto;
@@ -3251,7 +3225,6 @@ form *.js-invalid-control::placeholder {
   fill: var(--secondary);
   -webkit-transition: -webkit-transform var(--main-transition);
   transition: -webkit-transform var(--main-transition);
-  -o-transition: transform var(--main-transition);
   transition: transform var(--main-transition);
   transition: transform var(--main-transition), -webkit-transform var(--main-transition);
 }
@@ -3341,7 +3314,6 @@ form *.js-invalid-control::placeholder {
   opacity: 0.5;
   margin-bottom: 20px;
   -webkit-transition: padding-left var(--main-transition);
-  -o-transition: padding-left var(--main-transition);
   transition: padding-left var(--main-transition);
 }
 .tab-switchers a::before {
@@ -3352,10 +3324,8 @@ form *.js-invalid-control::placeholder {
   color: var(--accent);
   opacity: 0;
   -webkit-transition: opacity var(--main-transition);
-  -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
   -webkit-transition-delay: 0.25;
-  -o-transition-delay: 0.25;
   transition-delay: 0.25;
 }
 .tab-switchers a.active-tab {
@@ -3674,7 +3644,6 @@ form *.js-invalid-control::placeholder {
   font-weight: 600;
   line-height: 21px;
   margin-top: auto;
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   color: var(--accent);
 }
@@ -3911,7 +3880,6 @@ table td.table-letter {
   font-weight: 600;
   font-size: 16px;
   line-height: 21px;
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   margin-top: auto;
   color: var(--accent);
@@ -4130,19 +4098,19 @@ table td.table-letter {
 }
 @media (max-width: 634px) {
   .info-card-full .info-card__header a,
-.info-card-full .info-card__header span {
+  .info-card-full .info-card__header span {
     font-size: 20px;
   }
 }
 @media (max-width: 534px) {
   .info-card-full .info-card__header a,
-.info-card-full .info-card__header span {
+  .info-card-full .info-card__header span {
     font-size: 18px;
   }
 }
 @media (max-width: 420px) {
   .info-card-full .info-card__header a,
-.info-card-full .info-card__header span {
+  .info-card-full .info-card__header span {
     font-size: 16px;
   }
 }
@@ -4520,7 +4488,6 @@ table td.table-letter {
   opacity: 0;
   -webkit-transition: -webkit-box-shadow var(--main-transition);
   transition: -webkit-box-shadow var(--main-transition);
-  -o-transition: box-shadow var(--main-transition);
   transition: box-shadow var(--main-transition);
   transition: box-shadow var(--main-transition), -webkit-box-shadow var(--main-transition);
 }
@@ -4543,7 +4510,6 @@ table td.table-letter {
   color: var(--service-list-item-text);
 }
 .service__list-item p a {
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   color: var(--service-list-item-text-link);
 }
@@ -4555,7 +4521,6 @@ table td.table-letter {
 .service__list-item > a {
   font-weight: 600;
   line-height: 21px;
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   margin-top: auto;
   color: var(--service-list-item-more-link-color);
@@ -5589,7 +5554,6 @@ table td.table-letter {
 
 .info-links a {
   line-height: 1.3;
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   margin-bottom: 20px;
   color: var(--accent);
