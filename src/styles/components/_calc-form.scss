@@ -106,7 +106,59 @@
         .calc__delivery-field {
           display: flex;
           align-items: center;
+        }
+
+        .calc__delivery-section {
           gap: 20px;
+        }
+
+        .calc__delivery-field--radio {
+          gap: 10px;
+
+          input[type="radio"],
+          label {
+            cursor: pointer;
+            color: var(--secondary);
+          }
+
+          input[type="radio"] {
+            display: none;
+          }
+
+          label {
+            position: relative;
+            padding-left: 26px;
+            margin-right: 10px;
+
+            &::before {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+              content: "";
+              border-radius: 50%;
+              border: 1px solid var(--secondary);
+              background-color: var(--white);
+            }
+          }
+
+          input[type="radio"]:checked + label::before {
+            border: 6px solid var(--accent);
+          }
+        }
+
+        .calc__delivery-field--radio.disabled {
+          opacity: 0.5;
+          input[type="radio"] {
+            opacity: 0.5;
+            pointer-events: none;
+          }
+
+          label {
+            pointer-events: none;
+          }
         }
 
         @include m-b-down(960px) {
