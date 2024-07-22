@@ -8,10 +8,10 @@ if (calc) {
     calc.querySelector("[data-multiplier]").dataset.multiplier
   );
 
-  const delivery = calc.querySelector(
-    ".calc__delivery-field--main input[type='checkbox']"
-  );
-  const regions = calc.querySelector(".calc__delivery-field--radio");
+  // const delivery = calc.querySelector(
+  //   ".calc__delivery-field--main input[type='checkbox']"
+  // );
+  // const regions = calc.querySelector(".calc__delivery-field--radio");
 
   let currentValue = Number(basePrice.dataset.basePrice.replaceAll(" ", ""));
 
@@ -68,9 +68,9 @@ if (calc) {
     });
   });
 
-  delivery.addEventListener("change", () => {
-    delivery.checked
-      ? regions.classList.remove("disabled")
-      : regions.classList.add("disabled");
-  });
+  // delivery.addEventListener("change", () => {
+  //   delivery.checked
+  //     ? regions.classList.remove("disabled")
+  //     : regions.classList.add("disabled");
+  // });
 }

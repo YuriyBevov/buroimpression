@@ -1,37 +1,35 @@
 form {
-  *.js-invalid-control {
-    color: var(--accent);
+	*.js-invalid-control {
+		color: var(--accent);
+    animation: shake 0.8s 0.05s linear;
+		&::placeholder {
+			color: var(--accent);
+		}
+	}
 
-    &::placeholder {
-      color: var(--accent);
-    }
+	@keyframes shake {
+		0% {
+			transform: translateX(0);
+		}
 
-    animation: shake .8s 0.05s linear;
-  }
+		20% {
+			transform: translateX(-5px);
+		}
 
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
+		40% {
+			transform: translateX(5px);
+		}
 
-    20% {
-      transform: translateX(-5px);
-    }
+		60% {
+			transform: translateX(-5px);
+		}
 
-    40% {
-      transform: translateX(5px);
-    }
+		80% {
+			transform: translateX(5px);
+		}
 
-    60% {
-      transform: translateX(-5px);
-    }
-
-    80% {
-      transform: translateX(5px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
+		100% {
+			transform: translateX(0);
+		}
+	}
 }
